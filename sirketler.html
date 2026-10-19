@@ -12,7 +12,7 @@
     :root {
       --navy: #071931;
       --navy-dark: #040E1B;
-      --indigo: #2D1B4E;
+      --indigo: #0D2547;
       --burgundy: #70143E;
       --burgundy-light: rgba(112, 20, 62, 0.08);
       --burgundy-hover: #520c2c;
@@ -92,10 +92,10 @@
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 22px;
+      gap: 20px;
     }
     .nav-link {
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       font-weight: 600;
       color: var(--pale-blue);
     }
@@ -673,7 +673,8 @@
 
     /* UZUN VADELİ VİZYON & STRATEJİK YAKLAŞIM */
     .strategy-section {
-      background: var(--white);
+      background: var(--off-white);
+      border-bottom: none;
     }
     .strategy-grid {
       display: grid;
@@ -681,7 +682,7 @@
       gap: 28px;
     }
     .strategy-card {
-      background: var(--off-white);
+      background: var(--white);
       border: 1.5px solid var(--border-color);
       border-radius: var(--radius-lg);
       padding: 38px 34px;
@@ -704,6 +705,162 @@
     }
     .strategy-card p:last-child {
       margin-bottom: 0;
+    }
+
+    /* ======================================================= */
+    /* HAKKIMIZDA & EKİBİMİZ (SAYFAYA TAM ENTEGRE LACİVERT TASARIM) */
+    /* ======================================================= */
+    .about-showcase-section {
+      background: var(--white);
+      padding: 0;
+      margin: 0;
+      position: relative;
+      overflow: hidden;
+      border-top: none;
+      border-bottom: none;
+    }
+    .about-split-wrap {
+      display: grid;
+      grid-template-columns: 1.05fr 1fr;
+      gap: 64px;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+      align-items: stretch;
+    }
+    .about-team-col {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+    .team-accent-bar {
+      background-color: var(--navy);
+      height: 64px;
+      width: calc(100% + 50vw);
+      margin-left: -50vw;
+      display: block;
+      border: none;
+      outline: none;
+    }
+    .team-accent-bar.top-bar {
+      margin-top: 0;
+    }
+    .team-accent-bar.bottom-bar {
+      margin-bottom: 0;
+    }
+    .team-inner-content {
+      padding: 44px 0;
+    }
+    .team-big-title {
+      font-size: 3.4rem;
+      font-weight: 900;
+      color: var(--navy);
+      text-align: right;
+      letter-spacing: -1.5px;
+      line-height: 1.05;
+      margin-bottom: 30px;
+    }
+    .team-photos-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      align-items: start;
+    }
+    .team-member-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .team-photo-frame {
+      width: 100%;
+      aspect-ratio: 0.752;
+      position: relative;
+      overflow: hidden;
+      background-color: #DCD9D0;
+      border-radius: var(--radius-sm);
+      margin-bottom: 14px;
+      box-shadow: var(--shadow-sm);
+    }
+    /* Beyaz kenar çizgilerini tamamen sıfırlayan güvenli iç kırpım koordinatları */
+    .team-photo-frame img.sprite-crop {
+      position: absolute;
+      width: 732.6%;
+      height: 309.6%;
+      max-width: none;
+      top: -94.1%;
+      display: block;
+      border: none;
+    }
+    .team-photo-frame img.crop-emir {
+      left: -1.46%;
+    }
+    .team-photo-frame img.crop-sumeyye {
+      left: -117.2%;
+    }
+    .team-photo-frame img.crop-enes {
+      left: -238.1%;
+    }
+    .team-member-name {
+      font-size: 1.18rem;
+      font-weight: 800;
+      color: var(--navy);
+      text-align: center;
+      line-height: 1.2;
+      letter-spacing: -0.3px;
+    }
+
+    .about-info-col {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 72px 0;
+      text-align: right;
+    }
+    .about-big-title {
+      font-size: 3.4rem;
+      font-weight: 900;
+      color: var(--navy);
+      letter-spacing: -1.5px;
+      line-height: 1.05;
+      margin-bottom: 36px;
+      padding-right: 44px;
+    }
+    .about-milestone-block {
+      margin-bottom: 34px;
+    }
+    .about-milestone-block:last-child {
+      margin-bottom: 0;
+    }
+    .milestone-header {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 16px;
+      margin-bottom: 12px;
+    }
+    .milestone-header h3 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: -0.5px;
+    }
+    .milestone-dot {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background-color: var(--navy);
+      border: 3px solid var(--burgundy);
+      flex-shrink: 0;
+    }
+    .milestone-text {
+      font-size: 1.02rem;
+      color: var(--text-muted);
+      font-weight: 400;
+      line-height: 1.65;
+      max-width: 520px;
+      margin-left: auto;
+      padding-right: 44px;
     }
 
     /* COMPANY CTA & MEETING FORM */
@@ -858,6 +1015,17 @@
     /* RESPONSIVE */
     @media (max-width: 992px) {
       .hero h1 { font-size: 2.4rem; }
+      .about-split-wrap {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      .team-accent-bar {
+        width: calc(100% + 48px);
+        margin-left: -24px;
+      }
+      .team-inner-content { padding: 32px 0; }
+      .team-big-title, .about-big-title { font-size: 2.6rem; text-align: center; padding-right: 0; }
+      .about-info-col { padding: 36px 0 60px; text-align: right; }
       .value-grid-4, .model-grid, .ethics-banner, .insights-grid-2, .report-showcase, .strategy-grid, .cta-grid, .footer-inner {
         grid-template-columns: 1fr;
       }
@@ -869,6 +1037,8 @@
       .quote-banner { padding: 36px 20px; }
       .quote-banner blockquote { font-size: 1.35rem; }
       .report-showcase { padding: 24px; }
+      .team-photos-grid { gap: 10px; }
+      .team-member-name { font-size: 0.98rem; }
     }
   </style>
 </head>
@@ -885,7 +1055,7 @@
         <a href="#nasil-calisir" class="nav-link">Kurumsal İşleyiş</a>
         <a href="#veri-icgoru" class="nav-link">Veri & İçgörü Yaklaşımı</a>
         <a href="#etki-raporlari" class="nav-link">Etki Raporları</a>
-        <a href="#vizyon" class="nav-link">Stratejik Vizyon</a>
+        <a href="#hakkimizda" class="nav-link">Hakkımızda & Ekibimiz</a>
       </nav>
       <div class="nav-actions">
         <a href="landing.html" class="btn-nav-student-tab" title="Öğrenciler Ana Sayfasına Dön">
@@ -1255,6 +1425,75 @@
     </div>
   </section>
 
+  <!-- ======================================================= -->
+  <!-- HAKKIMIZDA & EKİBİMİZ BÖLÜMÜ (LACİVERT & TAM ENTEGRE) -->
+  <!-- ======================================================= -->
+  <section class="about-showcase-section" id="hakkimizda">
+    <div class="about-split-wrap">
+      <!-- SOL SÜTUN: EKİBİMİZ & 3 FOTOĞRAF -->
+      <div class="about-team-col">
+        <div class="team-accent-bar top-bar"></div>
+
+        <div class="team-inner-content">
+          <h2 class="team-big-title">Ekibimiz</h2>
+
+          <div class="team-photos-grid">
+            <!-- EMİR ÇANAKKALE -->
+            <div class="team-member-item">
+              <div class="team-photo-frame">
+                <img src="NXT_Ekibimiz.png" alt="Emir Çanakkale" class="sprite-crop crop-emir">
+              </div>
+              <div class="team-member-name">Emir<br>Çanakkale</div>
+            </div>
+
+            <!-- SÜMEYYE TEZCAN -->
+            <div class="team-member-item">
+              <div class="team-photo-frame">
+                <img src="NXT_Ekibimiz.png" alt="Sümeyye Tezcan" class="sprite-crop crop-sumeyye">
+              </div>
+              <div class="team-member-name">Sümeyye<br>Tezcan</div>
+            </div>
+
+            <!-- ENES GENÇOĞLU -->
+            <div class="team-member-item">
+              <div class="team-photo-frame">
+                <img src="NXT_Ekibimiz.png" alt="Enes Gençoğlu" class="sprite-crop crop-enes">
+              </div>
+              <div class="team-member-name">Enes<br>Gençoğlu</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="team-accent-bar bottom-bar"></div>
+      </div>
+
+      <!-- SAĞ SÜTUN: HAKKIMIZDA -->
+      <div class="about-info-col">
+        <h2 class="about-big-title">Hakkımızda</h2>
+
+        <div class="about-milestone-block">
+          <div class="milestone-header">
+            <h3>Kuruluş &amp; Misyonumuz</h3>
+            <span class="milestone-dot"></span>
+          </div>
+          <p class="milestone-text">
+            Yüksek potansiyelli üniversite öğrencileri ile lider şirketler arasında güvene dayalı, uzun vadeli profesyonel ilişkiler kuran seçilmiş bir topluluk inşa ediyoruz. Merkezine etkinlikleri değil, yaşayan bir topluluğu (community) koyarak öğrencilerin kariyer kararlarını bilinçli vermesini sağlıyoruz.
+          </p>
+        </div>
+
+        <div class="about-milestone-block">
+          <div class="milestone-header">
+            <h3>2026 - 2030 Vizyonumuz</h3>
+            <span class="milestone-dot"></span>
+          </div>
+          <p class="milestone-text">
+            6 aylık bütüncül gelişim yolculuğu ve mezuniyet sonrasında yıllar boyu devam eden alumni ağıyla; öğrencileri, profesyonelleri ve lider şirketleri aynı ekosistemde buluşturan Türkiye'nin en güçlü profesyonel topluluğunu oluşturmayı ve bu modeli farklı ülkelere ölçeklemeyi hedefliyoruz.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ============================================== -->
   <!-- BÖLÜM 6: KURUMSAL PARTNERLİK BAŞVURU FORMU -->
   <!-- ============================================== -->
@@ -1328,6 +1567,7 @@
             <li><a href="#nasil-calisir">6 Aylık Program Modeli</a></li>
             <li><a href="#veri-icgoru">Veri ve İçgörü Yaklaşımımız</a></li>
             <li><a href="#etki-raporlari">Stratejik Etki Raporları</a></li>
+            <li><a href="#hakkimizda">Hakkımızda & Ekibimiz</a></li>
             <li><a href="#sirket-iletisim">Partnerlik Başvurusu</a></li>
           </ul>
         </div>
@@ -1335,6 +1575,7 @@
           <h5>Öğrenciler (Ana Sayfa)</h5>
           <ul>
             <li><a href="landing.html">← Öğrenciler Ana Sayfasına Dön</a></li>
+            <li><a href="landing.html#hakkimizda">Hakkımızda & Ekibimiz</a></li>
             <li><a href="landing.html#vizyon-misyon">Vizyon & Misyonumuz</a></li>
             <li><a href="landing.html#program">Bütüncül Gelişim Yolculuğu</a></li>
             <li><a href="landing.html#mezun-profili">Mezun Profili</a></li>
