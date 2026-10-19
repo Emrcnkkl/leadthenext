@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NXT — KVKK Aydınlatma Metni, Gizlilik ve Etik Veri Politikası</title>
+  <meta name="description" content="NXT (Network X Talent) 6698 Sayılı KVKK Aydınlatma Metni, Açık Rıza Beyanı, Gizlilik İlkeleri ve Etik Veri Manifestosu.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #071931;
+      --navy-dark: #040E1B;
+      --indigo: #0D2547;
+      --burgundy: #70143E;
+      --burgundy-light: rgba(112, 20, 62, 0.08);
+      --burgundy-hover: #520c2c;
+      --crimson-accent: #D81124;
+      --pale-blue: #E3E8EE;
+      --off-white: #F4F6F9;
+      --white: #FFFFFF;
+      --text-main: #071931;
+      --text-muted: #5A6A80;
+      --border-color: #DDE4EC;
+      --shadow-sm: 0 2px 8px rgba(7, 25, 49, 0.06);
+      --shadow-md: 0 10px 24px rgba(7, 25, 49, 0.08);
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+      --transition: all 0.25s ease-in-out;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--off-white);
+      color: var(--text-main);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { text-decoration: none; color: inherit; transition: var(--transition); }
+    ul { list-style: none; }
+
+    .container {
+      width: 100%;
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(7, 25, 49, 0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 2px solid var(--burgundy);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 80px;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .brand-logo-img {
+      height: 46px;
+      width: auto;
+      object-fit: contain;
+      display: block;
+    }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .btn-nav-outline {
+      color: var(--pale-blue);
+      padding: 9px 18px;
+      border-radius: var(--radius-sm);
+      font-size: 0.88rem;
+      font-weight: 700;
+      border: 1.5px solid var(--pale-blue);
+    }
+    .btn-nav-outline:hover {
+      background: var(--pale-blue);
+      color: var(--navy);
+    }
+    .btn-nav-solid {
+      background: var(--burgundy);
+      color: var(--white);
+      padding: 10px 20px;
+      border-radius: var(--radius-sm);
+      font-size: 0.88rem;
+      font-weight: 800;
+    }
+    .btn-nav-solid:hover {
+      background: var(--burgundy-hover);
+    }
+
+    /* HEADER BANNER */
+    .legal-hero {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--indigo) 100%);
+      color: var(--white);
+      padding: 64px 0 54px;
+      border-bottom: 4px solid var(--burgundy);
+    }
+    .legal-pill {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--pale-blue);
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      padding: 5px 14px;
+      border-radius: 4px;
+      margin-bottom: 14px;
+    }
+    .legal-hero h1 {
+      font-size: 2.4rem;
+      font-weight: 900;
+      letter-spacing: -0.8px;
+      margin-bottom: 14px;
+      line-height: 1.2;
+    }
+    .legal-hero p {
+      font-size: 1.05rem;
+      color: var(--pale-blue);
+      max-width: 780px;
+    }
+
+    /* QUICK TABS */
+    .legal-nav-strip {
+      background: var(--white);
+      border-bottom: 1px solid var(--border-color);
+      padding: 14px 0;
+      position: sticky;
+      top: 80px;
+      z-index: 900;
+    }
+    .legal-tabs {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .legal-tab {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--navy);
+      padding: 7px 14px;
+      border-radius: var(--radius-sm);
+      background: var(--off-white);
+      border: 1px solid var(--border-color);
+    }
+    .legal-tab:hover {
+      border-color: var(--burgundy);
+      color: var(--burgundy);
+    }
+
+    /* CONTENT CARDS */
+    .legal-content {
+      padding: 56px 0 80px;
+    }
+    .legal-card {
+      background: var(--white);
+      border: 1.5px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 42px;
+      margin-bottom: 32px;
+      box-shadow: var(--shadow-sm);
+    }
+    .legal-card.highlight-card {
+      border-left: 6px solid var(--burgundy);
+    }
+    .legal-card h2 {
+      font-size: 1.55rem;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .legal-card h3 {
+      font-size: 1.12rem;
+      font-weight: 800;
+      color: var(--navy);
+      margin: 22px 0 10px;
+    }
+    .legal-card p {
+      font-size: 0.94rem;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+    }
+    .legal-list {
+      margin: 12px 0 18px;
+      padding-left: 4px;
+    }
+    .legal-list li {
+      font-size: 0.92rem;
+      color: var(--text-main);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .legal-list li span {
+      color: var(--burgundy);
+      font-weight: 900;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #030B15;
+      color: var(--pale-blue);
+      padding: 40px 0 28px;
+      font-size: 0.85rem;
+      border-top: 2px solid var(--burgundy);
+      text-align: center;
+    }
+    footer a {
+      color: var(--white);
+      font-weight: 600;
+    }
+
+    @media (max-width: 768px) {
+      .legal-card { padding: 24px; }
+      .legal-hero h1 { font-size: 1.85rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="nav-inner">
+      <a href="landing.html" title="NXT — Ana Sayfa">
+        <img src="logo.png" alt="NXT — Network X Talent" class="brand-logo-img">
+      </a>
+      <div class="nav-actions">
+        <a href="landing.html" class="btn-nav-outline">← Öğrenciler Ana Sayfası</a>
+        <a href="sirketler.html" class="btn-nav-solid">🏢 Şirketler Sayfası</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="legal-hero">
+    <div class="container">
+      <span class="legal-pill">Yasal Bilgilendirme & Etik İlkeler</span>
+      <h1>KVKK Aydınlatma Metni, Gizlilik ve Etik Veri Politikası</h1>
+      <p>NXT (Network X Talent) olarak birey mahremiyetini korumayı, kişisel verileri hiçbir koşulda ticari bir ürün haline getirmemeyi ve yalnızca açık rızaya dayalı, anonimleştirilmiş topluluk içgörüleri üretmeyi temel ilke kabul ediyoruz.</p>
+    </div>
+  </section>
+
+  <div class="legal-nav-strip">
+    <div class="container legal-tabs">
+      <a href="#etik-manifesto" class="legal-tab">1. Etik Veri Manifestomuz</a>
+      <a href="#kvkk-aydinlatma" class="legal-tab">2. 6698 Sayılı KVKK Aydınlatma Metni</a>
+      <a href="#acik-riza" class="legal-tab">3. Açık Rıza ve Anonim İçgörü Beyanı</a>
+      <a href="#cerez-gizlilik" class="legal-tab">4. Çerez ve Gizlilik Politikası</a>
+      <a href="#basvuru-haklari" class="legal-tab">5. İlgili Kişi Hakları (Madde 11)</a>
+    </div>
+  </div>
+
+  <main class="legal-content">
+    <div class="container">
+
+      <!-- 1. ETİK VERİ MANİFESTOSU -->
+      <div class="legal-card highlight-card" id="etik-manifesto">
+        <h2>1. NXT Etik Veri ve İçgörü Manifestosu</h2>
+        <p>
+          NXT, yüksek potansiyelli üniversite öğrencileri ile lider şirketler arasında güvene dayalı, uzun vadeli profesyonel ilişkiler kuran seçilmiş bir gelişim topluluğudur. Topluluğumuz büyüdükçe ortaya çıkan içgörülerin yönetiminde temel yaklaşımımız nettir:
+        </p>
+        <ul class="legal-list">
+          <li><span>✦</span> <div><strong>Kişisel Veri Satmama Taahhüdü:</strong> NXT hiçbir zaman kişisel veri satan veya bireysel katılımcı verilerini üçüncü taraflara ticari ürün olarak devreden bir yapı olmayacaktır.</div></li>
+          <li><span>✦</span> <div><strong>Anonimleştirilmiş ve Toplulaştırılmış Analiz:</strong> Partner şirketlere sunulan dönem sonu etki raporları ve içgörüler; bireylerin kimliğini ortaya çıkarmayacak şekilde tamamen anonimleştirilmiş ve toplulaştırılmış istatistiksel eğilimlerden oluşur.</div></li>
+          <li><span>✦</span> <div><strong>Şeffaflık ve Açık Rıza:</strong> Tüm başvuru formları, mentorluk süreçleri ve algı/içgörü anketleri katılımcıların bilgilendirilmiş açık rızası çerçevesinde yürütülür.</div></li>
+        </ul>
+      </div>
+
+      <!-- 2. KVKK AYDINLATMA METNİ -->
+      <div class="legal-card" id="kvkk-aydinlatma">
+        <h2>2. 6698 Sayılı Kişisel Verilerin Korunması Kanunu (KVKK) Aydınlatma Metni</h2>
+        <p>
+          6698 sayılı Kişisel Verilerin Korunması Kanunu ("KVKK") uyarınca, <strong>NXT — Network X Talent</strong> ("Veri Sorumlusu") olarak, öğrenci (Fellow) adaylarımızın, topluluk üyelerimizin, mentorlarımızın ve kurumsal partner temsilcilerimizin kişisel verilerinin güvenliğine en üst düzeyde önem veriyoruz.
+        </p>
+
+        <h3>2.1. İşlenen Kişisel Veri Kategorileri</h3>
+        <ul class="legal-list">
+          <li><span>✓</span> <div><strong>Kimlik ve İletişim Bilgileri:</strong> Ad, soyad, e-posta adresi, kurumsal iletişim bilgileri ve profesyonel sosyal medya (LinkedIn) profil bağlantısı.</div></li>
+          <li><span>✓</span> <div><strong>Eğitim ve Profesyonel Deneyim Bilgileri:</strong> Üniversite, bölüm, sınıf bilgisi, kulüp/proje deneyimleri, ilgi duyulan kariyer alanları ve çalışılan kurum/departman bilgisi.</div></li>
+          <li><span>✓</span> <div><strong>Topluluk ve Program Etkileşim Verileri:</strong> Değerlendirme ve mülakat notları, mentor-öğrenci eşleşme kayıtları, etkinlik katılım durumu ve anonimleştirilmek üzere toplanan geri bildirim/anket yanıtları.</div></li>
+        </ul>
+
+        <h3>2.2. Kişisel Verilerin İşlenme Amaçları</h3>
+        <ul class="legal-list">
+          <li><span>✓</span> <div>Her dönem seçilen 24 kişilik öğrenci kohortunun adil, şeffaf ve standart kriterlerle değerlendirilmesi ve belirlenmesi,</div></li>
+          <li><span>✓</span> <div>Öğrenciler ile partner şirket mentorları arasındaki 1:1 eşleşme ve 6 aylık gelişim yolculuğunun (şirket ziyaretleri, vaka çalışmaları, lider buluşmaları, workshoplar) koordine edilmesi,</div></li>
+          <li><span>✓</span> <div>Mezuniyet sonrasında devam eden NXT Alumni topluluk iletişiminin sürdürülmesi,</div></li>
+          <li><span>✓</span> <div>Kimlik bilgilerinden arındırılmış (anonimleştirilmiş ve toplulaştırılmış) veriler üzerinden erken yetenek, işveren markası ve mentorluk etki analizlerinin üretilmesi,</div></li>
+          <li><span>✓</span> <div>Kurumsal partnerlik taleplerinin yanıtlanması ve tanışma toplantılarının planlanması.</div></li>
+        </ul>
+
+        <h3>2.3. Kişisel Verilerin Aktarılması</h3>
+        <p>
+          Toplanan kişisel verileriniz, KVKK'nın 8. ve 9. maddelerinde belirtilen şartlara uygun olarak; yalnızca program kapsamındaki mentor-öğrenci eşleşmelerinin gerçekleştirilmesi ve şirket ziyareti/etkinlik katılımcı listelerinin oluşturulması amacıyla ilgili dönem partner şirket yetkilileriyle sınırlı ve ölçülü biçimde paylaşılır. Anket ve algı ölçüm yanıtları ise partner şirketlere <strong>hiçbir zaman kişi bazlı aktarılmaz</strong>; yalnızca toplulaştırılmış istatistiksel rapor olarak sunulur.
+        </p>
+      </div>
+
+      <!-- 3. AÇIK RIZA VE ANONİM İÇGÖRÜ BEYANI -->
+      <div class="legal-card" id="acik-riza">
+        <h2>3. Açık Rıza ve Anonim İçgörü Beyanı</h2>
+        <p>
+          Web sitemizde yer alan <strong>Öğrenci (Fellow) Başvuru Formu</strong> veya <strong>Kurumsal Partnerlik Formu</strong>'nu doldurarak onay kutusunu işaretleyen katılımcılarımız:
+        </p>
+        <ul class="legal-list">
+          <li><span>✓</span> <div>Paylaştıkları kimlik, iletişim, eğitim ve deneyim bilgilerinin NXT değerlendirme komitesi tarafından incelenmesine ve program süresince iletişim kurulmasına,</div></li>
+          <li><span>✓</span> <div>Programa kabul edilmeleri halinde 6 aylık gelişim süreci ve sonrasındaki Alumni ağı kapsamında mentorlar ve partner kurumlarla profesyonel eşleşme süreçlerine dahil edilmeye,</div></li>
+          <li><span>✓</span> <div>Program süresince dolduracakları geri bildirim ve algı anketlerinin, kişisel kimliklerinden tamamen ayrıştırılarak (anonimleştirilerek) topluluk ve erken yetenek içgörü analizlerinde kullanılmasına</div></li>
+        </ul>
+        <p>özgür iradeleriyle açık rıza göstermiş kabul edilirler. Açık rıza her zaman <a href="mailto:nxt.kurumsal@gmail.com" style="color: var(--burgundy); font-weight: 700;">nxt.kurumsal@gmail.com</a> adresine gönderilecek bir bildirimle geri çekilebilir.</p>
+      </div>
+
+      <!-- 4. ÇEREZ VE GİZLİLİK POLİTİKASI -->
+      <div class="legal-card" id="cerez-gizlilik">
+        <h2>4. Gizlilik ve Çerez (Cookie) Politikası</h2>
+        <p>
+          <code>leadthenext.com.tr</code> web sitesi, ziyaretçilerin deneyimini iyileştirmek ve form başvurularının güvenli şekilde iletilmesini sağlamak amacıyla yalnızca zorunlu teknik çerezler ve yerel tarayıcı depolama (localStorage) mekanizmalarını kullanır. Üçüncü taraf reklam veya davranışsal takip çerezleri aracılığıyla ziyaretçi profillemesi yapılmaz.
+        </p>
+      </div>
+
+      <!-- 5. İLGİLİ KİŞİ HAKLARI -->
+      <div class="legal-card" id="basvuru-haklari">
+        <h2>5. KVKK Madde 11 Kapsamında İlgili Kişi Hakları ve İletişim</h2>
+        <p>KVKK'nın 11. maddesi uyarınca her zaman veri sorumlusu olarak NXT'ye başvurarak:</p>
+        <ul class="legal-list">
+          <li><span>✓</span> <div>Kişisel verilerinizin işlenip işlenmediğini öğrenme ve işlenmişse buna ilişkin bilgi talep etme,</div></li>
+          <li><span>✓</span> <div>İşlenme amacını ve bunların amacına uygun kullanılıp kullanılmadığını öğrenme,</div></li>
+          <li><span>✓</span> <div>Eksik veya yanlış işlenmiş olması hâlinde bunların düzeltilmesini isteme,</div></li>
+          <li><span>✓</span> <div>KVKK'nın 7. maddesinde öngörülen şartlar çerçevesinde kişisel verilerinizin silinmesini veya yok edilmesini talep etme</div></li>
+        </ul>
+        <p>
+          haklarına sahipsiniz. Tüm talep ve sorularınızı <a href="mailto:nxt.kurumsal@gmail.com" style="color: var(--burgundy); font-weight: 700;">nxt.kurumsal@gmail.com</a> e-posta adresimiz üzerinden doğrudan kurucu ekibimize iletebilirsiniz.
+        </p>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      &copy; 2026 NXT — Network X Talent. Emir Çanakkale · Sümeyye Tezcan · Enes Gençoğlu | <a href="landing.html">Ana Sayfaya Dön</a>
+    </div>
+  </footer>
+
+</body>
+</html>

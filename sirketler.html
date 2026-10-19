@@ -92,10 +92,10 @@
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 20px;
+      gap: 18px;
     }
     .nav-link {
-      font-size: 0.88rem;
+      font-size: 0.86rem;
       font-weight: 600;
       color: var(--pale-blue);
     }
@@ -717,7 +717,7 @@
       position: relative;
       overflow: hidden;
       border-top: none;
-      border-bottom: none;
+      border-bottom: 1px solid var(--border-color);
     }
     .about-split-wrap {
       display: grid;
@@ -782,7 +782,6 @@
       margin-bottom: 14px;
       box-shadow: var(--shadow-sm);
     }
-    /* Beyaz kenar çizgilerini tamamen sıfırlayan güvenli iç kırpım koordinatları */
     .team-photo-frame img.sprite-crop {
       position: absolute;
       width: 732.6%;
@@ -863,6 +862,80 @@
       padding-right: 44px;
     }
 
+    /* ======================================================= */
+    /* KURUMSAL SIKÇA SORULAN SORULAR (SSS AKORDİYON BÖLÜMÜ) */
+    /* ======================================================= */
+    .faq-section {
+      background: var(--off-white);
+      border-bottom: 1px solid var(--border-color);
+    }
+    .faq-list {
+      max-width: 860px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .faq-item {
+      background: var(--white);
+      border: 1.5px solid var(--border-color);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: var(--transition);
+    }
+    .faq-item.active {
+      border-color: var(--burgundy);
+      box-shadow: var(--shadow-sm);
+    }
+    .faq-question {
+      width: 100%;
+      background: transparent;
+      padding: 20px 24px;
+      text-align: left;
+      font-size: 1.02rem;
+      font-weight: 800;
+      color: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .faq-question:hover {
+      color: var(--burgundy);
+    }
+    .faq-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(7, 25, 49, 0.08);
+      color: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+      transition: var(--transition);
+    }
+    .faq-item.active .faq-icon {
+      background: var(--burgundy);
+      color: var(--white);
+      transform: rotate(45deg);
+    }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    .faq-answer-inner {
+      padding: 0 24px 22px;
+      font-size: 0.93rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+      border-top: 1px solid var(--border-color);
+      padding-top: 14px;
+    }
+
     /* COMPANY CTA & MEETING FORM */
     .company-cta-section {
       background: linear-gradient(135deg, var(--navy) 0%, var(--indigo) 100%);
@@ -939,6 +1012,36 @@
       border-color: var(--burgundy);
       box-shadow: 0 0 0 3px rgba(112, 20, 62, 0.1);
     }
+    .kvkk-consent-box {
+      background: var(--off-white);
+      border: 1px solid var(--border-color);
+      border-left: 3px solid var(--burgundy);
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+      margin: 6px 0 14px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+    .kvkk-checkbox-label {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      cursor: pointer;
+      line-height: 1.45;
+      color: var(--text-main);
+    }
+    .kvkk-checkbox-label input[type="checkbox"] {
+      margin-top: 3px;
+      width: 16px;
+      height: 16px;
+      accent-color: var(--burgundy);
+      flex-shrink: 0;
+    }
+    .kvkk-link-btn {
+      color: var(--burgundy);
+      font-weight: 700;
+      text-decoration: underline;
+    }
     .company-submit-btn {
       width: 100%;
       background: var(--burgundy);
@@ -1007,9 +1110,24 @@
     .footer-bottom {
       border-top: 1px solid rgba(227, 232, 238, 0.1);
       padding-top: 24px;
-      text-align: center;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
       font-size: 0.78rem;
       color: rgba(227, 232, 238, 0.55);
+    }
+    .footer-legal-links {
+      display: flex;
+      gap: 16px;
+    }
+    .footer-legal-links a {
+      color: rgba(227, 232, 238, 0.75);
+      font-weight: 600;
+    }
+    .footer-legal-links a:hover {
+      color: var(--white);
     }
 
     /* RESPONSIVE */
@@ -1039,6 +1157,7 @@
       .report-showcase { padding: 24px; }
       .team-photos-grid { gap: 10px; }
       .team-member-name { font-size: 0.98rem; }
+      .footer-bottom { flex-direction: column; text-align: center; }
     }
   </style>
 </head>
@@ -1053,9 +1172,10 @@
       <nav class="nav-links">
         <a href="#deger-onerisi" class="nav-link">Sağlanan Değer</a>
         <a href="#nasil-calisir" class="nav-link">Kurumsal İşleyiş</a>
-        <a href="#veri-icgoru" class="nav-link">Veri & İçgörü Yaklaşımı</a>
+        <a href="#veri-icgoru" class="nav-link">Veri & İçgörü</a>
         <a href="#etki-raporlari" class="nav-link">Etki Raporları</a>
-        <a href="#hakkimizda" class="nav-link">Hakkımızda & Ekibimiz</a>
+        <a href="#hakkimizda" class="nav-link">Hakkımızda</a>
+        <a href="#sss" class="nav-link">SSS</a>
       </nav>
       <div class="nav-actions">
         <a href="landing.html" class="btn-nav-student-tab" title="Öğrenciler Ana Sayfasına Dön">
@@ -1495,7 +1615,82 @@
   </section>
 
   <!-- ============================================== -->
-  <!-- BÖLÜM 6: KURUMSAL PARTNERLİK BAŞVURU FORMU -->
+  <!-- BÖLÜM 6: KURUMSAL SIKÇA SORULAN SORULAR (SSS) -->
+  <!-- ============================================== -->
+  <section class="faq-section" id="sss">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-pill">Kurumsal SSS</span>
+        <h2>Partner Şirketler İçin Sıkça Sorulan Sorular</h2>
+        <p>Kurumsal partnerlik modeli, mentor zaman yatırımı, veri gizliliği ve dönem sonu etki raporları hakkında merak edilenler.</p>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item active">
+          <button type="button" class="faq-question" onclick="toggleFaq(this)">
+            <span>1. Bir partner şirketin programa dahil olması için kaç mentor görevlendirmesi gerekir ve zaman yatırımı nedir?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer" style="max-height: 240px;">
+            <div class="faq-answer-inner">
+              Her partner şirketimiz dönem kohortuna 3–4 deneyimli çalışanını mentor olarak dahil eder. Her mentor bir öğrenciyle birebir eşleşir ve 6 ay boyunca ayda en az 1 kez (yaklaşık 45–60 dakika) görüşme gerçekleştirir. Tüm eşleşme, takvim hatırlatmaları ve süreç koordinasyonu NXT ekibi tarafından yönetildiği için şirketinizin İK ve yöneticilerine ekstra operasyonel yük binmez.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button type="button" class="faq-question" onclick="toggleFaq(this)">
+            <span>2. Öğrenciler yalnızca kendi şirket mentorlarımızla mı yoksa tüm kohortla mı temas kuruyor?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              3–4 mentorunuz eşleştikleri öğrencilerle birebir çalışırken; şirket ziyareti, gerçek vaka çalışması (case study), lider buluşması ve networking oturumları sayesinde kurumunuz dönemdeki seçilmiş 24 yüksek potansiyelli öğrencinin tamamıyla doğrudan etkileşime geçer.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button type="button" class="faq-question" onclick="toggleFaq(this)">
+            <span>3. Elde edilen içgörüler ve dönem sonu raporları KVKK ve veri etiği açısından nasıl hazırlanıyor?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              NXT kişisel veri satan bir şirket değildir. Program süresince yapılan tüm algı, beklenti ve etki ölçümleri katılımcıların açık rızasıyla toplanır; kimlik bilgilerinden tamamen arındırılarak anonimleştirilmiş ve toplulaştırılmış istatistiksel analizlere dönüştürülür. Detaylara <a href="kvkk.html" style="color: var(--burgundy); font-weight: 700;">KVKK ve Etik Veri Politikası</a> sayfamızdan ulaşabilirsiniz.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button type="button" class="faq-question" onclick="toggleFaq(this)">
+            <span>4. Dönem sonunda sunulan Stratejik Etki Raporu şirketimize hangi somut karar destek çıktılarını sağlar?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Dönem sonu raporunuz; (1) Öğrencilerin şirketiniz hakkındaki 1. ay ilk izlenimleri ile 6. ay deneyim sonrası algılarının karşılaştırmasını, (2) Hangi temas noktalarının güven oluşturduğunu, (3) Yüksek potansiyelli gençlerin şirket ve departman seçim kriterlerini, (4) Şirket mentorlarınızın çok boyutlu etki analizini ve (5) Gelecek dönem erken yetenek stratejiniz için somut aksiyon önerilerini içerir.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button type="button" class="faq-question" onclick="toggleFaq(this)">
+            <span>5. 6 aylık program bittikten sonra mezunlarla (NXT Alumni) bağımız nasıl devam ediyor?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Programdan mezun olan öğrenciler yaşayan NXT Alumni topluluğuna katılır. Partner şirketlerimiz yalnızca işe alım dönemlerinde değil, yıl boyunca düzenlenen alumni buluşmaları ve topluluk iletişimi sayesinde bu seçkin yetenek havuzuyla temasını kesintisiz sürdürür.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- BÖLÜM 7: KURUMSAL PARTNERLİK BAŞVURU FORMU -->
   <!-- ============================================== -->
   <section class="company-cta-section" id="sirket-iletisim">
     <div class="container">
@@ -1536,6 +1731,17 @@
                 <option value="tanisma_toplantisi">Genel Tanışma & Ekosistem Sunumu Talebi</option>
               </select>
             </div>
+
+            <!-- KVKK ONAY KUTUSU -->
+            <div class="kvkk-consent-box">
+              <label class="kvkk-checkbox-label">
+                <input type="checkbox" id="c_kvkk" required>
+                <span>
+                  <a href="kvkk.html" target="_blank" class="kvkk-link-btn">6698 Sayılı KVKK Aydınlatma Metni</a>'ni okudum; kurumsal iletişim bilgilerimin partnerlik görüşmeleri kapsamında işlenmesini onaylıyorum. *
+                </span>
+              </label>
+            </div>
+
             <button type="submit" class="company-submit-btn">Tanışma Toplantısı Planla</button>
             <div id="companySuccess" class="company-success-msg">
               Talebiniz başarıyla alındı! Ekibimiz en kısa sürede sizinle iletişime geçecektir.
@@ -1567,25 +1773,31 @@
             <li><a href="#nasil-calisir">6 Aylık Program Modeli</a></li>
             <li><a href="#veri-icgoru">Veri ve İçgörü Yaklaşımımız</a></li>
             <li><a href="#etki-raporlari">Stratejik Etki Raporları</a></li>
-            <li><a href="#hakkimizda">Hakkımızda & Ekibimiz</a></li>
+            <li><a href="#sss">Kurumsal SSS</a></li>
             <li><a href="#sirket-iletisim">Partnerlik Başvurusu</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h5>Öğrenciler (Ana Sayfa)</h5>
+          <h5>Öğrenciler & Yasal</h5>
           <ul>
             <li><a href="landing.html">← Öğrenciler Ana Sayfasına Dön</a></li>
             <li><a href="landing.html#hakkimizda">Hakkımızda & Ekibimiz</a></li>
-            <li><a href="landing.html#vizyon-misyon">Vizyon & Misyonumuz</a></li>
             <li><a href="landing.html#program">Bütüncül Gelişim Yolculuğu</a></li>
-            <li><a href="landing.html#mezun-profili">Mezun Profili</a></li>
-            <li><a href="landing.html#ogrenci-basvuru">Öğrenci Başvuru Formu</a></li>
+            <li><a href="kvkk.html">KVKK Aydınlatma Metni</a></li>
+            <li><a href="kvkk.html#etik-manifesto">Etik Veri & Gizlilik Politikası</a></li>
           </ul>
         </div>
       </div>
 
       <div class="footer-bottom">
-        &copy; 2026 NXT — Network X Talent. Tüm hakları saklıdır. Emir Çanakkale · Sümeyye Tezcan · Enes Gençoğlu
+        <div>
+          &copy; 2026 NXT — Network X Talent. Tüm hakları saklıdır. Emir Çanakkale · Sümeyye Tezcan · Enes Gençoğlu
+        </div>
+        <div class="footer-legal-links">
+          <a href="kvkk.html">KVKK Aydınlatma Metni</a>
+          <a href="kvkk.html#acik-riza">Açık Rıza Beyanı</a>
+          <a href="kvkk.html#cerez-gizlilik">Gizlilik ve Çerez Politikası</a>
+        </div>
       </div>
     </div>
   </footer>
@@ -1593,6 +1805,22 @@
   <!-- JAVASCRIPT -->
   <script>
     const WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbzuvJjN_QDj8HEBrpZiQ4G1Js4ubA2xEBiqlJZs0f8m36bsvmkf37YcQGGdodMAWAjY/exec";
+
+    function toggleFaq(btn) {
+      const item = btn.parentElement;
+      const answer = item.querySelector('.faq-answer');
+      const isOpen = item.classList.contains('active');
+
+      document.querySelectorAll('.faq-item').forEach(el => {
+        el.classList.remove('active');
+        el.querySelector('.faq-answer').style.maxHeight = null;
+      });
+
+      if (!isOpen) {
+        item.classList.add('active');
+        answer.style.maxHeight = answer.scrollHeight + 30 + "px";
+      }
+    }
 
     function handleCompanySubmit(e) {
       e.preventDefault();
@@ -1602,7 +1830,8 @@
         name: document.getElementById('c_name').value,
         company: document.getElementById('c_company').value,
         email: document.getElementById('c_email').value,
-        package: document.getElementById('c_pkg').value
+        package: document.getElementById('c_pkg').value,
+        kvkk_consent: document.getElementById('c_kvkk').checked
       };
 
       let submissions = JSON.parse(localStorage.getItem('nxt_submissions') || '[]');
