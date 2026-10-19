@@ -4,19 +4,25 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NXT — Network X Talent | Seçilmiş Profesyonel Gelişim Topluluğu</title>
-  <meta name="description" content="Yüksek potansiyelli üniversite öğrencileri ile lider şirketler arasında güvene dayalı, uzun vadeli profesyonel ilişkiler kuran seçilmiş topluluk.">
+  <meta name="description" content="Her dönem seçilen 24 üniversite öğrencisi ile 6–8 lider partner şirketi 6 aylık gelişim yolculuğu ve yaşayan alumni ağında buluşturan profesyonel topluluk.">
+  <link rel="canonical" href="https://leadthenext.com.tr/landing.html">
+
   <!-- FAVICON (Lacivert Arkaplanda Logo) -->
   <link rel="icon" type="image/png" href="logo_original_backup.png">
   <link rel="apple-touch-icon" href="logo_original_backup.png">
-  <!-- OPEN GRAPH / WHATSAPP & LINKEDIN PAYLAŞIM KARTLARI -->
+
+  <!-- OPEN GRAPH / WHATSAPP & LINKEDIN PAYLAŞIM KAPAK GÖRSELİ VE KARTI -->
+  <meta property="og:locale" content="tr_TR">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://leadthenext.com.tr/landing.html">
   <meta property="og:site_name" content="NXT — Network X Talent">
-  <meta property="og:title" content="NXT — Network X Talent | Seçilmiş Profesyonel Gelişim Topluluğu">
-  <meta property="og:description" content="Yüksek potansiyelli üniversite öğrencileri ile lider şirketler arasında güvene dayalı, uzun vadeli profesyonel ilişkiler kuran seçilmiş topluluk.">
+  <meta property="og:title" content="NXT — Seçilmiş Profesyonel Gelişim Topluluğu (Öğrenci Başvuruları)">
+  <meta property="og:description" content="Yüksek potansiyelli 24 üniversite öğrencisi, deneyimli mentorlar ve lider şirketlerle 6 aylık bütüncül gelişim yolculuğu ve kalıcı alumni ağı.">
   <meta property="og:image" content="https://leadthenext.com.tr/logo_original_backup.png">
+  <meta property="og:image:alt" content="NXT — Network X Talent Kurumsal Logosu">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="NXT — Network X Talent">
-  <meta name="twitter:description" content="Yüksek potansiyelli üniversite öğrencileri ile lider şirketler arasında güvene dayalı profesyonel topluluk.">
+  <meta name="twitter:title" content="NXT — Seçilmiş Profesyonel Gelişim Topluluğu">
+  <meta name="twitter:description" content="Yüksek potansiyelli üniversite öğrencileri ile lider şirketler arasında güvene dayalı, uzun vadeli profesyonel topluluk.">
   <meta name="twitter:image" content="https://leadthenext.com.tr/logo_original_backup.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -54,6 +60,7 @@
       color: var(--text-main);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
 
     a { text-decoration: none; color: inherit; transition: var(--transition); }
@@ -120,7 +127,7 @@
     .nav-actions {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
     }
     .btn-nav-student {
       background: transparent;
@@ -142,12 +149,13 @@
       gap: 8px;
       background: var(--burgundy);
       color: var(--white);
-      padding: 10px 20px;
+      padding: 10px 18px;
       border-radius: var(--radius-sm);
-      font-size: 0.88rem;
+      font-size: 0.86rem;
       font-weight: 800;
       box-shadow: 0 4px 14px rgba(112, 20, 62, 0.35);
       border: 1.5px solid rgba(255, 255, 255, 0.15);
+      white-space: nowrap;
     }
     .btn-nav-company-tab:hover {
       background: var(--burgundy-hover);
@@ -165,6 +173,7 @@
       color: var(--white);
       align-items: center;
       justify-content: center;
+      flex-shrink: 0;
     }
     .mobile-menu-toggle:hover {
       background: var(--burgundy);
@@ -183,16 +192,16 @@
     .mobile-nav-list {
       display: flex;
       flex-direction: column;
-      gap: 12px;
-      margin-bottom: 20px;
+      gap: 10px;
+      margin-bottom: 18px;
     }
     .mobile-nav-list a {
       color: var(--pale-blue);
-      font-size: 0.98rem;
+      font-size: 0.96rem;
       font-weight: 600;
-      padding: 10px 12px;
+      padding: 11px 14px;
       border-radius: var(--radius-sm);
-      background: rgba(255, 255, 255, 0.03);
+      background: rgba(255, 255, 255, 0.04);
     }
     .mobile-nav-list a:hover {
       background: rgba(112, 20, 62, 0.3);
@@ -207,10 +216,10 @@
     }
     .mobile-nav-cta-group a {
       text-align: center;
-      padding: 12px;
+      padding: 13px;
       border-radius: var(--radius-sm);
       font-weight: 800;
-      font-size: 0.92rem;
+      font-size: 0.94rem;
     }
 
     /* HERO */
@@ -227,6 +236,8 @@
     }
     .hero-switch-bar {
       display: inline-flex;
+      flex-wrap: wrap;
+      justify-content: center;
       background: var(--pale-blue);
       padding: 4px;
       border-radius: 30px;
@@ -234,7 +245,7 @@
       border: 1px solid var(--border-color);
     }
     .switch-pill {
-      padding: 7px 20px;
+      padding: 7px 18px;
       font-size: 0.84rem;
       font-weight: 700;
       border-radius: 24px;
@@ -1011,27 +1022,29 @@
     }
     .form-group label {
       display: block;
-      font-size: 0.82rem;
+      font-size: 0.84rem;
       font-weight: 700;
       color: var(--navy);
       margin-bottom: 6px;
     }
     .form-control {
       width: 100%;
-      padding: 11px 14px;
+      padding: 12px 14px;
       border: 1.5px solid var(--border-color);
       border-radius: var(--radius-sm);
-      font-size: 0.92rem;
+      font-size: 1rem;
       font-family: inherit;
       outline: none;
       transition: var(--transition);
+      background-color: var(--white);
+      color: var(--text-main);
     }
     .form-control:focus {
       border-color: var(--burgundy);
       box-shadow: 0 0 0 3px rgba(112, 20, 62, 0.1);
     }
     textarea.form-control {
-      min-height: 95px;
+      min-height: 100px;
       resize: vertical;
     }
 
@@ -1057,8 +1070,8 @@
     }
     .kvkk-checkbox-label input[type="checkbox"] {
       margin-top: 3px;
-      width: 17px;
-      height: 17px;
+      width: 18px;
+      height: 18px;
       accent-color: var(--burgundy);
       flex-shrink: 0;
     }
@@ -1084,17 +1097,39 @@
       background: var(--indigo);
       transform: translateY(-1px);
     }
+
+    /* DETAYLI ONay KARTI */
     .student-success-msg {
       display: none;
-      background: var(--off-white);
-      border: 1px solid var(--navy);
-      border-radius: var(--radius-sm);
-      padding: 16px;
-      text-align: center;
-      margin-top: 16px;
-      font-size: 0.9rem;
-      font-weight: 700;
+      background: #F4FBF7;
+      border: 2px solid var(--navy);
+      border-left: 6px solid var(--burgundy);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      text-align: left;
+      margin-top: 22px;
       color: var(--navy);
+      box-shadow: var(--shadow-sm);
+    }
+    .student-success-msg h4 {
+      font-size: 1.15rem;
+      font-weight: 900;
+      color: var(--navy);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .student-success-msg p {
+      font-size: 0.92rem;
+      color: var(--text-main);
+      line-height: 1.6;
+      margin-bottom: 10px;
+    }
+    .student-success-msg p:last-child {
+      margin-bottom: 0;
+      font-size: 0.85rem;
+      color: var(--text-muted);
     }
 
     /* KVKK MODAL */
@@ -1277,6 +1312,8 @@
     .footer-legal-links {
       display: flex;
       gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
     }
     .footer-legal-links a {
       color: rgba(227, 232, 238, 0.75);
@@ -1286,38 +1323,81 @@
       color: var(--white);
     }
 
-    /* RESPONSIVE */
+    /* RESPONSIVE / TELEFON EKRANI OPTİMİZASYONU */
     @media (max-width: 992px) {
-      .hero h1 { font-size: 2.4rem; }
+      section { padding: 64px 0; }
+      .hero { padding: 52px 0 48px; }
+      .hero h1 { font-size: 2.3rem; }
       .about-split-wrap {
         grid-template-columns: 1fr;
-        gap: 20px;
+        gap: 16px;
       }
       .team-accent-bar {
         width: calc(100% + 48px);
         margin-left: -24px;
+        height: 48px;
       }
-      .team-inner-content { padding: 32px 0; }
-      .team-big-title, .about-big-title { font-size: 2.6rem; text-align: center; padding-right: 0; }
-      .about-info-col { padding: 36px 0 60px; text-align: right; }
+      .team-inner-content { padding: 28px 0; }
+      .team-big-title, .about-big-title {
+        font-size: 2.4rem;
+        text-align: center;
+        padding-right: 0;
+      }
+      .about-info-col {
+        padding: 28px 0 52px;
+        text-align: right;
+      }
+      .milestone-text {
+        padding-right: 0;
+        max-width: 100%;
+      }
       .vision-grid, .student-grid-4, .timeline-grid, .value-highlight-grid, .graduate-grid, .footer-inner {
         grid-template-columns: 1fr;
       }
       .stats-card { grid-template-columns: repeat(2, 1fr); }
+      .stat-item:nth-child(2)::after { display: none; }
       .nav-links, .btn-nav-student { display: none; }
       .mobile-menu-toggle { display: inline-flex; }
       .form-grid-2 { grid-template-columns: 1fr; }
       .form-group.full-width { grid-column: span 1; }
     }
     @media (max-width: 600px) {
-      .stats-card { grid-template-columns: 1fr; }
-      .student-form-box { padding: 24px; }
-      .quote-banner { padding: 36px 20px; }
-      .quote-banner blockquote { font-size: 1.35rem; }
+      .container { padding: 0 18px; }
+      .nav-inner { height: 70px; }
+      .brand-logo-img { height: 38px; }
+      .btn-nav-company-tab {
+        padding: 8px 12px;
+        font-size: 0.78rem;
+      }
+      .hero h1 { font-size: 1.95rem; }
+      .hero p { font-size: 1rem; }
+      .hero-switch-bar {
+        border-radius: 16px;
+        width: 100%;
+      }
+      .switch-pill {
+        width: 100%;
+        text-align: center;
+        padding: 8px 12px;
+        font-size: 0.8rem;
+      }
+      .hero-cta-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .stats-card { grid-template-columns: 1fr; padding: 22px 16px; }
+      .stat-item::after { display: none !important; }
+      .section-header h2 { font-size: 1.8rem; }
+      .student-form-box, .value-box, .student-profile-banner { padding: 24px 18px; }
+      .quote-banner { padding: 32px 18px; }
+      .quote-banner blockquote { font-size: 1.25rem; }
       .team-photos-grid { gap: 10px; }
-      .team-member-name { font-size: 0.98rem; }
+      .team-member-name { font-size: 0.92rem; }
+      .milestone-header h3 { font-size: 1.3rem; }
+      .faq-question { padding: 16px 18px; font-size: 0.95rem; }
+      .faq-answer-inner { padding: 12px 18px 18px; }
       .footer-bottom { flex-direction: column; text-align: center; }
-      .btn-nav-company-tab span { display: none; }
+      .back-to-top { right: 16px; bottom: 16px; width: 42px; height: 42px; }
     }
   </style>
 </head>
@@ -1341,14 +1421,14 @@
         <a href="#ogrenci-basvuru" class="btn-nav-student">Programa Başvur</a>
         <a href="sirketler.html" class="btn-nav-company-tab" title="Partner Şirketler Sayfasına Geç">
           <span>🏢 Şirketler İçin</span>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
             <line x1="5" y1="12" x2="19" y2="12"></line>
             <polyline points="12 5 19 12 12 19"></polyline>
           </svg>
         </a>
         <!-- MOBİL HAMBURGER BUTONU -->
         <button type="button" class="mobile-menu-toggle" id="mobileMenuBtn" onclick="toggleMobileMenu()" aria-label="Menüyü Aç/Kapat">
-          <svg id="hamburgerIcon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
             <line x1="3" y1="6" x2="21" y2="6"></line>
             <line x1="3" y1="12" x2="21" y2="12"></line>
             <line x1="3" y1="18" x2="21" y2="18"></line>
@@ -1944,8 +2024,14 @@
           </div>
 
           <button type="submit" class="student-submit-btn">Topluluk Başvurunu Gönder</button>
-          <div id="studentSuccess" class="student-success-msg">
-            Başvurun başarıyla alındı! Değerlendirme süreci hakkında e-posta adresin üzerinden bilgilendirme yapılacaktır.
+
+          <!-- DETAYLI BAŞVURU ONAY MESAJI -->
+          <div id="studentSuccess" class="student-success-msg" role="status" aria-live="polite">
+            <h4>✓ Başvurun Başarıyla Alındı!</h4>
+            <p id="studentSuccessText">
+              Teşekkürler! NXT Fellowship başvurunu kaydettik. Değerlendirme komitemiz başvurunu inceledikten sonra <strong>en geç 5 iş günü içinde</strong> paylaştığın <strong>e-posta adresi üzerinden</strong> seninle iletişime geçerek ön değerlendirme sonucunu ve bir sonraki aşama olan <strong>Online Grup Vaka &amp; Tanışma Mülakatı</strong> davetini iletecektir.
+            </p>
+            <p>Gelen kutunu (ve gereksiz/spam klasörünü) kontrol etmeyi unutma.</p>
           </div>
         </form>
       </div>
@@ -2104,11 +2190,14 @@
 
     function handleStudentSubmit(e) {
       e.preventDefault();
+      const applicantName = document.getElementById('s_name').value.trim();
+      const applicantEmail = document.getElementById('s_email').value.trim();
+
       const studentData = {
         type: "Öğrenci Başvurusu (Fellow)",
         date: new Date().toLocaleString("tr-TR"),
-        name: document.getElementById('s_name').value,
-        email: document.getElementById('s_email').value,
+        name: applicantName,
+        email: applicantEmail,
         university: document.getElementById('s_uni').value,
         grade: document.getElementById('s_grade').value,
         linkedin: document.getElementById('s_linkedin').value,
@@ -2130,8 +2219,13 @@
         }).catch(err => console.log('Webhook error:', err));
       }
 
-      document.getElementById('studentSuccess').style.display = 'block';
+      const successBox = document.getElementById('studentSuccess');
+      const successText = document.getElementById('studentSuccessText');
+      successText.innerHTML = `Teşekkürler <strong>${applicantName}</strong>! NXT Fellowship başvurunu kaydettik. Değerlendirme komitemiz başvurunu inceledikten sonra <strong>en geç 5 iş günü içinde</strong> belirttiğin <strong>${applicantEmail}</strong> e-posta adresi üzerinden seninle iletişime geçerek ön değerlendirme sonucunu ve bir sonraki aşama olan <strong>Online Grup Vaka &amp; Tanışma Mülakatı</strong> takvimini iletecektir.`;
+
+      successBox.style.display = 'block';
       document.getElementById('studentApplicationForm').reset();
+      successBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
   </script>
 </body>
