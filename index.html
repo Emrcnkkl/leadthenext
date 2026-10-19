@@ -5,6 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NXT — Network X Talent | Çok Yakında</title>
   <meta name="description" content="Yüksek potansiyelli üniversite öğrencileri ile lider şirketler arasında güvene dayalı, uzun vadeli profesyonel ilişkiler kuran seçilmiş topluluk.">
+  <!-- FAVICON (Lacivert Arkaplanda Logo) -->
+  <link rel="icon" type="image/png" href="logo_original_backup.png">
+  <link rel="apple-touch-icon" href="logo_original_backup.png">
+  <!-- OPEN GRAPH / WHATSAPP & LINKEDIN PAYLAŞIM KARTLARI -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="NXT — Network X Talent">
+  <meta property="og:title" content="NXT — Network X Talent | Seçilmiş Profesyonel Gelişim Topluluğu">
+  <meta property="og:description" content="Yüksek potansiyelli üniversite öğrencileri ile lider şirketler arasında güvene dayalı, uzun vadeli profesyonel ilişkiler kuran seçilmiş topluluk.">
+  <meta property="og:image" content="https://leadthenext.com.tr/logo_original_backup.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="NXT — Network X Talent">
+  <meta name="twitter:description" content="Yüksek potansiyelli üniversite öğrencileri ile lider şirketler arasında güvene dayalı profesyonel topluluk.">
+  <meta name="twitter:image" content="https://leadthenext.com.tr/logo_original_backup.png">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -78,9 +92,8 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 8px 0;
+      padding: 8px 0 20px;
       border-bottom: 1px solid var(--border);
-      padding-bottom: 20px;
     }
 
     .brand-link {
@@ -325,6 +338,32 @@
       line-height: 1.45;
     }
 
+    /* SOCIAL ICONS */
+    .social-icons {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .social-icon-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: rgba(227, 232, 238, 0.06);
+      border: 1px solid var(--border);
+      color: var(--pale-blue);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .social-icon-btn:hover {
+      background: var(--burgundy);
+      border-color: var(--burgundy);
+      color: var(--white);
+      transform: translateY(-2px);
+    }
+
     /* FOOTER */
     footer {
       display: flex;
@@ -335,7 +374,7 @@
       font-size: 0.8rem;
       color: var(--muted);
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 16px;
     }
 
     footer a {
@@ -442,10 +481,33 @@
       <div>
         &copy; 2026 NXT — Network X Talent. Emir Çanakkale · Sümeyye Tezcan · Enes Gençoğlu
       </div>
-      <div style="display: flex; gap: 16px; align-items: center;">
+      <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap; justify-content: center;">
         <a href="kvkk.html">KVKK &amp; Gizlilik Politikası</a>
-        <span>·</span>
-        <a href="mailto:nxt.kurumsal@gmail.com">nxt.kurumsal@gmail.com</a>
+        <div class="social-icons" aria-label="Sosyal Medya ve İletişim">
+          <!-- LinkedIn -->
+          <a href="javascript:void(0)" class="social-icon-btn" title="LinkedIn" aria-label="LinkedIn">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+              <rect x="2" y="9" width="4" height="12"></rect>
+              <circle cx="4" cy="4" r="2"></circle>
+            </svg>
+          </a>
+          <!-- Instagram -->
+          <a href="javascript:void(0)" class="social-icon-btn" title="Instagram" aria-label="Instagram">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+          </a>
+          <!-- Mail -->
+          <a href="javascript:void(0)" class="social-icon-btn" title="E-posta" aria-label="E-posta">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+          </a>
+        </div>
       </div>
     </footer>
   </div>

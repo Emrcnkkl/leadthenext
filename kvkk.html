@@ -5,6 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NXT — KVKK Aydınlatma Metni, Gizlilik ve Etik Veri Politikası</title>
   <meta name="description" content="NXT (Network X Talent) 6698 Sayılı KVKK Aydınlatma Metni, Açık Rıza Beyanı, Gizlilik İlkeleri ve Etik Veri Manifestosu.">
+  <!-- FAVICON (Lacivert Arkaplanda Logo) -->
+  <link rel="icon" type="image/png" href="logo_original_backup.png">
+  <link rel="apple-touch-icon" href="logo_original_backup.png">
+  <!-- OPEN GRAPH / WHATSAPP & LINKEDIN PAYLAŞIM KARTLARI -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="NXT — Network X Talent">
+  <meta property="og:title" content="NXT — KVKK Aydınlatma Metni, Gizlilik ve Etik Veri Politikası">
+  <meta property="og:description" content="NXT (Network X Talent) 6698 Sayılı KVKK Aydınlatma Metni, Açık Rıza Beyanı, Gizlilik İlkeleri ve Etik Veri Manifestosu.">
+  <meta property="og:image" content="https://leadthenext.com.tr/logo_original_backup.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://leadthenext.com.tr/logo_original_backup.png">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -43,6 +55,7 @@
 
     a { text-decoration: none; color: inherit; transition: var(--transition); }
     ul { list-style: none; }
+    button { font-family: inherit; cursor: pointer; border: none; transition: var(--transition); }
 
     .container {
       width: 100%;
@@ -215,6 +228,63 @@
       font-weight: 900;
     }
 
+    /* BACK TO TOP BUTTON */
+    .back-to-top {
+      position: fixed;
+      right: 26px;
+      bottom: 26px;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: var(--navy);
+      color: var(--white);
+      border: 2px solid var(--burgundy);
+      box-shadow: 0 8px 20px rgba(7, 25, 49, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1200;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(12px);
+      transition: var(--transition);
+    }
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    .back-to-top:hover {
+      background: var(--burgundy);
+      transform: translateY(-3px);
+    }
+
+    /* SOCIAL ICONS */
+    .social-icons {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .social-icon-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: rgba(227, 232, 238, 0.08);
+      border: 1px solid rgba(227, 232, 238, 0.16);
+      color: var(--pale-blue);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .social-icon-btn:hover {
+      background: var(--burgundy);
+      border-color: var(--burgundy);
+      color: var(--white);
+      transform: translateY(-2px);
+    }
+
     /* FOOTER */
     footer {
       background: #030B15;
@@ -222,7 +292,13 @@
       padding: 40px 0 28px;
       font-size: 0.85rem;
       border-top: 2px solid var(--burgundy);
-      text-align: center;
+    }
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
     }
     footer a {
       color: var(--white);
@@ -232,6 +308,7 @@
     @media (max-width: 768px) {
       .legal-card { padding: 24px; }
       .legal-hero h1 { font-size: 1.85rem; }
+      .footer-row { flex-direction: column; text-align: center; }
     }
   </style>
 </head>
@@ -323,7 +400,7 @@
           <li><span>✓</span> <div>Programa kabul edilmeleri halinde 6 aylık gelişim süreci ve sonrasındaki Alumni ağı kapsamında mentorlar ve partner kurumlarla profesyonel eşleşme süreçlerine dahil edilmeye,</div></li>
           <li><span>✓</span> <div>Program süresince dolduracakları geri bildirim ve algı anketlerinin, kişisel kimliklerinden tamamen ayrıştırılarak (anonimleştirilerek) topluluk ve erken yetenek içgörü analizlerinde kullanılmasına</div></li>
         </ul>
-        <p>özgür iradeleriyle açık rıza göstermiş kabul edilirler. Açık rıza her zaman <a href="mailto:nxt.kurumsal@gmail.com" style="color: var(--burgundy); font-weight: 700;">nxt.kurumsal@gmail.com</a> adresine gönderilecek bir bildirimle geri çekilebilir.</p>
+        <p>özgür iradeleriyle açık rıza göstermiş kabul edilirler.</p>
       </div>
 
       <!-- 4. ÇEREZ VE GİZLİLİK POLİTİKASI -->
@@ -345,18 +422,62 @@
           <li><span>✓</span> <div>KVKK'nın 7. maddesinde öngörülen şartlar çerçevesinde kişisel verilerinizin silinmesini veya yok edilmesini talep etme</div></li>
         </ul>
         <p>
-          haklarına sahipsiniz. Tüm talep ve sorularınızı <a href="mailto:nxt.kurumsal@gmail.com" style="color: var(--burgundy); font-weight: 700;">nxt.kurumsal@gmail.com</a> e-posta adresimiz üzerinden doğrudan kurucu ekibimize iletebilirsiniz.
+          haklarına sahipsiniz.
         </p>
       </div>
 
     </div>
   </main>
 
+  <!-- YUKARI ÇIK (BACK TO TOP) BUTONU -->
+  <button type="button" class="back-to-top" id="backToTopBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="Yukarı Çık" aria-label="Yukarı Çık">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
   <footer>
-    <div class="container">
-      &copy; 2026 NXT — Network X Talent. Emir Çanakkale · Sümeyye Tezcan · Enes Gençoğlu | <a href="landing.html">Ana Sayfaya Dön</a>
+    <div class="container footer-row">
+      <div>
+        &copy; 2026 NXT — Network X Talent. Emir Çanakkale · Sümeyye Tezcan · Enes Gençoğlu | <a href="landing.html">Ana Sayfaya Dön</a>
+      </div>
+      <div class="social-icons" aria-label="Sosyal Medya ve İletişim">
+        <!-- LinkedIn -->
+        <a href="javascript:void(0)" class="social-icon-btn" title="LinkedIn" aria-label="LinkedIn">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+            <rect x="2" y="9" width="4" height="12"></rect>
+            <circle cx="4" cy="4" r="2"></circle>
+          </svg>
+        </a>
+        <!-- Instagram -->
+        <a href="javascript:void(0)" class="social-icon-btn" title="Instagram" aria-label="Instagram">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+          </svg>
+        </a>
+        <!-- Mail -->
+        <a href="javascript:void(0)" class="social-icon-btn" title="E-posta" aria-label="E-posta">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+          </svg>
+        </a>
+      </div>
     </div>
   </footer>
 
+  <script>
+    window.addEventListener('scroll', function() {
+      const btn = document.getElementById('backToTopBtn');
+      if (window.scrollY > 300) {
+        btn.classList.add('visible');
+      } else {
+        btn.classList.remove('visible');
+      }
+    });
+  </script>
 </body>
 </html>
