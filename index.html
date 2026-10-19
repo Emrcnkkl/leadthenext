@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NXT — Network X Talent | Çok Yakında</title>
+  <meta name="description" content="Yüksek potansiyelli üniversite öğrencileri ile lider şirketler arasında güvene dayalı, uzun vadeli profesyonel ilişkiler kuran seçilmiş topluluk.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy-dark: #040E1B;
+      --navy: #071931;
+      --indigo: #2D1B4E;
+      --burgundy: #70143E;
+      --burgundy-hover: #520c2c;
+      --crimson: #D81124;
+      --pale-blue: #E3E8EE;
+      --white: #FFFFFF;
+      --muted: #8E9EAF;
+      --border: rgba(227, 232, 238, 0.1);
+      --border-strong: rgba(227, 232, 238, 0.18);
+      --card-bg: rgba(7, 25, 49, 0.55);
+      --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      min-height: 100%;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--navy-dark);
+      color: var(--white);
+      overflow-x: hidden;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Minimal Ambient Lighting */
+    .ambient-bg {
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(112, 20, 62, 0.22) 0%, transparent 55%),
+        radial-gradient(circle at 15% 85%, rgba(7, 25, 49, 0.8) 0%, transparent 50%),
+        radial-gradient(circle at 85% 85%, rgba(45, 27, 78, 0.2) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .ambient-grid {
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(227, 232, 238, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(227, 232, 238, 0.025) 1px, transparent 1px);
+      background-size: 64px 64px;
+      mask-image: radial-gradient(circle at 50% 45%, black 30%, transparent 85%);
+      -webkit-mask-image: radial-gradient(circle at 50% 45%, black 30%, transparent 85%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .wrapper {
+      position: relative;
+      z-index: 2;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 28px 24px;
+    }
+
+    /* HEADER */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 20px;
+    }
+
+    .brand-link {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .logo-img {
+      height: 44px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(227, 232, 238, 0.05);
+      border: 1px solid var(--border);
+      padding: 7px 14px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--pale-blue);
+      letter-spacing: 0.3px;
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--crimson);
+      box-shadow: 0 0 8px var(--crimson);
+      animation: pulse 2.2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.55; transform: scale(0.88); }
+    }
+
+    .header-nav-link {
+      color: var(--pale-blue);
+      text-decoration: none;
+      font-size: 0.84rem;
+      font-weight: 600;
+      padding: 7px 14px;
+      border-radius: 6px;
+      border: 1px solid transparent;
+      transition: var(--transition);
+    }
+
+    .header-nav-link:hover {
+      color: var(--white);
+      background: rgba(227, 232, 238, 0.06);
+      border-color: var(--border);
+    }
+
+    /* MAIN CONTENT */
+    .main-content {
+      max-width: 820px;
+      margin: 64px auto 48px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(112, 20, 62, 0.18);
+      border: 1px solid rgba(112, 20, 62, 0.45);
+      color: var(--pale-blue);
+      padding: 6px 16px;
+      border-radius: 999px;
+      font-size: 0.74rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.8px;
+      margin-bottom: 28px;
+    }
+
+    .eyebrow span {
+      color: var(--crimson);
+      font-weight: 900;
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 5vw, 3.75rem);
+      font-weight: 900;
+      line-height: 1.12;
+      letter-spacing: -1.5px;
+      margin-bottom: 22px;
+      color: var(--white);
+    }
+
+    h1 .accent-text {
+      color: var(--pale-blue);
+      font-weight: 800;
+      border-bottom: 3px solid var(--burgundy);
+      padding-bottom: 2px;
+    }
+
+    .subtitle {
+      font-size: 1.12rem;
+      color: var(--muted);
+      max-width: 660px;
+      line-height: 1.65;
+      margin-bottom: 40px;
+      font-weight: 400;
+    }
+
+    /* SLEEK COUNTDOWN */
+    .countdown-wrap {
+      display: inline-grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 44px;
+      width: 100%;
+      max-width: 460px;
+    }
+
+    .countdown-item {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px 12px;
+      backdrop-filter: blur(10px);
+    }
+
+    .countdown-num {
+      font-size: 1.85rem;
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 6px;
+      font-variant-numeric: tabular-nums;
+      letter-spacing: -0.5px;
+    }
+
+    .countdown-label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+    }
+
+    /* ACTION BUTTONS */
+    .cta-group {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 56px;
+      width: 100%;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: var(--burgundy);
+      color: var(--white);
+      text-decoration: none;
+      font-size: 0.96rem;
+      font-weight: 700;
+      padding: 15px 30px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 8px 24px rgba(112, 20, 62, 0.35);
+      transition: var(--transition);
+    }
+
+    .btn-primary:hover {
+      background: var(--burgundy-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(112, 20, 62, 0.45);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: rgba(227, 232, 238, 0.05);
+      color: var(--pale-blue);
+      text-decoration: none;
+      font-size: 0.96rem;
+      font-weight: 600;
+      padding: 15px 26px;
+      border-radius: 8px;
+      border: 1px solid var(--border-strong);
+      transition: var(--transition);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(227, 232, 238, 0.1);
+      color: var(--white);
+      transform: translateY(-2px);
+    }
+
+    /* PILLARS STRIP */
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      width: 100%;
+      text-align: left;
+    }
+
+    .pillar-card {
+      background: rgba(7, 25, 49, 0.4);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--burgundy);
+      border-radius: 8px;
+      padding: 18px 20px;
+      backdrop-filter: blur(8px);
+    }
+
+    .pillar-title {
+      font-size: 0.88rem;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+
+    .pillar-desc {
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    /* FOOTER */
+    footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      font-size: 0.8rem;
+      color: var(--muted);
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    footer a {
+      color: var(--pale-blue);
+      text-decoration: none;
+      font-weight: 600;
+      transition: var(--transition);
+    }
+
+    footer a:hover {
+      color: var(--white);
+    }
+
+    @media (max-width: 768px) {
+      .main-content { margin: 40px auto 32px; }
+      .pillars-grid { grid-template-columns: 1fr; }
+      .cta-group { flex-direction: column; align-items: stretch; }
+      .header-nav-link { display: none; }
+      footer { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="ambient-bg"></div>
+  <div class="ambient-grid"></div>
+
+  <div class="wrapper">
+    <header>
+      <a href="landing.html" class="brand-link" title="NXT — Network X Talent">
+        <img src="logo.png" alt="NXT — Network X Talent" class="logo-img">
+      </a>
+      <div class="header-right">
+        <a href="sirketler.html" class="header-nav-link">Şirketler İçin →</a>
+        <div class="status-pill">
+          <span class="status-dot"></span>
+          <span>Yeni Dönem Hazırlığı</span>
+        </div>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <div class="eyebrow">
+        <span>NXT</span> · Network X Talent Ekosistemi
+      </div>
+
+      <h1>
+        Güvene Dayalı Profesyonel Topluluk <span class="accent-text">Çok Yakında.</span>
+      </h1>
+
+      <p class="subtitle">
+        Yüksek potansiyelli üniversite öğrencileri ile lider şirketler arasında güvene dayalı, uzun vadeli profesyonel ilişkiler kuran seçilmiş topluluğumuz yeni dönem kohortuyla başlıyor.
+      </p>
+
+      <div class="countdown-wrap" aria-label="Geri Sayım">
+        <div class="countdown-item">
+          <div class="countdown-num" id="cd-days">28</div>
+          <div class="countdown-label">Gün</div>
+        </div>
+        <div class="countdown-item">
+          <div class="countdown-num" id="cd-hours">14</div>
+          <div class="countdown-label">Saat</div>
+        </div>
+        <div class="countdown-item">
+          <div class="countdown-num" id="cd-mins">42</div>
+          <div class="countdown-label">Dakika</div>
+        </div>
+        <div class="countdown-item">
+          <div class="countdown-num" id="cd-secs">50</div>
+          <div class="countdown-label">Saniye</div>
+        </div>
+      </div>
+
+      <div class="cta-group">
+        <a href="landing.html" class="btn-primary">
+          <span>Öğrenci & Topluluk Sayfasına Geç</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+        <a href="sirketler.html" class="btn-secondary">
+          <span>Şirketler & Partnerlik Modeli</span>
+        </a>
+      </div>
+
+      <div class="pillars-grid">
+        <div class="pillar-card">
+          <div class="pillar-title">Seçilmiş 24 Öğrenci & 6 Ay Süreç</div>
+          <div class="pillar-desc">Her dönem titizlikle seçilen 24 öğrenci ve 6–8 partner şirketle derinlikli gelişim yolculuğu.</div>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-title">Bütüncül Gelişim Deneyimi</div>
+          <div class="pillar-desc">Birebir mentorluk, şirket ziyaretleri, vaka çalışmaları, lider buluşmaları ve workshoplar.</div>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-title">Yaşayan Alumni & Güven Ağı</div>
+          <div class="pillar-desc">6 aylık program sonrasında da yıllar boyu devam eden mentorluk ve profesyonel topluluk bağı.</div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div>
+        &copy; 2026 NXT — Network X Talent. Emir Çanakkale · Sümeyye Tezcan · Enes Gençoğlu
+      </div>
+      <div>
+        İletişim: <a href="mailto:nxt.kurumsal@gmail.com">nxt.kurumsal@gmail.com</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    const targetDate = new Date();
+    targetDate.setDate(targetDate.getDate() + 28);
+    targetDate.setHours(targetDate.getHours() + 14);
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = targetDate.getTime() - now;
+
+      if (distance > 0) {
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById('cd-days').innerText = String(days).padStart(2, '0');
+        document.getElementById('cd-hours').innerText = String(hours).padStart(2, '0');
+        document.getElementById('cd-mins').innerText = String(minutes).padStart(2, '0');
+        document.getElementById('cd-secs').innerText = String(seconds).padStart(2, '0');
+      }
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+</body>
+</html>
