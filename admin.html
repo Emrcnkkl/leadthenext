@@ -30,70 +30,23 @@
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background-color: var(--off-white);
-            color: var(--text-main);
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-            overflow-x: hidden;
-        }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background-color: var(--off-white); color: var(--text-main); line-height: 1.6; overflow-x: hidden; }
 
         /* NAVBAR */
-        .navbar {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background: rgba(7, 25, 49, 0.96);
-            backdrop-filter: blur(12px);
-            border-bottom: 2px solid var(--burgundy);
-        }
-        .nav-inner {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            height: 70px;
-            padding: 0 40px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
+        .navbar { position: sticky; top: 0; z-index: 1000; background: rgba(7, 25, 49, 0.96); backdrop-filter: blur(12px); border-bottom: 2px solid var(--burgundy); }
+        .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 70px; padding: 0 40px; max-width: 1400px; margin: 0 auto; }
         .brand-logo { display: flex; align-items: center; text-decoration: none; }
         .brand-logo-img { height: 38px; width: auto; object-fit: contain; display: block; }
         .nav-links { display: flex; align-items: center; gap: 24px; }
-        .nav-link {
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: var(--pale-blue);
-            text-decoration: none;
-            padding-bottom: 4px;
-            border-bottom: 2px solid transparent;
-            transition: var(--transition);
-            cursor: pointer;
-        }
-        .nav-link:hover, .nav-link.active {
-            color: var(--white);
-            border-bottom-color: var(--burgundy);
-        }
+        .nav-link { font-size: 0.9rem; font-weight: 600; color: var(--pale-blue); text-decoration: none; padding-bottom: 4px; border-bottom: 2px solid transparent; transition: var(--transition); cursor: pointer; }
+        .nav-link:hover, .nav-link.active { color: var(--white); border-bottom-color: var(--burgundy); }
         .nav-actions { display: flex; align-items: center; gap: 12px; }
         .live-time { color: var(--pale-blue); font-size: 0.85rem; font-weight: 600; opacity: 0.8; margin-right: 15px; }
 
         /* Sekme İçerikleri */
-        .tab-pane {
-            display: none;
-            padding: 40px;
-            max-width: 1400px;
-            margin: 0 auto;
-            animation: fadeIn 0.3s ease-in-out;
-        }
-        .tab-pane.active {
-            display: grid; 
-            grid-template-columns: 1fr 350px;
-            gap: 24px;
-            align-items: start;
-        }
-        .tab-pane.full-width.active {
-            display: block; 
-        }
+        .tab-pane { display: none; padding: 40px; max-width: 1400px; margin: 0 auto; animation: fadeIn 0.3s ease-in-out; }
+        .tab-pane.active { display: grid; grid-template-columns: 1fr 350px; gap: 24px; align-items: start; }
+        .tab-pane.full-width.active { display: block; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
 
         /* Ortak Seksiyon Stili */
@@ -102,7 +55,7 @@
         .btn-primary { background: var(--navy); color: white; border: none; padding: 6px 12px; border-radius: 4px; font-size: 0.8rem; font-weight: bold; cursor: pointer; transition: var(--transition); text-decoration: none;}
         .btn-primary:hover { background: var(--burgundy); }
 
-        /* Drive & Hızlı Şablonlar & Yapılacaklar (Genel Bakış Modülleri) */
+        /* Drive & Şablonlar */
         .drive-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 16px; }
         .drive-item { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; background: #F9FBFE; border: 1.5px solid var(--border-color); border-radius: var(--radius-sm); text-decoration: none; color: var(--navy); transition: var(--transition); text-align: center; }
         .drive-item:hover { border-color: var(--navy); background: var(--white); transform: translateY(-2px); box-shadow: var(--shadow-sm); }
@@ -110,12 +63,13 @@
         .drive-name { font-size: 0.85rem; font-weight: 700; }
         
         .template-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
-        .template-card { background: var(--white); border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 16px; display: flex; flex-direction: column; justify-content: space-between; transition: var(--transition); }
+        .template-card { background: var(--white); border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 16px; display: flex; flex-direction: column; justify-content: space-between; transition: var(--transition); position: relative; }
         .template-card:hover { border-color: var(--burgundy); box-shadow: var(--shadow-sm); }
-        .template-title { font-size: 0.9rem; font-weight: 700; color: var(--navy); margin-bottom: 12px; }
+        .template-title { font-size: 0.9rem; font-weight: 700; color: var(--navy); margin-bottom: 12px; padding-right: 20px; }
         .template-btn { background: var(--pale-blue); color: var(--navy); border: none; padding: 8px; border-radius: 4px; font-size: 0.75rem; font-weight: bold; cursor: pointer; transition: var(--transition); width: 100%; }
         .template-btn:hover { background: var(--navy); color: white; }
 
+        /* Görevler Listesi */
         .main-task-list { display: flex; flex-direction: column; gap: 12px; }
         .main-task-item { display: flex; align-items: center; justify-content: space-between; padding: 16px; background: var(--white); border: 1px solid var(--border-color); border-radius: var(--radius-sm); transition: var(--transition); }
         .main-task-item:hover { border-color: var(--burgundy); box-shadow: var(--shadow-sm); }
@@ -123,19 +77,23 @@
         .main-task-item.completed .task-title { text-decoration: line-through; color: var(--text-muted); }
         .task-left { display: flex; align-items: center; gap: 14px; }
         .task-left input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--burgundy); cursor: pointer; }
-        .task-title { font-size: 0.95rem; font-weight: 600; color: var(--navy); margin-bottom: 2px; transition: var(--transition); }
+        .task-title { font-size: 0.95rem; font-weight: 600; color: var(--navy); margin-bottom: 2px; }
         .task-desc { font-size: 0.8rem; color: var(--text-muted); }
         .task-assignee { background: var(--pale-blue); color: var(--navy); font-size: 0.75rem; font-weight: 700; padding: 4px 10px; border-radius: 20px; display: flex; align-items: center; gap: 6px; }
 
-        /* Sağ Kolon Ajanda & Takvim (Genel Bakış) */
+        .delete-btn { background: none; border: none; color: #c62828; cursor: pointer; font-size: 1rem; padding: 4px 8px; border-radius: 4px; transition: var(--transition); }
+        .delete-btn:hover { background: #ffebee; }
+
+        /* Ajanda */
         .agenda-list { display: flex; flex-direction: column; gap: 8px; margin-top: 15px; }
         .agenda-item { display: flex; align-items: center; justify-content: space-between; padding: 12px 14px; background: var(--off-white); border: 1px solid var(--border-color); border-radius: var(--radius-sm); transition: var(--transition); }
         .agenda-item:hover { border-color: var(--navy); background: var(--white); }
-        .agenda-time { font-weight: 900; color: var(--burgundy); font-size: 0.9rem; min-width: 45px; }
+        .agenda-time { font-weight: 900; color: var(--burgundy); font-size: 0.9rem; min-width: 55px; }
         .agenda-title { font-weight: 600; color: var(--navy); font-size: 0.85rem; flex-grow: 1; margin-left: 12px; }
-        .agenda-link { background: var(--navy); color: white; padding: 6px 12px; border-radius: 4px; font-size: 0.75rem; font-weight: bold; text-decoration: none; transition: var(--transition); }
+        .agenda-link { background: var(--navy); color: white; padding: 6px 12px; border-radius: 4px; font-size: 0.75rem; font-weight: bold; text-decoration: none; transition: var(--transition); margin-right: 8px;}
         .agenda-link:hover { background: var(--burgundy); }
 
+        /* Takvim */
         .calendar-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; font-weight: 800; font-size: 0.95rem; color: var(--navy); }
         .nav-btn { background: none; border: none; font-size: 1.2rem; cursor: pointer; color: var(--text-muted); transition: color 0.2s; }
         .nav-btn:hover { color: var(--burgundy); }
@@ -154,34 +112,29 @@
         .milestone-info h4 { font-size: 0.85rem; font-weight: 700; color: var(--navy); margin-bottom: 2px; }
         .milestone-info p { font-size: 0.75rem; color: var(--text-muted); }
 
-        /* BÜYÜK TAKVİM MODALI */
-        .modal-overlay {
-            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(4, 14, 27, 0.8); z-index: 2000; justify-content: center; align-items: center;
-        }
+        /* Modaller */
+        .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(4, 14, 27, 0.8); z-index: 2000; justify-content: center; align-items: center; }
         .modal-overlay.active { display: flex; }
-        .modal-content {
-            background: var(--white); width: 90%; max-width: 800px; border-radius: var(--radius-md);
-            padding: 30px; box-shadow: var(--shadow-lg); max-height: 90vh; overflow-y: auto;
-        }
+        .modal-content { background: var(--white); width: 90%; max-width: 500px; border-radius: var(--radius-md); padding: 30px; box-shadow: var(--shadow-md); max-height: 90vh; overflow-y: auto; }
+        .modal-large { max-width: 800px; }
         .modal-close { float: right; cursor: pointer; font-size: 1.5rem; color: var(--text-muted); border: none; background: none; }
         
+        .form-group { margin-bottom: 16px; }
+        .form-group label { display: block; font-size: 0.85rem; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+        .form-control { width: 100%; padding: 10px 12px; border: 1.5px solid var(--border-color); border-radius: var(--radius-sm); font-family: inherit; font-size: 0.9rem; outline: none; transition: var(--transition); }
+        .form-control:focus { border-color: var(--navy); }
+
+        /* Büyük Takvim */
         .large-cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; margin-top: 20px;}
-        .large-cal-day {
-            border: 1px solid var(--border-color); min-height: 100px; padding: 8px; border-radius: var(--radius-sm);
-            display: flex; flex-direction: column; font-size: 0.85rem; cursor: pointer; transition: var(--transition);
-        }
+        .large-cal-day { border: 1px solid var(--border-color); min-height: 100px; padding: 8px; border-radius: var(--radius-sm); display: flex; flex-direction: column; font-size: 0.85rem; cursor: pointer; transition: var(--transition); background: var(--white); }
         .large-cal-day:hover { border-color: var(--navy); box-shadow: var(--shadow-sm); }
         .large-cal-day.empty { border: none; background: transparent; cursor: default; }
         .large-cal-day.today .day-number { background: var(--navy); color: white; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
         .day-number { font-weight: 700; margin-bottom: 8px; align-self: flex-end; }
-        .event-chip {
-            background: var(--burgundy-light); color: var(--burgundy); padding: 2px 6px;
-            border-radius: 4px; font-size: 0.7rem; font-weight: 600; margin-bottom: 4px;
-            white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: block;
-        }
+        .event-chip { background: var(--burgundy-light); color: var(--burgundy); padding: 2px 6px; border-radius: 4px; font-size: 0.7rem; font-weight: 600; margin-bottom: 4px; display: flex; justify-content: space-between; align-items: center; }
+        .event-chip span { cursor: pointer; color: var(--crimson-accent); font-weight: bold; margin-left: 4px; }
 
-        /* Fellow, Şirketler, İçerik Ortak Tablo Stili (ATS/CRM/CMS) ve Filtreleme */
+        /* Diğer Alanlar */
         .filter-bar { display: flex; gap: 12px; margin-bottom: 24px; flex-wrap: wrap;}
         .filter-btn { background: var(--off-white); border: 1px solid var(--border-color); color: var(--text-muted); padding: 8px 16px; border-radius: 30px; font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: var(--transition); }
         .filter-btn:hover { border-color: var(--navy); color: var(--navy); }
@@ -207,11 +160,7 @@
         .action-btns { display: flex; gap: 8px; }
         .action-btn { width: 32px; height: 32px; border-radius: 6px; border: 1px solid var(--border-color); background: var(--white); color: var(--text-muted); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: var(--transition); font-size: 0.9rem; text-decoration: none; }
         .action-btn:hover { border-color: var(--navy); color: var(--navy); background: var(--off-white); }
-        .action-btn.linkedin:hover { border-color: #0077b5; color: #0077b5; background: #e8f4fa; }
-        .action-btn.mail:hover { border-color: #d93025; color: #d93025; background: #fce8e6; }
-        .action-btn.edit:hover { border-color: var(--burgundy); color: var(--burgundy); background: var(--burgundy-light); }
 
-        /* CRM (Şirketler) Düzeni */
         .crm-layout { display: grid; grid-template-columns: 2fr 1fr; gap: 24px; }
         .funnel-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px; }
         .funnel-card { background: var(--off-white); border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 16px; text-align: center; }
@@ -223,13 +172,12 @@
         .pitch-card li { margin-bottom: 8px; display: flex; align-items: flex-start; gap: 8px; }
         .pitch-card li span { color: var(--crimson-accent); font-weight: 900; }
 
-        /* SOSYAL MEDYA (KANBAN Sürükle Bırak) Düzeni */
+        /* Kanban */
         .sm-header-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 24px; }
         .kanban-board { display: flex; gap: 20px; overflow-x: auto; padding-bottom: 16px; align-items: flex-start; min-height: 60vh; }
         .kanban-column { background: #F0F3F7; border-radius: var(--radius-sm); border: 1px solid var(--border-color); width: 300px; min-width: 300px; padding: 16px; display: flex; flex-direction: column; gap: 12px; min-height: 250px;}
         .kanban-col-header { font-size: 0.85rem; font-weight: 800; color: var(--navy); text-transform: uppercase; display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
-        .kanban-col-count { background: var(--border-color); color: var(--navy); padding: 2px 8px; border-radius: 12px; font-size: 0.7rem; }
-        .kanban-card { background: var(--white); border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 14px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); cursor: grab; transition: var(--transition); border-left: 4px solid var(--navy); margin-bottom: 8px;}
+        .kanban-card { background: var(--white); border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 14px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); cursor: grab; transition: var(--transition); border-left: 4px solid var(--navy); margin-bottom: 8px; position: relative;}
         .kanban-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
         .kanban-card.linkedin { border-left-color: #0077b5; }
         .kanban-card.instagram { border-left-color: #E1306C; }
@@ -239,15 +187,13 @@
         .kanban-card-title { font-size: 0.9rem; font-weight: 700; color: var(--navy); margin-bottom: 8px; line-height: 1.4; }
         .kanban-card-meta { display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem; color: var(--text-muted); border-top: 1px solid var(--border-color); padding-top: 8px;}
         .kanban-avatar { font-weight: bold; background: var(--pale-blue); padding: 2px 6px; border-radius: 4px; color: var(--navy); }
-        
         .kanban-card.dragging { opacity: 0.5; }
         .kanban-column.drag-over { background: #e3e8ee; border: 2px dashed var(--navy); }
     </style>
 </head>
 <body>
-    <!-- ========================================== -->
-    <!-- GÜVENLİK KALKANI VE ŞİFRE EKRANI (BURAYA EKLENİYOR) -->
-    <!-- ========================================== -->
+
+    <!-- GÜVENLİK KALKANI VE ŞİFRE EKRANI -->
     <div id="auth-overlay" style="position:fixed; top:0; left:0; width:100%; height:100%; background:#071931; z-index:99999; display:flex; justify-content:center; align-items:center;">
         <div style="background:white; padding:35px 30px; border-radius:12px; text-align:center; max-width:360px; width:100%; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
             <h3 style="margin-bottom:10px; color:#071931; font-weight:800;">NXT Yönetim Girişi</h3>
@@ -261,7 +207,6 @@
     <script>
         function checkPassword() {
             const inputPass = document.getElementById('admin-pass').value;
-            // Ortak belirleyeceğiniz şifre (Burayı istediğiniz gibi değiştirebilirsiniz)
             if (inputPass === "nxt2026") {
                 document.getElementById('auth-overlay').style.display = 'none';
                 localStorage.setItem('nxt_logged_in', 'true');
@@ -271,22 +216,14 @@
                 document.getElementById('admin-pass').value = "";
             }
         }
-
-        // Enter tuşuna basınca direkt giriş yapsın
-        function handleKeyPress(e) {
-            if (e.key === 'Enter') {
-                checkPassword();
-            }
-        }
-
-        // Sayfa yüklendiğinde daha önce giriş yaptıysa şifreyi tekrar sormasın
-        window.addEventListener('DOMContentLoaded', (event) => {
+        function handleKeyPress(e) { if (e.key === 'Enter') checkPassword(); }
+        window.addEventListener('DOMContentLoaded', () => {
             if (localStorage.getItem('nxt_logged_in') === 'true') {
                 document.getElementById('auth-overlay').style.display = 'none';
             }
         });
     </script>
-    <!-- ========================================== -->
+
     <!-- NAVBAR -->
     <header class="navbar">
         <div class="nav-inner">
@@ -323,23 +260,22 @@
                 </div>
             </div>
 
-            <!-- Hızlı Şablonlar -->
+            <!-- Hızlı Şablonlar (Ekleme, Silme Özellikli) -->
             <div class="section" style="margin-bottom: 24px;">
-                <div class="section-header">Hızlı Şablonlar (Quick Copy)</div>
-                <div class="template-grid">
-                    <div class="template-card"><div class="template-title">Öğrenci - Ön Onay (Kabul)</div><button class="template-btn" onclick="copyTemplate(this, 'fellowKabul')">Panoya Kopyala</button></div>
-                    <div class="template-card"><div class="template-title">Öğrenci - Olumsuz Dönüş</div><button class="template-btn" onclick="copyTemplate(this, 'fellowRed')">Panoya Kopyala</button></div>
-                    <div class="template-card"><div class="template-title">Şirket - İlk Tanışma Maili</div><button class="template-btn" onclick="copyTemplate(this, 'sirketTanisma')">Panoya Kopyala</button></div>
-                    <div class="template-card"><div class="template-title">LinkedIn - Genel Teşekkür</div><button class="template-btn" onclick="copyTemplate(this, 'linkedinTesekkur')">Panoya Kopyala</button></div>
+                <div class="section-header">
+                    Hızlı Şablonlar (Quick Copy)
+                    <button class="btn-primary" onclick="openTemplateModal()" style="font-size: 0.75rem; padding: 4px 8px;">+ Şablon Ekle</button>
+                </div>
+                <div class="template-grid" id="template-grid-container">
+                    <!-- Dinamik yüklenecek -->
                 </div>
             </div>
 
             <!-- Yapılacaklar -->
             <div class="section">
-                <div class="section-header">Operasyon & Yapılacaklar <button class="btn-primary" id="btn-yeni-gorev">+ Yeni Görev</button></div>
+                <div class="section-header">Operasyon & Yapılacaklar <button class="btn-primary" onclick="openTaskModal()">+ Yeni Görev</button></div>
                 <div class="main-task-list" id="task-list">
-                    <div class="main-task-item"><div class="task-left"><input type="checkbox" onchange="toggleTask(this)"><div><div class="task-title">Başvuru Excel Tablosunun Güncellenmesi</div><div class="task-desc">Gelen son 15 başvurunun drive üzerindeki değerlendirme excel'ine işlenmesi.</div></div></div><div class="task-assignee"><span style="width: 8px; height: 8px; background: var(--burgundy); border-radius: 50%;"></span>Emir</div></div>
-                    <div class="main-task-item"><div class="task-left"><input type="checkbox" onchange="toggleTask(this)"><div><div class="task-title">X Holding Tanışma Toplantısı Hazırlığı</div><div class="task-desc">Kurumsal partnerlik için şirket sunumunun departmana özel güncellenmesi.</div></div></div><div class="task-assignee"><span style="width: 8px; height: 8px; background: #2D1B4E; border-radius: 50%;"></span>Sümeyye</div></div>
+                    <!-- Dinamik yüklenecek -->
                 </div>
             </div>
         </div>
@@ -347,13 +283,13 @@
         <div class="right-column">
             <!-- Bugünün Ajandası -->
             <div class="section" style="margin-bottom: 24px;">
-                <div class="section-header" style="font-size: 1.1rem; border-bottom: none; margin-bottom: 5px; padding-bottom: 0;">Bugünün Ajandası <button class="btn-primary" id="btn-yeni-gorusme" style="font-size: 0.7rem; padding: 4px 8px;">+ Ekle</button></div>
+                <div class="section-header" style="font-size: 1.1rem; border-bottom: none; margin-bottom: 5px; padding-bottom: 0;">Bugünün Ajandası <button class="btn-primary" onclick="openAgendaModal()" style="font-size: 0.7rem; padding: 4px 8px;">+ Ekle</button></div>
                 <div class="agenda-list" id="agenda-list">
-                    <div class="agenda-item"><span class="agenda-time">14:00</span><span class="agenda-title">NXT Haftalık Ekip Toplantısı</span><a href="#" class="agenda-link">Katıl</a></div>
+                    <!-- Dinamik yüklenecek -->
                 </div>
             </div>
 
-            <!-- Takvim Modülü (Büyüteç Özellikli) -->
+            <!-- Takvim Modülü -->
             <div class="section" style="margin-bottom: 24px;">
                 <div class="section-header" style="font-size: 1.1rem; border-bottom: none; margin-bottom: 5px; padding-bottom: 0;">
                     Takvim & Dönüm Noktaları
@@ -362,8 +298,7 @@
                 <div class="calendar-header"><button class="nav-btn" onclick="changeSmallMonth(-1)">&lt;</button><span id="calendar-month-year">Aralık 2026</span><button class="nav-btn" onclick="changeSmallMonth(1)">&gt;</button></div>
                 <div class="calendar-grid" id="calendar-days"></div>
                 <div class="milestone-list" id="upcoming-events-list">
-                    <div class="milestone-item"><div class="milestone-date">31<span>Ara</span></div><div class="milestone-info"><h4>Öğrenci Başvurularının Bitişi</h4><p>Sistem saat 23:59 itibariyle kapatılacak.</p></div></div>
-                    <div class="milestone-item"><div class="milestone-date" style="background: var(--pale-blue); color: var(--navy);">14<span>Oca</span></div><div class="milestone-info"><h4>Değerlendirme Sonuçları</h4><p>Seçilen öğrencilere kabul mailleri gönderilecek.</p></div></div>
+                    <!-- Dinamik yüklenecek -->
                 </div>
             </div>
 
@@ -376,12 +311,72 @@
         </div>
     </div>
 
+    <!-- YENİ ŞABLON EKLEME MODALI -->
+    <div class="modal-overlay" id="template-modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeTemplateModal()">&times;</button>
+            <h3 style="color: var(--navy); margin-bottom: 15px; font-weight: 800;">Yeni Hızlı Şablon Ekle</h3>
+            <div class="form-group">
+                <label>Şablon Adı (Başlık)</label>
+                <input type="text" id="template-title-input" class="form-control" placeholder="Örn: Partner Red Maili">
+            </div>
+            <div class="form-group">
+                <label>Şablon İçeriği (Mail Gövdesi)</label>
+                <textarea id="template-body-input" class="form-control" style="height: 120px; resize: none;" placeholder="Mail metnini buraya yazın..."></textarea>
+            </div>
+            <button class="btn-primary" style="width: 100%; padding: 12px;" onclick="saveNewTemplate()">Şablonu Kaydet</button>
+        </div>
+    </div>
+
+    <!-- GÖREV EKLEME MODALI -->
+    <div class="modal-overlay" id="task-modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeTaskModal()">&times;</button>
+            <h3 style="color: var(--navy); margin-bottom: 15px; font-weight: 800;">Yeni Operasyon Görevi Ekle</h3>
+            <div class="form-group">
+                <label>Görev Başlığı</label>
+                <input type="text" id="task-title-input" class="form-control" placeholder="Örn: Başvuru Tablosu Güncellemesi">
+            </div>
+            <div class="form-group">
+                <label>Detaylı Açıklama</label>
+                <textarea id="task-desc-input" class="form-control" style="height: 80px; resize: none;" placeholder="Görevle ilgili kısa detay..."></textarea>
+            </div>
+            <div class="form-group">
+                <label>Sorumlu Kişi</label>
+                <input type="text" id="task-assignee-input" class="form-control" placeholder="Örn: Emir / Sümeyye / Ekip">
+            </div>
+            <button class="btn-primary" style="width: 100%; padding: 12px;" onclick="saveNewTask()">Görevi Kaydet</button>
+        </div>
+    </div>
+
+    <!-- AJANDA GÖRÜŞME EKLEME MODALI (Saat Seçicili) -->
+    <div class="modal-overlay" id="agenda-modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeAgendaModal()">&times;</button>
+            <h3 style="color: var(--navy); margin-bottom: 15px; font-weight: 800;">Yeni Toplantı / Görüşme Ekle</h3>
+            <div class="form-group">
+                <label>Görüşme Saati</label>
+                <input type="time" id="agenda-time-input" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Görüşme Başlığı / Kişi Adı</label>
+                <input type="text" id="agenda-title-input" class="form-control" placeholder="Örn: QNB Finansbank Tanışma Toplantısı">
+            </div>
+            <div class="form-group">
+                <label>Toplantı Linki (Google Meet / Zoom vb.)</label>
+                <input type="url" id="agenda-link-input" class="form-control" placeholder="https://meet.google.com/...">
+            </div>
+            <button class="btn-primary" style="width: 100%; padding: 12px;" onclick="saveNewAgenda()">Ajandaya Ekle</button>
+        </div>
+    </div>
+
     <!-- BÜYÜK TAKVİM MODALI -->
     <div class="modal-overlay" id="calendar-modal">
-        <div class="modal-content">
+        <div class="modal-content modal-large">
             <button class="modal-close" onclick="closeLargeCalendar()">&times;</button>
-            <div class="section-header" style="border-bottom: none; margin-bottom: 0;">NXT Operasyon Takvimi (Tıklayıp Etkinlik Ekle)</div>
-            <div class="calendar-header" style="margin-top: 20px;">
+            <div class="section-header" style="border-bottom: none; margin-bottom: 0;">NXT Operasyon Takvimi</div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 15px;">Herhangi bir güne tıklayarak o güne özel etkinlik/dönüm noktası ekleyebilirsiniz.</p>
+            <div class="calendar-header" style="margin-top: 10px;">
                 <button class="nav-btn" onclick="changeLargeMonth(-1)">&lt;</button>
                 <span id="large-cal-title" style="font-size: 1.2rem; font-weight: bold;">Aralık 2026</span>
                 <button class="nav-btn" onclick="changeLargeMonth(1)">&gt;</button>
@@ -394,7 +389,24 @@
         </div>
     </div>
 
-    <!-- 2. SEKME: FELLOW BAŞVURULARI (FİLTRELENEBİLİR) -->
+    <!-- TAKVİM ETKİNLİK DETAY MODALI -->
+    <div class="modal-overlay" id="event-modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeEventModal()">&times;</button>
+            <h3 style="color: var(--navy); margin-bottom: 15px; font-weight: 800;" id="event-modal-date-title">Tarih Etkinliği</h3>
+            <div class="form-group">
+                <label>Etkinlik Başlığı</label>
+                <input type="text" id="event-title-input" class="form-control" placeholder="Örn: Son Başvuru Günü">
+            </div>
+            <div class="form-group">
+                <label>Açıklama / Detay</label>
+                <textarea id="event-desc-input" class="form-control" style="height: 80px; resize: none;" placeholder="Etkinlik kuralları veya saat detayı..."></textarea>
+            </div>
+            <button class="btn-primary" style="width: 100%; padding: 12px;" onclick="saveCalendarEvent()">Etkinliği Kaydet</button>
+        </div>
+    </div>
+
+    <!-- Diğer Sekmeler (Fellow, Şirketler, İçerik, Sosyal Medya) -->
     <div class="tab-pane full-width" id="tab-fellow">
         <div class="section" style="width: 100%; min-height: 80vh;">
             <div class="section-header">
@@ -404,37 +416,29 @@
                     <button class="btn-primary">Başvuruları Yenile</button>
                 </div>
             </div>
-            
             <div class="filter-bar" id="fellow-filters">
                 <button class="filter-btn active" data-filter="all">Tüm Adaylar</button>
                 <button class="filter-btn" data-filter="status-new">Yeni</button>
                 <button class="filter-btn" data-filter="status-review">İnceleniyor</button>
                 <button class="filter-btn" data-filter="status-rejected">Reddedildi</button>
             </div>
-
             <table class="ats-table" id="fellow-table">
-                <thead>
-                    <tr><th>Aday Profili</th><th>Üniversite / Bölüm</th><th>Başvuru Tarihi</th><th>Aşama</th><th style="text-align: right;">Aksiyonlar</th></tr>
-                </thead>
+                <thead><tr><th>Aday Profili</th><th>Üniversite / Bölüm</th><th>Başvuru Tarihi</th><th>Aşama</th><th style="text-align: right;">Aksiyonlar</th></tr></thead>
                 <tbody>
                     <tr data-status="status-new"><td><span class="applicant-name">Deniz Kaya</span><span class="applicant-sub">deniz@itu.edu.tr</span></td><td><strong>İTÜ</strong><br><span class="applicant-sub">Endüstri Mühendisliği • 3. Sınıf</span></td><td>20 Eki 2026<br><span class="applicant-sub">14:30</span></td><td><span class="status-badge status-new">Yeni Başvuru</span></td><td><div class="action-btns" style="justify-content: flex-end;"><a href="https://linkedin.com" target="_blank" class="action-btn linkedin">in</a><button class="action-btn">👁</button></div></td></tr>
                     <tr data-status="status-review"><td><span class="applicant-name">Ayşe Yılmaz</span><span class="applicant-sub">ayse.y@boun.edu.tr</span></td><td><strong>Boğaziçi Üniversitesi</strong><br><span class="applicant-sub">İşletme • 2. Sınıf</span></td><td>21 Eki 2026<br><span class="applicant-sub">09:15</span></td><td><span class="status-badge status-review">İnceleniyor</span></td><td><div class="action-btns" style="justify-content: flex-end;"><a href="https://linkedin.com" target="_blank" class="action-btn linkedin">in</a><button class="action-btn">👁</button></div></td></tr>
                     <tr data-status="status-new"><td><span class="applicant-name">Burak Demir</span><span class="applicant-sub">burak@metu.edu.tr</span></td><td><strong>ODTÜ</strong><br><span class="applicant-sub">Bilgisayar Mühendisliği • 3. Sınıf</span></td><td>21 Eki 2026<br><span class="applicant-sub">11:45</span></td><td><span class="status-badge status-new">Yeni Başvuru</span></td><td><div class="action-btns" style="justify-content: flex-end;"><a href="https://linkedin.com" target="_blank" class="action-btn linkedin">in</a><button class="action-btn">👁</button></div></td></tr>
-                    <tr data-status="status-review"><td><span class="applicant-name">Zeynep Çelik</span><span class="applicant-sub">zeynepc@yildiz.edu.tr</span></td><td><strong>Yıldız Teknik Üniversitesi</strong><br><span class="applicant-sub">Ekonomi • 4. Sınıf</span></td><td>21 Eki 2026<br><span class="applicant-sub">13:20</span></td><td><span class="status-badge status-review">İnceleniyor</span></td><td><div class="action-btns" style="justify-content: flex-end;"><a href="https://linkedin.com" target="_blank" class="action-btn linkedin">in</a><button class="action-btn">👁</button></div></td></tr>
-                    <tr data-status="status-rejected"><td><span class="applicant-name">Elif Şahin</span><span class="applicant-sub">elif@ku.edu.tr</span></td><td><strong>Koç Üniversitesi</strong><br><span class="applicant-sub">İşletme • 1. Sınıf</span></td><td>21 Eki 2026<br><span class="applicant-sub">16:05</span></td><td><span class="status-badge status-rejected">Reddedildi</span></td><td><div class="action-btns" style="justify-content: flex-end;"><a href="https://linkedin.com" target="_blank" class="action-btn linkedin">in</a><button class="action-btn">👁</button></div></td></tr>
                 </tbody>
             </table>
         </div>
     </div>
 
-    <!-- 3. SEKME: ŞİRKETLER (CRM) -->
     <div class="tab-pane full-width" id="tab-sirket">
         <div class="funnel-stats">
             <div class="funnel-card"><div class="funnel-number">14</div><div class="funnel-label">Toplam Temas (Pipeline)</div></div>
             <div class="funnel-card"><div class="funnel-number">6</div><div class="funnel-label">Aktif Görüşülen Kurum</div></div>
             <div class="funnel-card" style="border-left: 4px solid var(--burgundy);"><div class="funnel-number" style="color: var(--burgundy);">1 / 8</div><div class="funnel-label">Onaylanan Partner Şirket</div></div>
         </div>
-
         <div class="crm-layout">
             <div class="section" style="min-height: 60vh;">
                 <div class="section-header">B2B İletişim Havuzu <button class="btn-primary" style="font-size: 0.75rem;">+ Şirket Ekle</button></div>
@@ -443,136 +447,59 @@
                     <tbody>
                         <tr><td><strong style="color: var(--navy);">QNB Finansbank</strong></td><td>Burak Demir<br><span class="applicant-sub">İK Direktörü</span></td><td>20 Eki 2026</td><td><span class="status-badge status-meeting">Toplantı Bekliyor</span></td><td><div class="action-btns" style="justify-content: flex-end;"><button class="action-btn mail">✉️</button><button class="action-btn">✎</button></div></td></tr>
                         <tr><td><strong style="color: var(--navy);">Koç Holding</strong></td><td>Ayşe Yılmaz<br><span class="applicant-sub">Yetenek Kazanımı Yön.</span></td><td>18 Eki 2026</td><td><span class="status-badge status-review">Görüşüldü (Beklemede)</span></td><td><div class="action-btns" style="justify-content: flex-end;"><button class="action-btn mail">✉️</button><button class="action-btn">✎</button></div></td></tr>
-                        <tr><td><strong style="color: var(--navy);">Trendyol</strong></td><td>Can Özkan<br><span class="applicant-sub">İşveren Markası Lideri</span></td><td>21 Eki 2026</td><td><span class="status-badge status-review">Sözleşme Aşamasında</span></td><td><div class="action-btns" style="justify-content: flex-end;"><button class="action-btn mail">✉️</button><button class="action-btn">✎</button></div></td></tr>
-                        <tr><td><strong style="color: var(--navy);">Eczacıbaşı</strong></td><td>Elif Şahin<br><span class="applicant-sub">Eğitim & Gelişim</span></td><td>21 Eki 2026</td><td><span class="status-badge status-new">Yeni Talep</span></td><td><div class="action-btns" style="justify-content: flex-end;"><button class="action-btn mail">✉️</button><button class="action-btn">✎</button></div></td></tr>
-                        <tr style="background: rgba(46, 125, 50, 0.04);"><td><strong style="color: var(--navy);">Getir</strong></td><td>Murat Yıldız<br><span class="applicant-sub">İşe Alım Müdürü</span></td><td>10 Eki 2026</td><td><span class="status-badge status-approved">Partner (Onaylandı)</span></td><td><div class="action-btns" style="justify-content: flex-end;"><button class="action-btn mail">✉️</button><button class="action-btn">✎</button></div></td></tr>
                     </tbody>
                 </table>
             </div>
-
             <div>
-                <div class="section">
-                    <div class="section-header" style="font-size: 1.1rem; border-bottom: none; margin-bottom: 5px; padding-bottom: 0;">B2B Mail Şablonları</div>
-                    <div class="template-grid" style="grid-template-columns: 1fr;">
-                        <div class="template-card" style="padding: 12px;"><div class="template-title" style="margin-bottom: 8px;">1. İlk Temas (Cold Email)</div><button class="template-btn" onclick="copyTemplate(this, 'b2bCold')">Gövdeyi Kopyala</button></div>
-                        <div class="template-card" style="padding: 12px;"><div class="template-title" style="margin-bottom: 8px;">2. Toplantı Sonrası Takip</div><button class="template-btn" onclick="copyTemplate(this, 'b2bFollowup')">Gövdeyi Kopyala</button></div>
-                        <div class="template-card" style="padding: 12px;"><div class="template-title" style="margin-bottom: 8px;">3. Teklif (Proposal) İletimi</div><button class="template-btn" onclick="copyTemplate(this, 'b2bProposal')">Gövdeyi Kopyala</button></div>
-                    </div>
-                </div>
-
                 <div class="pitch-card">
                     <h4>NXT B2B Satış Argümanları</h4>
                     <ul>
                         <li><span>✦</span> Biz etkinlik değil, <strong>"topluluk"</strong> satıyoruz.</li>
                         <li><span>✦</span> Marka elçiliğini reklamla değil, <strong>"mentorlar"</strong> ile sağlıyoruz.</li>
-                        <li><span>✦</span> 6 ay sonunda kişisel veriyi değil, şirketlere <strong>"stratejik içgörü raporunu"</strong> veriyoruz.</li>
                     </ul>
                 </div>
             </div>
         </div>
     </div>
     
-    <!-- 4. SEKME: İÇERİK YÖNETİMİ (FİLTRELENEBİLİR CMS) -->
     <div class="tab-pane full-width" id="tab-icerik">
         <div class="section" style="width: 100%; min-height: 80vh;">
-            
-            <div class="section-header">
-                Kurumsal İçerik Yönetimi (CMS)
-                <button class="btn-primary" style="background: var(--navy);">+ Yeni Belge Yükle</button>
-            </div>
-
-            <!-- Filtreler -->
-            <div class="filter-bar" id="content-filters" style="margin-bottom: 24px;">
-                <button class="filter-btn active" data-filter="all">Tüm İçerikler</button>
-                <button class="filter-btn" data-filter="web">Web Metinleri</button>
-                <button class="filter-btn" data-filter="pdf">PDF / Dokümanlar</button>
-            </div>
-
-            <!-- İçerik Kütüphanesi Tablosu -->
+            <div class="section-header">Kurumsal İçerik Yönetimi (CMS) <button class="btn-primary">+ Yeni Belge</button></div>
             <table class="ats-table" id="content-table">
-                <thead>
-                    <tr>
-                        <th>Doküman / İçerik Adı</th>
-                        <th>Tür</th>
-                        <th>Son Güncelleme</th>
-                        <th>Sorumlu</th>
-                        <th style="text-align: right;">Aksiyon</th>
-                    </tr>
-                </thead>
+                <thead><tr><th>Doküman / İçerik Adı</th><th>Tür</th><th>Son Güncelleme</th><th>Sorumlu</th><th style="text-align: right;">Aksiyon</th></tr></thead>
                 <tbody>
-                    <tr data-type="web">
-                        <td><strong style="color: var(--navy); display: block;">NXT Manifestosu (Hakkımızda)</strong><span class="applicant-sub">Ana sayfa vizyon metni.</span></td>
-                        <td><span class="badge-type" style="background: #e8f4fa; color: #0077b5;">Web Metni</span></td>
-                        <td>15 Eki 2026</td>
-                        <td><span class="kanban-avatar">EÇ</span> Emir Çanakkale</td>
-                        <td><div class="action-btns" style="justify-content: flex-end;"><a href="landing.html#vizyon-misyon" target="_blank" class="action-btn" title="Görüntüle">👁</a><button class="action-btn edit" title="Düzenle">✎</button></div></td>
-                    </tr>
-                    <tr data-type="pdf">
-                        <td><strong style="color: var(--navy); display: block;">NXT Program Playbook v1.0</strong><span class="applicant-sub">Programın tüm işleyiş kuralları.</span></td>
-                        <td><span class="badge-type" style="background: #ffebee; color: #c62828;">PDF / Doküman</span></td>
-                        <td>20 Eki 2026</td>
-                        <td><span class="kanban-avatar">Ekip</span></td>
-                        <td><div class="action-btns" style="justify-content: flex-end;"><a href="https://docs.google.com/document/d/1wKs9hyXCw9NKzwplBEwgSfKvKEzWx37_KsabLS6uSJo" target="_blank" class="action-btn" title="Drive'da Aç">↗</a></div></td>
-                    </tr>
-                    <tr data-type="pdf">
-                        <td><strong style="color: var(--navy); display: block;">Mentor El Kitabı ve Çerçeveler</strong><span class="applicant-sub">Partner şirket mentorlarına gönderilecek rehber.</span></td>
-                        <td><span class="badge-type" style="background: #ffebee; color: #c62828;">PDF / Doküman</span></td>
-                        <td>18 Eki 2026</td>
-                        <td><span class="kanban-avatar">ST</span> Sümeyye Tezcan</td>
-                        <td><div class="action-btns" style="justify-content: flex-end;"><a href="#" class="action-btn" title="İndir">↓</a><button class="action-btn edit" title="Güncelle">✎</button></div></td>
-                    </tr>
-                    <tr data-type="web">
-                        <td><strong style="color: var(--navy); display: block;">Sıkça Sorulan Sorular (SSS)</strong><span class="applicant-sub">Öğrencilerin web sitesinde en çok sorduğu sorular.</span></td>
-                        <td><span class="badge-type" style="background: #e8f4fa; color: #0077b5;">Web Metni</span></td>
-                        <td>05 Eki 2026</td>
-                        <td><span class="kanban-avatar">Ekip</span></td>
-                        <td><div class="action-btns" style="justify-content: flex-end;"><a href="#" class="action-btn" title="Görüntüle">👁</a><button class="action-btn edit" title="Düzenle">✎</button></div></td>
-                    </tr>
+                    <tr data-type="web"><td><strong>NXT Manifestosu</strong></td><td><span class="badge-type">Web Metni</span></td><td>15 Eki 2026</td><td>Emir Çanakkale</td><td><div class="action-btns" style="justify-content: flex-end;"><button class="action-btn edit">✎</button></div></td></tr>
+                    <tr data-type="pdf"><td><strong>Program Playbook</strong></td><td><span class="badge-type">PDF</span></td><td>20 Eki 2026</td><td>Ekip</td><td><div class="action-btns" style="justify-content: flex-end;"><a href="#" class="action-btn">↗</a></div></td></tr>
                 </tbody>
             </table>
         </div>
     </div>
     
-    <!-- 5. SEKME: SOSYAL MEDYA (SÜRÜKLE BIRAK KANBAN) -->
     <div class="tab-pane full-width" id="tab-sosyal">
         <div class="section-header" style="margin-bottom: 24px;">
             Sosyal Medya & İçerik Planlaması
-            <div style="display: flex; gap: 12px;">
+            <div>
                 <button class="btn-primary" style="background: var(--white); color: var(--navy); border: 1px solid var(--border-color);" onclick="copyHashtags(this)"># Hashtag Setini Kopyala</button>
                 <button class="btn-primary" id="btn-yeni-icerik">+ Yeni İçerik Kartı</button>
             </div>
         </div>
-
         <div class="kanban-board">
-            <div class="kanban-column dropzone" data-col="Fikirler">
-                <div class="kanban-col-header">Fikirler & Taslaklar <span class="kanban-col-count" id="count-fikir">2</span></div>
-            </div>
-
-            <div class="kanban-column dropzone" data-col="Tasarım">
-                <div class="kanban-col-header">Tasarım Bekleyen <span class="kanban-col-count" id="count-tasarim">1</span></div>
-            </div>
-
-            <div class="kanban-column dropzone" data-col="Planlandı">
-                <div class="kanban-col-header">Yayına Hazır / Planlandı <span class="kanban-col-count" id="count-planlandi">1</span></div>
-            </div>
-
-            <div class="kanban-column dropzone" data-col="Paylaşıldı">
-                <div class="kanban-col-header">Paylaşıldı <span class="kanban-col-count" id="count-paylasildi">1</span></div>
-            </div>
+            <div class="kanban-column dropzone" data-col="Fikirler"><div class="kanban-col-header">Fikirler & Taslaklar</div></div>
+            <div class="kanban-column dropzone" data-col="Tasarım"><div class="kanban-col-header">Tasarım Bekleyen</div></div>
+            <div class="kanban-column dropzone" data-col="Planlandı"><div class="kanban-col-header">Yayına Hazır / Planlandı</div></div>
+            <div class="kanban-column dropzone" data-col="Paylaşıldı"><div class="kanban-col-header">Paylaşıldı</div></div>
         </div>
     </div>
 
     <!-- JAVASCRIPT FONKSİYONLARI -->
     <script>
-        // CANLI SAAT
         function updateTime() {
-            const now = new Date();
-            document.getElementById('live-time').textContent = now.toLocaleTimeString('tr-TR', { hour: '2-digit', minute: '2-digit' });
+            document.getElementById('live-time').textContent = new Date().toLocaleTimeString('tr-TR', { hour: '2-digit', minute: '2-digit' });
         }
         setInterval(updateTime, 1000);
         updateTime();
 
-        // SEKMELER ARASI GEÇİŞ
+        // Sekmeler
         const navLinks = document.querySelectorAll('.nav-link');
         const tabPanes = document.querySelectorAll('.tab-pane');
         navLinks.forEach(link => {
@@ -581,90 +508,78 @@
                 navLinks.forEach(l => l.classList.remove('active'));
                 tabPanes.forEach(t => t.classList.remove('active'));
                 this.classList.add('active');
-                
                 const targetId = this.getAttribute('data-target');
                 const targetPane = document.getElementById(targetId);
                 targetPane.classList.add('active');
-                
-                if(targetId !== 'tab-genel') {
-                    targetPane.classList.add('full-width');
-                }
+                if(targetId !== 'tab-genel') targetPane.classList.add('full-width');
             });
         });
 
-        // HIZLI ŞABLONLAR
-        const templates = {
-            'fellowKabul': "Tebrikler!\n\nNXT 1. Dönem Fellow programına yaptığın başvuru başarıyla sonuçlandı. Seni bu toplulukta görmek için sabırsızlanıyoruz.\n\nSevgiler,\nNXT Yönetim Ekibi",
-            'fellowRed': "Merhaba,\n\nNXT Fellow programına gösterdiğin yoğun ilgi için teşekkür ederiz. Bu dönemki sınırlı kontenjanımız sebebiyle başvuruna olumlu dönüş yapamıyoruz ancak sonraki dönemlerde seni tekrar aramızda görmeyi çok isteriz.\n\nNXT Yönetim Ekibi",
-            'sirketTanisma': "Değerli Yöneticim Merhaba,\n\nYüksek potansiyelli üniversite öğrencileri ile kurumları güven odaklı bir toplulukta buluşturan NXT ekosistemi hakkında sizinle tanışmak ve partnerlik vizyonumuzu aktarmak isteriz. Uygun olduğunuz bir zaman diliminde kısa bir toplantı organize edebilir miyiz?\n\nEmir Çanakkale - Kurucu Ortak",
-            'linkedinTesekkur': "NXT 1. Dönem başvurularımız gösterdiğiniz harika ilgiyle tamamlandı! Sürecin başından beri yanımızda olan tüm paydaşlarımıza teşekkür ederiz. #NXT #NetworkXTalent",
-            'b2bCold': "Sayın [YETKİLİ ADI] Merhaba,\n\nBen NXT'den Emir. Şirketinizin genç yetenek kazanımı ve işveren markası vizyonunu yakından takip ediyoruz.\n\nNXT olarak; yüksek potansiyelli öğrencileri işe alım döneminden aylar önce sizin kurum kültürünüzle tanıştıran, bunu tekil etkinliklerle değil 6 aylık güven odaklı bir mentorluk topluluğuyla sağlayan bir model yürütüyoruz. Dönem sonunda ise markanızın gençler üzerindeki algısını 'Stratejik İçgörü Raporu' ile sunuyoruz.\n\nSınırlı sayıda (6-8) şirketin yer aldığı yeni dönem kohortumuzda sizi de aramızda görmek isteriz. Uygun olduğunuz bir tarihte 15 dakikalık kısa bir tanışma toplantısı organize edebilir miyiz?\n\nSaygılarımla,",
-            'b2bFollowup': "Sayın [YETKİLİ ADI],\n\nBugünkü değerli vaktiniz ve verimli sohbetimiz için çok teşekkür ederim.\n\nToplantıda bahsettiğimiz üzere NXT'nin şirketiniz için yaratacağı employer branding etkisini ve program takvimini detaylandıran sunum dosyamızı ekte dikkatinize sunuyorum.\n\nİyi çalışmalar dilerim,",
-            'b2bProposal': "Sayın [YETKİLİ ADI],\n\nGörüşmelerimiz neticesinde NXT 1. Dönem Partnerlik Taslağını ve bütçe detaylarını ekte bilginize sunuyorum. Sözleşme adımlarına geçmeden önce sormak istediğiniz herhangi bir nokta olursa memnuniyetle yanıtlamak isteriz.\n\nSevgiler,"
-        };
+        // --- HIZLI ŞABLONLAR (Dinamik & LocalStorage Destekli) ---
+        let templates = JSON.parse(localStorage.getItem('nxt_templates')) || [
+            { id: 'fellowKabul', title: "Öğrenci - Kabul", body: "Tebrikler!\n\nNXT 1. Dönem Fellow programına yaptığın başvuru başarıyla sonuçlandı. Seni bu toplulukta görmek için sabırsızlanıyoruz.\n\nSevgiler,\nNXT Yönetim Ekibi" },
+            { id: 'fellowRed', title: "Öğrenci - Red", body: "Merhaba,\n\nNXT Fellow programına gösterdiğin yoğun ilgi için teşekkür ederiz. Bu dönemki sınırlı kontenjanımız sebebiyle başvuruna olumlu dönüş yapamıyoruz.\n\nNXT Yönetim Ekibi" },
+            { id: 'sirketTanisma', title: "Şirket - İlk Temas", body: "Değerli Yöneticim Merhaba,\n\nYüksek potansiyelli üniversite öğrencileri ile kurumları güven odaklı bir toplulukta buluşturan NXT ekosistemi hakkında kısa bir toplantı organize edebilir miyiz?\n\nEmir Çanakkale - Kurucu Ortak" }
+        ];
+
+        function renderTemplates() {
+            const container = document.getElementById('template-grid-container');
+            if(!container) return;
+            container.innerHTML = "";
+            templates.forEach(t => {
+                container.innerHTML += `
+                    <div class="template-card">
+                        <button class="delete-btn" style="position: absolute; top: 10px; right: 10px;" onclick="deleteTemplate('${t.id}')" title="Şablonu Sil">×</button>
+                        <div class="template-title">${t.title}</div>
+                        <button class="template-btn" onclick="copyDynamicTemplate(this, '${t.id}')">Panoya Kopyala</button>
+                    </div>`;
+            });
+            localStorage.setItem('nxt_templates', JSON.stringify(templates));
+        }
+
+        function openTemplateModal() { document.getElementById('template-modal').classList.add('active'); }
+        function closeTemplateModal() { document.getElementById('template-modal').classList.remove('active'); }
         
-        function copyTemplate(button, templateKey) {
-            navigator.clipboard.writeText(templates[templateKey]).then(() => {
-                const originalText = button.innerText;
-                button.innerText = "✓ Kopyalandı";
-                button.style.background = "#2e7d32"; button.style.color = "white";
-                setTimeout(() => { button.innerText = originalText; button.style.background = ""; button.style.color = ""; }, 2000);
-            });
+        function saveNewTemplate() {
+            const title = document.getElementById('template-title-input').value;
+            const body = document.getElementById('template-body-input').value;
+            if(!title || !body) { alert("Lütfen tüm alanları doldurun."); return; }
+            templates.push({ id: 't_' + Date.now(), title, body });
+            renderTemplates();
+            document.getElementById('template-title-input').value = "";
+            document.getElementById('template-body-input').value = "";
+            closeTemplateModal();
         }
 
-        // HASHTAG KOPYALAMA
+        function deleteTemplate(id) {
+            if(confirm("Bu şablonu silmek istediğinize emin misiniz?")) {
+                templates = templates.filter(t => t.id !== id);
+                renderTemplates();
+            }
+        }
+
+        function copyDynamicTemplate(btn, id) {
+            const t = templates.find(x => x.id === id);
+            if(!t) return;
+            navigator.clipboard.writeText(t.body).then(() => {
+                const orig = btn.innerText;
+                btn.innerText = "✓ Kopyalandı"; btn.style.background = "#2e7d32"; btn.style.color = "white";
+                setTimeout(() => { btn.innerText = orig; btn.style.background = ""; btn.style.color = ""; }, 2000);
+            });
+        }
+        renderTemplates();
+
         function copyHashtags(button) {
-            const hashtagText = "#NXT #NetworkXTalent #GeleceğinLiderleri #KariyerTopluluğu #Mentorluk #ErkenYetenek";
-            navigator.clipboard.writeText(hashtagText).then(() => {
-                const originalText = button.innerText;
-                button.innerText = "✓ Kopyalandı";
-                setTimeout(() => { button.innerText = originalText; }, 2000);
+            navigator.clipboard.writeText("#NXT #NetworkXTalent #GeleceğinLiderleri #KariyerTopluluğu #Mentorluk #ErkenYetenek").then(() => {
+                const orig = button.innerText; button.innerText = "✓ Kopyalandı";
+                setTimeout(() => { button.innerText = orig; }, 2000);
             });
         }
 
-        // TABLOLARDA FİLTRELEME (Fellow Başvuruları & İçerik Yönetimi)
-        function setupFilters(filterBarId, tableId, attrName) {
-            const bar = document.getElementById(filterBarId);
-            if(!bar) return;
-            const buttons = bar.querySelectorAll('.filter-btn');
-            const rows = document.querySelectorAll(`#${tableId} tbody tr`);
-
-            buttons.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    buttons.forEach(b => b.classList.remove('active'));
-                    this.classList.add('active');
-                    const filter = this.getAttribute('data-filter');
-
-                    rows.forEach(row => {
-                        if(filter === 'all' || row.getAttribute(attrName) === filter) {
-                            row.classList.remove('hidden-row');
-                        } else {
-                            row.classList.add('hidden-row');
-                        }
-                    });
-                });
-            });
-        }
-        setupFilters('fellow-filters', 'fellow-table', 'data-status');
-        setupFilters('content-filters', 'content-table', 'data-type');
-
-        // --- LOCAL STORAGE (Veri Kaydetme) ---
-        // Notlar
-        const noteArea = document.getElementById('quick-note-text');
-        if(noteArea) {
-            noteArea.value = localStorage.getItem('nxt_note') || "";
-            document.getElementById('btn-save-note').addEventListener('click', function() {
-                localStorage.setItem('nxt_note', noteArea.value);
-                const orig = this.innerText;
-                this.innerText = "✓ Kaydedildi"; this.style.backgroundColor = "#2e7d32";
-                setTimeout(() => { this.innerText = orig; this.style.backgroundColor = ""; }, 1500);
-            });
-        }
-
-        // Görevler
+        // --- GÖREVLER (Modal ile) ---
         let tasks = JSON.parse(localStorage.getItem('nxt_tasks')) || [
-            { id: 1, title: "Başvuru Excel Tablosunun Güncellenmesi", desc: "Son başvuruları aktar", done: false },
-            { id: 2, title: "X Holding Sunumu", desc: "Toplantı hazırlığı", done: false }
+            { id: 1, title: "Başvuru Excel Tablosunun Güncellenmesi", desc: "Gelen son 15 başvurunun değerlendirme excel'ine işlenmesi.", assignee: "Emir", done: false },
+            { id: 2, title: "X Holding Toplantı Hazırlığı", desc: "Şirket sunumunun departmana özel güncellenmesi.", assignee: "Sümeyye", done: false }
         ];
         function renderTasks() {
             const list = document.getElementById('task-list');
@@ -677,55 +592,83 @@
                             <input type="checkbox" onchange="toggleTask(${t.id})" ${t.done ? 'checked' : ''}>
                             <div><div class="task-title">${t.title}</div><div class="task-desc">${t.desc}</div></div>
                         </div>
+                        <div style="display:flex; align-items:center; gap: 10px;">
+                            <div class="task-assignee"><span style="width: 8px; height: 8px; background: var(--burgundy); border-radius: 50%;"></span>${t.assignee}</div>
+                            <button class="delete-btn" onclick="deleteTask(${t.id})" title="Sil">🗑</button>
+                        </div>
                     </div>`;
             });
             localStorage.setItem('nxt_tasks', JSON.stringify(tasks));
         }
-        function toggleTask(id) {
-            const task = tasks.find(t => t.id === id);
-            if(task) task.done = !task.done;
+        function toggleTask(id) { const task = tasks.find(t => t.id === id); if(task) task.done = !task.done; renderTasks(); }
+        function deleteTask(id) { if(confirm("Görevi silmek istiyor musunuz?")) { tasks = tasks.filter(t => t.id !== id); renderTasks(); } }
+        function openTaskModal() { document.getElementById('task-modal').classList.add('active'); }
+        function closeTaskModal() { document.getElementById('task-modal').classList.remove('active'); }
+        function saveNewTask() {
+            const title = document.getElementById('task-title-input').value;
+            const desc = document.getElementById('task-desc-input').value;
+            const assignee = document.getElementById('task-assignee-input').value || "Ekip";
+            if(!title) { alert("Görev başlığı girin."); return; }
+            tasks.unshift({ id: Date.now(), title, desc, assignee, done: false });
             renderTasks();
-        }
-        const btnNewTask = document.getElementById('btn-yeni-gorev');
-        if(btnNewTask) {
-            btnNewTask.addEventListener('click', function() {
-                const title = prompt("Görev Başlığı:"); if(!title) return;
-                tasks.unshift({ id: Date.now(), title, desc: "Yeni eklendi.", done: false });
-                renderTasks();
-            });
+            document.getElementById('task-title-input').value = ""; document.getElementById('task-desc-input').value = ""; document.getElementById('task-assignee-input').value = "";
+            closeTaskModal();
         }
         renderTasks();
 
-        // Ajanda
-        let agenda = JSON.parse(localStorage.getItem('nxt_agenda')) || [{ time: "14:00", title: "Ekip Toplantısı", link: "#" }];
+        // --- AJANDA (Saat seçicili) ---
+        let agenda = JSON.parse(localStorage.getItem('nxt_agenda')) || [{ id: 1, time: "14:00", title: "NXT Haftalık Ekip Toplantısı", link: "https://meet.google.com/" }];
         function renderAgenda() {
             const list = document.getElementById('agenda-list');
             if(!list) return;
             list.innerHTML = "";
             agenda.forEach(a => {
-                list.innerHTML += `<div class="agenda-item"><span class="agenda-time">${a.time}</span><span class="agenda-title">${a.title}</span><a href="${a.link}" target="_blank" class="agenda-link">Katıl</a></div>`;
+                list.innerHTML += `
+                    <div class="agenda-item">
+                        <span class="agenda-time">${a.time}</span>
+                        <span class="agenda-title">${a.title}</span>
+                        <div style="display:flex; align-items:center;">
+                            <a href="${a.link}" target="_blank" class="agenda-link">Katıl</a>
+                            <button class="delete-btn" onclick="deleteAgenda(${a.id})" title="Sil">🗑</button>
+                        </div>
+                    </div>`;
             });
             localStorage.setItem('nxt_agenda', JSON.stringify(agenda));
         }
-        const btnNewAgenda = document.getElementById('btn-yeni-gorusme');
-        if(btnNewAgenda) {
-            btnNewAgenda.addEventListener('click', function() {
-                const time = prompt("Saat (Örn: 14:30):"); if(!time) return;
-                const title = prompt("Başlık:"); if(!title) return;
-                agenda.push({ time, title, link: prompt("Toplantı Linki:") || "#" });
-                agenda.sort((a, b) => a.time.localeCompare(b.time));
-                renderAgenda();
-            });
+        function deleteAgenda(id) { if(confirm("Ajandayı silmek istiyor musunuz?")) { agenda = agenda.filter(a => a.id !== id); renderAgenda(); } }
+        function openAgendaModal() { document.getElementById('agenda-modal').classList.add('active'); }
+        function closeAgendaModal() { document.getElementById('agenda-modal').classList.remove('active'); }
+        function saveNewAgenda() {
+            const time = document.getElementById('agenda-time-input').value;
+            const title = document.getElementById('agenda-title-input').value;
+            const link = document.getElementById('agenda-link-input').value || "#";
+            if(!time || !title) { alert("Lütfen saat ve başlık girin."); return; }
+            agenda.push({ id: Date.now(), time, title, link });
+            agenda.sort((a, b) => a.time.localeCompare(b.time));
+            renderAgenda();
+            document.getElementById('agenda-time-input').value = ""; document.getElementById('agenda-title-input').value = ""; document.getElementById('agenda-link-input').value = "";
+            closeAgendaModal();
         }
         renderAgenda();
 
-        // --- TAKVİM & BÜYÜTME MODALI ---
+        // --- TAKVİM & NOTLAR ---
+        const noteArea = document.getElementById('quick-note-text');
+        if(noteArea) {
+            noteArea.value = localStorage.getItem('nxt_note') || "";
+            document.getElementById('btn-save-note').addEventListener('click', function() {
+                localStorage.setItem('nxt_note', noteArea.value);
+                const orig = this.innerText; this.innerText = "✓ Kaydedildi"; this.style.backgroundColor = "#2e7d32";
+                setTimeout(() => { this.innerText = orig; this.style.backgroundColor = ""; }, 1500);
+            });
+        }
+
         let events = JSON.parse(localStorage.getItem('nxt_events')) || {
-            "2026-11-31": [{ title: "Başvuru Bitişi", desc: "Sistem kapanıyor" }],
-            "2027-0-14": [{ title: "Değerlendirme Sonuçları", desc: "Kabul mailleri" }]
+            "2026-11-31": [{ id: 1, title: "Öğrenci Başvurularının Bitişi", desc: "Sistem saat 23:59 itibariyle kapatılacak." }],
+            "2027-0-14": [{ id: 2, title: "Değerlendirme Sonuçları", desc: "Seçilen öğrencilere kabul mailleri gönderilecek." }]
         };
         let smallCalDate = new Date();
         let largeCalDate = new Date();
+        let selectedDateKeyForEvent = null;
 
         function renderCalendar(targetDate, gridId, titleId) {
             const year = targetDate.getFullYear(), month = targetDate.getMonth();
@@ -741,15 +684,17 @@
             
             for(let i = 1; i <= lastDay; i++) {
                 const dateKey = `${year}-${month}-${i}`;
-                const hasEvent = events[dateKey] ? true : false;
+                const hasEvent = events[dateKey] && events[dateKey].length > 0;
                 const isToday = (i === today.getDate() && month === today.getMonth() && year === today.getFullYear());
                 
                 if(gridId === 'large-cal-days') {
                     let evHtml = "";
                     if(hasEvent) {
-                        events[dateKey].forEach(ev => { evHtml += `<span class="event-chip">${ev.title}</span>`; });
+                        events[dateKey].forEach(ev => {
+                            evHtml += `<span class="event-chip">${ev.title} <span onclick="event.stopPropagation(); deleteEvent('${dateKey}', ${ev.id})" title="Sil">×</span></span>`;
+                        });
                     }
-                    html += `<div class="large-cal-day ${isToday ? 'today' : ''}" onclick="addEvent('${dateKey}')">
+                    html += `<div class="large-cal-day ${isToday ? 'today' : ''}" onclick="openEventModal('${dateKey}')">
                                 <span class="day-number">${i}</span>
                                 ${evHtml}
                              </div>`;
@@ -762,26 +707,61 @@
             if(gridEl) gridEl.innerHTML = html;
         }
 
-        function addEvent(dateKey) {
-            const title = prompt(`${dateKey} tarihine eklenecek etkinlik başlığı:`);
-            if(!title) return;
-            const desc = prompt("Kısa açıklama:");
-            if(!events[dateKey]) events[dateKey] = [];
-            events[dateKey].push({title, desc: desc || ""});
+        function openEventModal(dateKey) {
+            selectedDateKeyForEvent = dateKey;
+            document.getElementById('event-modal-date-title').innerText = `${dateKey} Tarihine Etkinlik Ekle`;
+            document.getElementById('event-title-input').value = ""; document.getElementById('event-desc-input').value = "";
+            document.getElementById('event-modal').classList.add('active');
+        }
+        function closeEventModal() { document.getElementById('event-modal').classList.remove('active'); }
+        function saveCalendarEvent() {
+            const title = document.getElementById('event-title-input').value;
+            const desc = document.getElementById('event-desc-input').value;
+            if(!title) { alert("Etkinlik başlığı girin."); return; }
+            if(!events[selectedDateKeyForEvent]) events[selectedDateKeyForEvent] = [];
+            events[selectedDateKeyForEvent].push({ id: Date.now(), title, desc: desc || "" });
             updateAllCalendars();
+            closeEventModal();
+        }
+
+        function deleteEvent(dateKey, eventId) {
+            if(confirm("Etkinliği silmek istiyor musunuz?")) {
+                events[dateKey] = events[dateKey].filter(ev => ev.id !== eventId);
+                if(events[dateKey].length === 0) delete events[dateKey];
+                updateAllCalendars();
+            }
+        }
+
+        function renderUpcomingMilestones() {
+            const list = document.getElementById('upcoming-events-list');
+            if(!list) return;
+            list.innerHTML = "";
+            let count = 0;
+            const now = new Date();
+            for (const [dateStr, evList] of Object.entries(events)) {
+                const [y, m, d] = dateStr.split('-');
+                const evDate = new Date(y, m, d);
+                if(evDate >= new Date(now.getFullYear(), now.getMonth(), now.getDate())) {
+                    const mName = evDate.toLocaleDateString('tr-TR', {month: 'short'});
+                    evList.forEach(ev => {
+                        if(count < 3) {
+                            list.innerHTML += `<div class="milestone-item"><div class="milestone-date">${d}<span>${mName}</span></div><div class="milestone-info"><h4>${ev.title}</h4><p>${ev.desc}</p></div></div>`;
+                            count++;
+                        }
+                    });
+                }
+            }
+            if(count === 0) list.innerHTML = "<p style='font-size:0.8rem; color:var(--text-muted);'>Yaklaşan etkinlik yok.</p>";
         }
 
         function updateAllCalendars() {
             renderCalendar(smallCalDate, 'calendar-days', 'calendar-month-year');
             renderCalendar(largeCalDate, 'large-cal-days', 'large-cal-title');
+            renderUpcomingMilestones();
             localStorage.setItem('nxt_events', JSON.stringify(events));
         }
 
-        function openLargeCalendar() {
-            largeCalDate = new Date(smallCalDate.getTime());
-            updateAllCalendars();
-            document.getElementById('calendar-modal').classList.add('active');
-        }
+        function openLargeCalendar() { largeCalDate = new Date(smallCalDate.getTime()); updateAllCalendars(); document.getElementById('calendar-modal').classList.add('active'); }
         function closeLargeCalendar() { document.getElementById('calendar-modal').classList.remove('active'); }
         function changeSmallMonth(dir) { smallCalDate.setMonth(smallCalDate.getMonth() + dir); updateAllCalendars(); }
         function changeLargeMonth(dir) { largeCalDate.setMonth(largeCalDate.getMonth() + dir); updateAllCalendars(); }
@@ -799,22 +779,25 @@
                 col.innerHTML = '';
                 if(header) col.appendChild(header);
             });
-
             kanbanData.forEach(card => {
                 const colEl = document.querySelector(`.kanban-column[data-col="${card.col}"]`);
                 if(colEl) {
-                    const cardHtml = `
+                    colEl.insertAdjacentHTML('beforeend', `
                         <div class="kanban-card ${card.platform}" draggable="true" id="${card.id}">
-                            <span class="sm-tag ${card.platform}">${card.platform}</span>
+                            <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+                                <span class="sm-tag ${card.platform}">${card.platform}</span>
+                                <button class="delete-btn" style="font-size:0.8rem; padding:0 4px;" onclick="deleteKanban('${card.id}')">×</button>
+                            </div>
                             <div class="kanban-card-title">${card.title}</div>
                             <div class="kanban-card-meta"><span>NXT Ekip</span><span class="kanban-avatar">EÇ</span></div>
-                        </div>`;
-                    colEl.insertAdjacentHTML('beforeend', cardHtml);
+                        </div>`);
                 }
             });
             setupDragAndDrop();
             localStorage.setItem('nxt_kanban', JSON.stringify(kanbanData));
         }
+
+        function deleteKanban(id) { if(confirm("Kartı silmek istiyor musunuz?")) { kanbanData = kanbanData.filter(k => k.id !== id); renderKanban(); } }
 
         const btnNewKanban = document.getElementById('btn-yeni-icerik');
         if(btnNewKanban) {
