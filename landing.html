@@ -1,0 +1,1693 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NXT — Network X Talent | Seçilmiş Profesyonel Gelişim Topluluğu</title>
+  <meta name="description" content="Yüksek potansiyelli üniversite öğrencileri ile lider şirketler arasında güvene dayalı, uzun vadeli profesyonel ilişkiler kuran seçilmiş topluluk.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #071931;
+      --navy-dark: #040E1B;
+      --indigo: #2D1B4E;
+      --burgundy: #70143E;
+      --burgundy-light: rgba(112, 20, 62, 0.08);
+      --burgundy-hover: #520c2c;
+      --crimson-accent: #D81124;
+      --pale-blue: #E3E8EE;
+      --off-white: #F4F6F9;
+      --white: #FFFFFF;
+      --text-main: #071931;
+      --text-muted: #5A6A80;
+      --border-color: #DDE4EC;
+      --shadow-sm: 0 2px 8px rgba(7, 25, 49, 0.06);
+      --shadow-md: 0 10px 24px rgba(7, 25, 49, 0.08);
+      --shadow-lg: 0 20px 40px rgba(7, 25, 49, 0.12);
+      --transition: all 0.25s ease-in-out;
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; overflow-x: hidden; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--white);
+      color: var(--text-main);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-y: scroll;
+      overflow-x: hidden;
+    }
+
+    .wrapper-main { width: 100%; overflow-x: hidden; position: relative; z-index: 2; }
+    a { text-decoration: none; color: inherit; transition: var(--transition); }
+    ul { list-style: none; }
+    button { font-family: inherit; cursor: pointer; border: none; transition: var(--transition); }
+
+    .container { width: 100%; max-width: 1240px; margin: 0 auto; padding: 0 24px; }
+
+    /* BRAND LOGO */
+    .brand-logo { display: flex; align-items: center; text-decoration: none; padding: 4px 0; z-index: 1002; position: relative; justify-self: start;}
+    .brand-logo-img { height: 46px; width: auto; object-fit: contain; display: block; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.25)); }
+
+    /* NAVBAR (SEKMELERİN KAYMASINI ENGELLEYEN GRID MİMARİSİ) */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 9999;
+      width: 100%;
+      background: rgba(7, 25, 49, 0.98);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 2px solid var(--burgundy);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    .nav-inner { 
+      display: grid; 
+      grid-template-columns: 1fr auto 1fr; 
+      align-items: center; 
+      height: 80px; 
+    }
+    
+    .nav-links { display: flex; align-items: center; justify-content: center; gap: 16px; }
+    .nav-link { font-size: 0.88rem; font-weight: 600; color: var(--pale-blue); cursor: pointer; transition: var(--transition); padding: 8px 12px; border-radius: var(--radius-sm);}
+    .nav-link:hover, .nav-link.active { color: var(--white); background: rgba(255,255,255,0.05); }
+
+    .nav-link.login-link { color: #FFF; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); }
+    .nav-link.login-link:hover, .nav-link.login-link.active { background: var(--burgundy); border-color: var(--burgundy); }
+
+    .nav-actions { display: flex; align-items: center; justify-self: end; gap: 12px; z-index: 1002; position: relative;}
+    
+    /* ÖĞRENCİ BUTONU */
+    .btn-nav-student { 
+      background: var(--burgundy); color: var(--white); padding: 9px 18px; border-radius: var(--radius-sm); font-size: 0.88rem; font-weight: 700; border: 1.5px solid var(--burgundy); box-shadow: 0 4px 14px rgba(112, 20, 62, 0.35); display: inline-flex;
+    }
+    .btn-nav-student:hover { background: var(--burgundy-hover); border-color: var(--burgundy-hover); transform: translateY(-1px); }
+
+    /* KURUMSAL BUTONU (KOYU MAT ALTIN RENGİ) */
+    .btn-nav-company { 
+      background: #a38247; 
+      color: var(--white); 
+      padding: 9px 18px; 
+      border-radius: var(--radius-sm); 
+      font-size: 0.88rem; 
+      font-weight: 700; 
+      border: 1.5px solid #a38247; 
+      box-shadow: 0 4px 14px rgba(163, 130, 71, 0.25); 
+      display: inline-flex;
+    }
+    .btn-nav-company:hover { background: #8b6e3a; border-color: #8b6e3a; transform: translateY(-1px); }
+
+    /* HAMBURGER MENU */
+    .hamburger { display: none; flex-direction: column; justify-content: space-between; width: 24px; height: 18px; cursor: pointer; z-index: 1002; position: relative; }
+    .hamburger span { display: block; height: 2px; width: 100%; background-color: var(--white); border-radius: 2px; transition: var(--transition); }
+    
+    .mobile-menu-overlay {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+      background: var(--navy-dark);
+      z-index: 1001; display: flex; flex-direction: column; justify-content: center; align-items: center; opacity: 0; pointer-events: none; transition: opacity 0.4s ease;
+    }
+    .mobile-menu-overlay.active { opacity: 1; pointer-events: auto; }
+    .mobile-nav-links { display: flex; flex-direction: column; gap: 24px; text-align: center; }
+    .mobile-nav-link { font-size: 1.5rem; font-weight: 700; color: var(--pale-blue); transform: translateY(20px); opacity: 0; transition: all 0.4s ease; cursor: pointer; }
+    .mobile-menu-overlay.active .mobile-nav-link { transform: translateY(0); opacity: 1; }
+    .mobile-menu-overlay.active .mobile-nav-link:nth-child(1) { transition-delay: 0.1s; }
+    .mobile-menu-overlay.active .mobile-nav-link:nth-child(2) { transition-delay: 0.2s; }
+    .mobile-menu-overlay.active .mobile-nav-link:nth-child(3) { transition-delay: 0.3s; }
+    .mobile-menu-overlay.active .mobile-nav-link:nth-child(4) { transition-delay: 0.4s; }
+    .mobile-menu-overlay.active .mobile-nav-link:nth-child(5) { transition-delay: 0.5s; }
+    .mobile-menu-overlay.active .mobile-nav-link:nth-child(6) { transition-delay: 0.6s; }
+    
+    .mobile-nav-link:hover, .mobile-nav-link.active { color: var(--white); }
+    .hamburger.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+    /* ANIMATIONS */
+    .fade-in-up { opacity: 0; transform: translateY(40px); transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+    .fade-in-up.visible { opacity: 1; transform: translateY(0); }
+
+    .tab-pane { display: none; animation: fadeInTab 0.4s ease-in-out; width: 100%; }
+    .tab-pane.active { display: block; }
+    @keyframes fadeInTab { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* HERO */
+    .hero { padding: 90px 0 80px; position: relative; overflow: hidden; background: linear-gradient(180deg, #FFFFFF 0%, var(--off-white) 100%); border-bottom: 1px solid var(--border-color); }
+    .hero-content { max-width: 940px; margin: 0 auto; text-align: center; position: relative; z-index: 2; }
+    
+    .hero-switch-bar { display: inline-flex; background: var(--pale-blue); padding: 4px; border-radius: 30px; margin-bottom: 24px; border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); }
+    .switch-pill { padding: 7px 20px; font-size: 0.84rem; font-weight: 700; border-radius: 24px; color: var(--text-muted); transition: var(--transition); cursor: pointer; }
+    .switch-pill.active { background: var(--white); color: var(--navy); box-shadow: 0 2px 10px rgba(0,0,0,0.05); border: 1px solid var(--border-color); }
+    .switch-pill:hover:not(.active) { color: var(--navy); }
+
+    .hero h1 { font-size: clamp(2.4rem, 4vw, 3.4rem); font-weight: 900; line-height: 1.15; letter-spacing: -1px; color: var(--navy); margin-bottom: 22px; }
+    .hero h1 span { color: var(--burgundy); }
+    .hero p { font-size: 1.15rem; color: var(--text-muted); line-height: 1.65; max-width: 800px; margin: 0 auto 34px; font-weight: 500; }
+    
+    .hero-cta-row { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; margin-bottom: 50px; }
+    .btn-hero-primary { background: var(--navy); color: var(--white); padding: 15px 32px; border-radius: var(--radius-sm); font-size: 0.98rem; font-weight: 800; box-shadow: var(--shadow-md); border-left: 4px solid var(--crimson-accent); }
+    .btn-hero-primary:hover { background: var(--indigo); transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+    .btn-hero-secondary { background: var(--white); color: var(--navy); padding: 15px 28px; border-radius: var(--radius-sm); font-size: 0.98rem; font-weight: 700; border: 1.5px solid var(--border-color); box-shadow: var(--shadow-sm); }
+    .btn-hero-secondary:hover { border-color: var(--navy); transform: translateY(-2px); }
+    
+    .btn-hero-company { background: var(--burgundy); border-left: none; }
+    .btn-hero-company:hover { background: var(--burgundy-hover); }
+
+    .stats-card { background: var(--white); display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: center; padding: 32px 24px; border-radius: var(--radius-lg); border: 1px solid var(--border-color); box-shadow: var(--shadow-md); }
+    .stat-item { position: relative; }
+    .stat-item:not(:last-child)::after { content: ''; position: absolute; right: 0; top: 15%; height: 70%; width: 1px; background: var(--border-color); }
+    .stat-number { font-size: 2.1rem; font-weight: 900; color: var(--burgundy); line-height: 1; margin-bottom: 6px; }
+    .stat-label { font-size: 0.9rem; font-weight: 800; color: var(--navy); }
+    .stat-sub { font-size: 0.78rem; color: var(--text-muted); margin-top: 3px; font-weight: 500; }
+
+    section { padding: 90px 0; position: relative; z-index: 2; }
+    .section-header { text-align: center; max-width: 780px; margin: 0 auto 54px; }
+    .section-pill { display: inline-block; background: var(--white); color: var(--burgundy); font-size: 0.76rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; padding: 6px 16px; border-radius: 20px; margin-bottom: 16px; border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); }
+    .section-pill.student-pill, .section-pill.navy-pill { color: var(--navy); }
+    .section-header h2 { font-size: 2.4rem; font-weight: 900; color: var(--navy); letter-spacing: -0.5px; line-height: 1.25; margin-bottom: 16px; }
+    .section-header p { font-size: 1.05rem; color: var(--text-muted); font-weight: 500; }
+
+    .vision-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 48px; }
+    .vision-card { background: var(--off-white); border: 1px solid var(--border-color); padding: 34px 28px; transition: var(--transition); display: flex; flex-direction: column; border-top: 5px solid var(--navy); border-radius: var(--radius-md); box-shadow: var(--shadow-sm);}
+    .vision-card.burgundy-top { border-top-color: var(--burgundy); }
+    .vision-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--burgundy); }
+    .vision-tag { font-size: 0.75rem; font-weight: 800; color: var(--burgundy); text-transform: uppercase; letter-spacing: 1.2px; margin-bottom: 12px; }
+    .vision-card h3 { font-size: 1.35rem; font-weight: 900; color: var(--navy); margin-bottom: 14px; line-height: 1.3; }
+    .vision-card p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 16px; font-weight: 500; }
+    .vision-list { margin-top: auto; padding-top: 16px; border-top: 1px solid var(--border-color); }
+    .vision-list li { font-size: 0.88rem; font-weight: 700; color: var(--navy); margin-bottom: 10px; display: flex; align-items: flex-start; gap: 8px; }
+    .vision-list li span { color: var(--burgundy); font-weight: 900; }
+    
+    .quote-banner { background: var(--navy); color: var(--white); padding: 56px 40px; text-align: center; border-left: 8px solid var(--burgundy); border-radius: var(--radius-lg); box-shadow: var(--shadow-md); }
+    .quote-banner blockquote { font-size: 1.8rem; font-weight: 800; line-height: 1.4; max-width: 880px; margin: 0 auto 16px; letter-spacing: -0.4px; }
+    .quote-banner p { font-size: 1.05rem; color: rgba(227, 232, 238, 0.8); max-width: 740px; margin: 0 auto; font-weight: 500;}
+
+    .student-grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+    .student-benefit-card { background: var(--white); border: 1px solid var(--border-color); padding: 32px 24px; transition: var(--transition); display: flex; flex-direction: column; border-radius: var(--radius-md); box-shadow: var(--shadow-sm);}
+    .student-benefit-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--navy); }
+    .benefit-icon-wrap { width: 48px; height: 48px; border-radius: 10px; background: var(--navy); color: var(--white); display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 1.1rem; margin-bottom: 20px; border-left: 3px solid var(--crimson-accent); }
+    .student-benefit-card h4 { font-size: 1.15rem; font-weight: 900; color: var(--navy); margin-bottom: 12px; line-height: 1.3; }
+    .student-benefit-card p { font-size: 0.92rem; color: var(--text-muted); line-height: 1.6; font-weight: 500;}
+
+    .timeline-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .week-card { background: var(--off-white); border: 1px solid var(--border-color); padding: 32px 26px; display: flex; flex-direction: column; transition: var(--transition); border-radius: var(--radius-md); box-shadow: var(--shadow-sm);}
+    .week-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: var(--burgundy); background: var(--white);}
+    .week-badge { display: inline-block; align-self: flex-start; background: var(--navy); color: var(--white); font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; padding: 5px 12px; border-radius: 6px; margin-bottom: 16px; border-left: 3px solid var(--crimson-accent); }
+    .week-card h3 { font-size: 1.2rem; font-weight: 900; color: var(--navy); margin-bottom: 12px; }
+    .week-card p { font-size: 0.92rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 18px; flex-grow: 1; font-weight: 500;}
+    .week-output { background: var(--white); border-left: 3px solid var(--burgundy); padding: 10px 14px; border-radius: 0 var(--radius-sm) var(--radius-sm) 0; font-size: 0.85rem; font-weight: 800; color: var(--navy); border: 1px solid var(--border-color); }
+
+    .value-highlight-grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: 32px; margin-bottom: 48px; align-items: stretch; }
+    .value-box { background: var(--white); border: 1px solid var(--border-color); padding: 42px 36px; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);}
+    .value-box h3 { font-size: 1.6rem; font-weight: 900; color: var(--navy); margin-bottom: 14px; }
+    .value-box p.lead { font-size: 1rem; color: var(--text-muted); margin-bottom: 24px; font-weight: 500; }
+    .value-checklist { display: flex; flex-direction: column; gap: 14px; }
+    .value-check-item { display: flex; align-items: flex-start; gap: 12px; font-size: 0.95rem; color: var(--text-main); font-weight: 600; padding: 12px 16px; background: var(--off-white); border-radius: var(--radius-sm); border-left: 3px solid var(--burgundy); }
+    .value-check-item strong { color: var(--navy); }
+    .check-symbol { color: var(--burgundy); font-weight: 900; font-size: 1.1rem; }
+
+    .student-profile-banner { background: var(--navy); color: var(--white); border-radius: var(--radius-lg); padding: 46px; display: flex; flex-direction: column; justify-content: space-between; border-left: 6px solid var(--crimson-accent); box-shadow: var(--shadow-md); }
+    .student-profile-banner h3 { font-size: 1.65rem; font-weight: 900; margin-bottom: 16px; letter-spacing: -0.4px; line-height: 1.3; }
+    .student-profile-banner p { font-size: 0.98rem; color: rgba(227, 232, 238, 0.85); line-height: 1.7; margin-bottom: 24px; font-weight: 500;}
+    .profile-criteria-list { display: flex; flex-direction: column; gap: 14px; }
+    .profile-item { background: rgba(255, 255, 255, 0.08); padding: 14px 18px; border-radius: var(--radius-sm); font-size: 0.9rem; font-weight: 700; display: flex; align-items: center; gap: 12px; }
+    .profile-bullet { color: var(--crimson-accent); font-weight: 900; }
+
+    .graduate-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .graduate-card { background: var(--white); border: 1px solid var(--border-color); padding: 28px 24px; display: flex; align-items: flex-start; gap: 16px; transition: var(--transition); border-radius: var(--radius-md); box-shadow: var(--shadow-sm);}
+    .graduate-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); border-color: var(--burgundy); }
+    .grad-num { min-width: 38px; height: 38px; border-radius: 8px; background: var(--burgundy-light); color: var(--burgundy); font-weight: 900; font-size: 0.9rem; display: flex; align-items: center; justify-content: center; }
+    .grad-text h4 { font-size: 1.05rem; font-weight: 900; color: var(--navy); margin-bottom: 6px; }
+    .grad-text p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; font-weight: 500; }
+
+    .student-form-box { background: var(--white); border: 1px solid var(--border-color); padding: 50px; max-width: 880px; margin: 0 auto; position: relative; border-radius: var(--radius-lg); box-shadow: var(--shadow-md);}
+    .student-form-header { text-align: center; margin-bottom: 40px; }
+    .student-form-header h3 { font-size: 1.8rem; font-weight: 900; color: var(--navy); margin-bottom: 10px; }
+    .student-form-header p { font-size: 1rem; color: var(--text-muted); font-weight: 500;}
+    
+    .wizard-progress { display: flex; justify-content: space-between; position: relative; margin-bottom: 40px; }
+    .wizard-progress::before { content: ''; position: absolute; top: 16px; left: 0; width: 100%; height: 2px; background: var(--border-color); z-index: 1; }
+    .wizard-step-indicator { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+    .step-circle { width: 34px; height: 34px; border-radius: 50%; background: var(--white); border: 2px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 0.9rem; color: var(--text-muted); transition: var(--transition); }
+    .step-label { font-size: 0.78rem; font-weight: 800; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; transition: var(--transition);}
+    
+    .wizard-step-indicator.active .step-circle { border-color: var(--navy); background: var(--navy); color: var(--white); }
+    .wizard-step-indicator.active .step-label { color: var(--navy); }
+    .wizard-step-indicator.completed .step-circle { border-color: var(--burgundy); background: var(--burgundy); color: var(--white); }
+    
+    .form-step { display: none; animation: fadeInTab 0.4s ease-in-out; }
+    .form-step.active { display: block; }
+
+    .form-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .form-group { margin-bottom: 18px; text-align: left;}
+    .form-group.full-width { grid-column: span 2; }
+    .form-group label { display: block; font-size: 0.85rem; font-weight: 800; color: var(--navy); margin-bottom: 8px; }
+    .form-control { width: 100%; padding: 14px 16px; border: 1.5px solid var(--border-color); border-radius: var(--radius-sm); font-size: 0.95rem; font-family: inherit; outline: none; transition: var(--transition); background: var(--off-white); }
+    .form-control:focus { border-color: var(--burgundy); background: var(--white); box-shadow: 0 0 0 4px rgba(112, 20, 62, 0.1); }
+    textarea.form-control { min-height: 120px; resize: vertical; }
+    
+    .wizard-actions { display: flex; justify-content: space-between; margin-top: 32px; gap: 14px;}
+    .btn-wizard-prev { background: var(--off-white); color: var(--navy); padding: 14px 28px; border-radius: var(--radius-sm); font-weight: 800; border: 1px solid var(--border-color); transition: var(--transition); }
+    .btn-wizard-prev:hover { background: var(--white); border-color: var(--navy); }
+    .btn-wizard-next { background: var(--navy); color: var(--white); padding: 14px 36px; border-radius: var(--radius-sm); font-weight: 800; margin-left: auto; transition: var(--transition); border:none;}
+    .btn-wizard-next:hover { background: var(--indigo); transform: translateY(-2px); box-shadow: var(--shadow-sm);}
+    .btn-wizard-submit { background: var(--burgundy); color: var(--white); padding: 14px 36px; border-radius: var(--radius-sm); font-weight: 900; margin-left: auto; border:none; transition: var(--transition);}
+    .btn-wizard-submit:hover { background: var(--burgundy-hover); transform: translateY(-2px); box-shadow: var(--shadow-sm);}
+    
+    .student-success-msg { display: none; background: var(--off-white); border: 2px solid var(--navy); border-radius: var(--radius-sm); padding: 20px; text-align: center; margin-top: 24px; font-size: 0.95rem; font-weight: 800; color: var(--navy); }
+    
+    .value-grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-bottom: 50px; }
+    .company-value-card { background: var(--off-white); border: 1px solid var(--border-color); padding: 32px 24px; display: flex; flex-direction: column; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); transition: var(--transition);}
+    .company-value-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--burgundy); background: var(--white);}
+    .val-badge { width: 46px; height: 46px; border-radius: 10px; background: var(--navy); color: var(--white); display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 1.05rem; margin-bottom: 20px; border-left: 3px solid var(--burgundy); }
+    .company-value-card h3 { font-size: 1.15rem; font-weight: 900; color: var(--navy); margin-bottom: 12px; line-height: 1.3; }
+    .company-value-card p { font-size: 0.92rem; color: var(--text-muted); line-height: 1.6; font-weight: 500;}
+    
+    .model-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .model-card { background: var(--white); border: 1px solid var(--border-color); padding: 34px 28px; display: flex; flex-direction: column; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); transition: var(--transition);}
+    .model-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: var(--navy); }
+    .model-step { display: inline-block; align-self: flex-start; background: var(--burgundy); color: var(--white); font-size: 0.75rem; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; padding: 5px 14px; border-radius: 6px; margin-bottom: 16px; }
+    .model-card h3 { font-size: 1.3rem; font-weight: 900; color: var(--navy); margin-bottom: 12px; }
+    .model-card p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 20px; flex-grow: 1; font-weight: 500;}
+    .model-footer { background: var(--off-white); border-left: 3px solid var(--navy); padding: 10px 14px; border-radius: 0 var(--radius-sm) var(--radius-sm) 0; font-size: 0.85rem; font-weight: 800; color: var(--navy); border: 1px solid var(--border-color);}
+    
+    .ethics-banner { background: var(--navy); color: var(--white); border-radius: var(--radius-lg); padding: 46px 50px; margin-bottom: 54px; border-left: 6px solid var(--crimson-accent); display: grid; grid-template-columns: 1.3fr 1fr; gap: 40px; align-items: center; box-shadow: var(--shadow-md); }
+    .ethics-banner h3 { font-size: 1.65rem; font-weight: 900; margin-bottom: 14px; line-height: 1.3; }
+    .ethics-banner p { font-size: 1rem; color: rgba(227, 232, 238, 0.85); line-height: 1.7; font-weight: 500;}
+    .ethics-points { display: flex; flex-direction: column; gap: 12px; }
+    .ethics-point { background: rgba(255, 255, 255, 0.1); padding: 12px 18px; border-radius: var(--radius-sm); font-size: 0.9rem; font-weight: 700; display: flex; align-items: center; gap: 12px; }
+    .ethics-point span { color: var(--crimson-accent); font-weight: 900; }
+    
+    .insights-grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; }
+    .insight-card { background: var(--white); border: 1px solid var(--border-color); padding: 40px 32px; display: flex; flex-direction: column; border-top: 5px solid var(--burgundy); border-radius: var(--radius-md); box-shadow: var(--shadow-sm); transition: var(--transition);}
+    .insight-card:nth-child(even) { border-top-color: var(--navy); }
+    .insight-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+    .insight-tag { font-size: 0.78rem; font-weight: 900; color: var(--burgundy); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+    .insight-card h3 { font-size: 1.45rem; font-weight: 900; color: var(--navy); margin-bottom: 14px; }
+    .insight-card p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 24px; font-weight: 500;}
+    .insight-bullets { margin-top: auto; background: var(--off-white); padding: 20px 24px; border-radius: var(--radius-sm); border: 1px solid var(--border-color);}
+    .insight-bullets li { font-size: 0.9rem; color: var(--navy); font-weight: 700; margin-bottom: 10px; display: flex; align-items: flex-start; gap: 10px; }
+    .insight-bullets li:last-child { margin-bottom: 0; }
+    .insight-bullets li span { color: var(--burgundy); font-weight: 900; }
+
+    .report-showcase { background: var(--white); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 48px; margin-bottom: 64px; display: grid; grid-template-columns: 1fr 1.2fr; gap: 48px; align-items: center; box-shadow: var(--shadow-sm); }
+    .report-left h3 { font-size: 1.75rem; font-weight: 900; color: var(--navy); margin-bottom: 16px; line-height: 1.25; }
+    .report-left p { font-size: 1rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 24px; font-weight: 500;}
+    .report-quote { background: var(--burgundy-light); border-left: 4px solid var(--burgundy); padding: 16px 20px; font-size: 0.95rem; font-weight: 800; color: var(--burgundy); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; }
+    .report-items-grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
+    .report-item { background: var(--off-white); border: 1px solid var(--border-color); padding: 16px 20px; border-radius: var(--radius-sm); display: flex; align-items: center; gap: 16px; transition: var(--transition);}
+    .report-item:hover { background: var(--white); box-shadow: var(--shadow-sm); transform: translateX(5px);}
+    .report-item-num { min-width: 36px; height: 36px; border-radius: 8px; background: var(--navy); color: var(--white); font-weight: 900; font-size: 0.85rem; display: flex; align-items: center; justify-content: center; }
+    .report-item-text { font-size: 0.95rem; font-weight: 800; color: var(--navy); }
+    
+    .comp-table-wrap { background: var(--white); border: 1px solid var(--border-color); border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-sm); }
+    .comp-table { width: 100%; border-collapse: collapse; text-align: left; }
+    .comp-table th { padding: 20px 28px; font-size: 0.95rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.5px; background: var(--off-white); border-bottom: 2px solid var(--border-color); }
+    .comp-table th.highlight-col { background: var(--navy); color: var(--white); border-bottom-color: var(--burgundy); }
+    .comp-table td { padding: 18px 28px; font-size: 0.95rem; border-bottom: 1px solid var(--border-color); color: var(--text-main); font-weight: 500;}
+    .comp-table tr:last-child td { border-bottom: none; }
+    .comp-table td.highlight-col { background: rgba(7, 25, 49, 0.03); font-weight: 800; color: var(--burgundy); }
+    
+    .strategy-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+    .strategy-card { background: var(--off-white); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 44px 40px; border-top: 6px solid var(--navy); }
+    .strategy-card.burgundy-border { border-top-color: var(--burgundy); }
+    .strategy-card h3 { font-size: 1.55rem; font-weight: 900; color: var(--navy); margin-bottom: 16px; }
+    .strategy-card p { font-size: 1rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 16px; font-weight: 500;}
+    .strategy-card p:last-child { margin-bottom: 0; }
+
+    .company-cta-section { background: var(--navy); color: var(--white); padding: 100px 0; }
+    .cta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+    .cta-text h2 { font-size: 2.8rem; font-weight: 900; line-height: 1.15; margin-bottom: 20px; letter-spacing: -0.5px; }
+    .cta-text p { font-size: 1.1rem; color: rgba(227, 232, 238, 0.85); line-height: 1.7; margin-bottom: 32px; font-weight: 500;}
+    .founders-box { border-top: 1px solid rgba(227, 232, 238, 0.2); padding-top: 24px; font-size: 0.95rem; color: rgba(255, 255, 255, 0.7); }
+    .founders-box strong { color: var(--white); font-weight: 800;}
+    
+    .company-form-card { background: var(--white); color: var(--text-main); border-radius: var(--radius-md); padding: 42px 36px; box-shadow: var(--shadow-lg); }
+    .company-form-card h3 { font-size: 1.45rem; font-weight: 900; color: var(--navy); margin-bottom: 8px; }
+    .company-form-card p { font-size: 0.95rem; color: var(--text-muted); margin-bottom: 24px; font-weight: 500;}
+    .company-submit-btn { width: 100%; background: var(--burgundy); color: var(--white); padding: 16px; border-radius: var(--radius-sm); font-size: 1.05rem; font-weight: 900; margin-top: 10px; transition: var(--transition); border:none;}
+    .company-submit-btn:hover { background: var(--burgundy-hover); transform: translateY(-2px); box-shadow: var(--shadow-sm);}
+    .company-success-msg { display: none; background: var(--off-white); border: 2px solid var(--burgundy); border-radius: var(--radius-sm); padding: 20px; text-align: center; margin-top: 16px; font-size: 0.95rem; font-weight: 800; color: var(--burgundy); }
+
+    .about-manifesto { background: var(--navy); color: var(--white); border-radius: var(--radius-lg); padding: 56px 48px; text-align: left; margin-bottom: 64px; box-shadow: var(--shadow-lg); position: relative; overflow: hidden; }
+    .about-manifesto::before { content: '"'; position: absolute; top: -20px; right: 40px; font-size: 12rem; font-family: serif; color: rgba(255, 255, 255, 0.05); line-height: 1; }
+    .about-manifesto h2 { font-size: 2rem; font-weight: 900; margin-bottom: 24px; letter-spacing: -0.5px; }
+    .about-manifesto p { font-size: 1.05rem; line-height: 1.7; color: var(--pale-blue); margin-bottom: 16px; max-width: 85%; }
+    .about-manifesto p:last-child { margin-bottom: 0; }
+
+    /* BİZ KİMİZ EKİP KARTLARI (Fotoğraflı) */
+    .team-grid { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-top: 20px; }
+    .team-card { text-align: center; width: 260px; background: none; border: none; padding: 0; box-shadow: none; border-top: none; }
+    .team-card:hover { transform: translateY(-5px); box-shadow: none; border-color: transparent; }
+    .team-image-wrapper { width: 100%; aspect-ratio: 3/4; overflow: hidden; border-radius: var(--radius-sm); margin-bottom: 16px; background-color: #E2E8F0; box-shadow: var(--shadow-md); border: 1px solid var(--border-color); }
+    .team-image-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; display: block; }
+    .team-card:hover .team-image-wrapper img { transform: scale(1.05); }
+    .team-card h3 { font-size: 1.25rem; font-weight: 900; color: var(--navy); line-height: 1.3; }
+
+    .faq-container { max-width: 860px; margin: 0 auto; display: flex; flex-direction: column; gap: 18px; }
+    .faq-item { background: var(--white); border: 1px solid var(--border-color); border-radius: var(--radius-md); transition: var(--transition); box-shadow: var(--shadow-sm);}
+    .faq-item:hover { border-color: var(--navy); box-shadow: var(--shadow-md); }
+    .faq-item details { width: 100%; }
+    .faq-item summary { padding: 26px 34px; font-size: 1.1rem; font-weight: 800; color: var(--navy); cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; user-select: none; }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after { content: '+'; font-size: 1.8rem; font-weight: 300; color: var(--burgundy); transition: transform 0.3s ease; line-height: 1; }
+    .faq-item details[open] summary::after { transform: rotate(45deg); color: var(--navy); }
+    .faq-item details[open] summary { border-bottom: 1px solid var(--border-color); padding-bottom: 18px; }
+    .faq-answer { padding: 18px 34px 28px; font-size: 1rem; color: var(--text-muted); line-height: 1.7; animation: fadeInDown 0.3s ease-in-out; font-weight: 500;}
+
+    /* YENİLENEN FOOTER */
+    footer { background: var(--navy-dark); color: rgba(227, 232, 238, 0.7); padding: 70px 0 30px; font-size: 0.9rem; border-top: 3px solid var(--burgundy); position: relative; z-index: 2;}
+    .footer-inner { display: grid; grid-template-columns: 2fr 1.5fr 1.5fr; gap: 40px; margin-bottom: 60px; }
+    
+    .footer-brand .footer-logo-img { height: 40px; margin-bottom: 16px; }
+    .footer-brand p { font-size: 0.95rem; margin-bottom: 24px; max-width: 400px; line-height: 1.6; }
+    .footer-socials { display: flex; gap: 12px; }
+    .social-icon { width: 40px; height: 40px; border-radius: var(--radius-sm); border: 1px solid rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; color: var(--white); transition: var(--transition); font-size: 1.1rem; }
+    .social-icon:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.3); }
+    .social-icon svg { width: 18px; height: 18px; fill: currentColor; }
+
+    .footer-col h5 { font-size: 0.9rem; font-weight: 800; color: var(--white); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px; }
+    .footer-col ul { display: flex; flex-direction: column; gap: 14px; }
+    .footer-col a { color: rgba(227, 232, 238, 0.7); font-weight: 500; transition: color 0.2s ease; }
+    .footer-col a:hover { color: var(--white); }
+
+    .footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; flex-wrap: wrap; gap: 16px;}
+    .footer-legal-links { display: flex; gap: 20px; font-weight: 600; }
+    .footer-legal-links a { color: rgba(227, 232, 238, 0.7); }
+    .footer-legal-links a:hover { color: var(--white); }
+    
+    /* YUKARI ÇIK BUTONU */
+    .back-to-top { position: fixed; bottom: 30px; right: 30px; width: 44px; height: 44px; border-radius: 50%; background: var(--navy-dark); border: 1.5px solid var(--burgundy); color: var(--white); display: flex; align-items: center; justify-content: center; cursor: pointer; opacity: 0; pointer-events: none; transition: all 0.3s ease; z-index: 999; box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+    .back-to-top.visible { opacity: 1; pointer-events: auto; }
+    .back-to-top:hover { background: var(--navy); transform: translateY(-3px); }
+    .back-to-top svg { width: 16px; height: 16px; fill: currentColor; }
+
+    /* RESPONSIVE */
+    @media (max-width: 992px) {
+      .nav-inner { display: flex; justify-content: space-between; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .hero h1 { font-size: 2.6rem; }
+      .vision-grid, .student-grid-4, .timeline-grid, .value-highlight-grid, .graduate-grid, .footer-inner,
+      .value-grid-4, .model-grid, .ethics-banner, .insights-grid-2, .report-showcase, .strategy-grid, .cta-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-inner { gap: 40px; }
+      .stats-card { grid-template-columns: repeat(2, 1fr); }
+      .form-grid-2 { grid-template-columns: 1fr; }
+      .form-group.full-width { grid-column: span 1; }
+      .about-manifesto { padding: 46px 36px; }
+      .about-manifesto p { max-width: 100%; }
+      .ethics-banner { padding: 40px 32px; }
+      .report-showcase { padding: 36px 28px; }
+      .company-cta-section { padding: 70px 0; }
+    }
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 2.2rem; }
+      .stats-card { grid-template-columns: 1fr; }
+      .student-form-box { padding: 32px 24px; }
+      .quote-banner { padding: 40px 24px; }
+      .quote-banner blockquote { font-size: 1.45rem; }
+      .wizard-progress::before { display: none; }
+      .wizard-step-indicator { flex-direction: row; }
+      .company-form-card { padding: 32px 24px;}
+      .faq-item summary { padding: 20px 24px; font-size: 1rem;}
+      .faq-answer { padding: 12px 24px 20px;}
+      .footer-bottom { flex-direction: column; text-align: center; justify-content: center;}
+      .footer-legal-links { justify-content: center; flex-wrap: wrap;}
+      .back-to-top { bottom: 20px; right: 20px;}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- MOBILE MENU OVERLAY -->
+  <div class="mobile-menu-overlay" id="mobileMenu">
+      <nav class="mobile-nav-links">
+        <a class="mobile-nav-link" onclick="switchTab(event, 'tab-ogrenciler'); closeMobileMenu();">Ana Sayfa</a>
+        <a class="mobile-nav-link" onclick="switchTab(event, 'tab-bizkimiz'); closeMobileMenu();">Biz Kimiz?</a>
+        <a class="mobile-nav-link" onclick="switchTab(event, 'tab-sss'); closeMobileMenu();">S.S.S.</a>
+        <a class="mobile-nav-link" onclick="switchTab(event, 'tab-partnerler'); closeMobileMenu();">Partnerler</a>
+        <a class="mobile-nav-link" onclick="switchTab(event, 'tab-sirketler'); closeMobileMenu();">Kurumsal İletişim</a>
+        <a class="mobile-nav-link" style="color:var(--burgundy);" onclick="switchTab(event, 'tab-giris'); closeMobileMenu();">Giriş Yap</a>
+      </nav>
+  </div>
+
+  <div class="wrapper-main">
+    
+    <!-- NAVBAR (SABİT DURAN ÜST BAR - GRID MİMARİSİ) -->
+    <header class="navbar" id="top">
+      <div class="container nav-inner">
+        
+        <!-- Sol: Logo -->
+        <a href="landing.html" class="brand-logo" title="NXT - Network X Talent">
+          <img src="logo.png" alt="NXT — Network X Talent" class="brand-logo-img">
+        </a>
+        
+        <!-- Orta: Sekmeler (Kurumsal En Sağa, Girişin Yanına Alındı) -->
+        <nav class="nav-links">
+          <a class="nav-link active" data-target="tab-ogrenciler" onclick="switchTab(event, 'tab-ogrenciler')">Ana Sayfa</a>
+          <a class="nav-link" data-target="tab-bizkimiz" onclick="switchTab(event, 'tab-bizkimiz')">Biz Kimiz?</a>
+          <a class="nav-link" data-target="tab-sss" onclick="switchTab(event, 'tab-sss')">S.S.S.</a>
+          <a class="nav-link" data-target="tab-partnerler" onclick="switchTab(event, 'tab-partnerler')">Partnerler</a>
+          <a class="nav-link" data-target="tab-sirketler" onclick="switchTab(event, 'tab-sirketler')">Kurumsal</a>
+          <a class="nav-link login-link" data-target="tab-giris" onclick="switchTab(event, 'tab-giris')">Giriş Yap</a>
+        </nav>
+        
+        <!-- Sağ: Aksiyon Butonu (Genişliği Değişse Bile Ortayı Etkilemez) -->
+        <div class="nav-actions">
+          <a href="#ogrenci-basvuru" class="btn-nav-student" id="nav-cta-btn" onclick="handleCtaClick(event)">Programa Başvur</a>
+          <div class="hamburger" id="hamburgerIcon" onclick="toggleMobileMenu()">
+              <span></span>
+              <span></span>
+              <span></span>
+          </div>
+        </div>
+      </div>
+    </header>
+    
+    
+    <!-- ============================================== -->
+    <!-- SEKME 1: ANA SAYFA (ÖĞRENCİLER)                -->
+    <!-- ============================================== -->
+    <div id="tab-ogrenciler" class="tab-pane active">
+
+        <section class="hero">
+          <div class="container hero-content">
+            <div class="hero-switch-bar fade-in-up">
+              <a class="switch-pill active">🎓 Üniversite Öğrencileri (Fellows)</a>
+              <a class="switch-pill" onclick="switchTab(event, 'tab-sirketler')">🏢 Partner Şirketler & Kurumlar</a>
+            </div>
+
+            <h1 class="fade-in-up" style="transition-delay: 0.1s">Yalnızca Bir Mentorluk Programı Değil; Yıllar Boyu Sürecek <span>Güven Temelli Bir Topluluk.</span></h1>
+            <p class="fade-in-up" style="transition-delay: 0.2s">
+              Yüksek potansiyelli üniversite öğrencileri ile lider şirketler arasında güvene dayalı, uzun vadeli profesyonel ilişkiler kuran seçilmiş bir topluluk inşa ediyoruz. Mentorluk, şirket deneyimleri, gelişim içerikleri ve yaşayan alumni ağıyla tasarlanmış bütüncül gelişim yolculuğuna katıl.
+            </p>
+
+            <div class="hero-cta-row fade-in-up" style="transition-delay: 0.3s">
+              <a href="#ogrenci-basvuru" class="btn-hero-primary" onclick="document.getElementById('ogrenci-basvuru').scrollIntoView({behavior: 'smooth'});">Seçilmiş Kohorta Başvur</a>
+              <a href="#vizyon-misyon" class="btn-hero-secondary" onclick="document.getElementById('vizyon-misyon').scrollIntoView({behavior: 'smooth'});">Vizyonumuzu İncele</a>
+            </div>
+
+            <div class="stats-card fade-in-up" style="transition-delay: 0.4s">
+              <div class="stat-item">
+                <div class="stat-number">24</div>
+                <div class="stat-label">Seçilmiş Öğrenci</div>
+                <div class="stat-sub">Her dönem değerlendirmeyle kabul</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">6 Ay</div>
+                <div class="stat-label">Gelişim Yolculuğu</div>
+                <div class="stat-sub">Bütüncül ve derinlikli program</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">6–8</div>
+                <div class="stat-label">Lider Partner Şirket</div>
+                <div class="stat-sub">Her şirketten 3–4 deneyimli mentor</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">1:1 & Alumni</div>
+                <div class="stat-label">Kalıcı İlişki Ağı</div>
+                <div class="stat-sub">Aylık düzenli mentorluk ve mezunlar ağı</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="vision-section fade-in-up" id="vizyon-misyon">
+          <div class="container">
+            <div class="section-header">
+              <span class="section-pill">Kimlik & Yaklaşım</span>
+              <h2>Vizyonumuz, Misyonumuz ve Temel Felsefemiz</h2>
+              <p>Programımızın merkezinde tekil etkinlikler değil, <strong>community (topluluk)</strong> yer alır. Amacımız kısa süreli bir deneyim sunmak değil; yıllar boyunca büyüyen güçlü bir profesyonel güven ekosistemi oluşturmaktır.</p>
+            </div>
+
+            <div class="vision-grid">
+              <div class="vision-card">
+                <span class="vision-tag">Misyonumuz</span>
+                <h3>Güvene Dayalı, Uzun Vadeli Profesyonel İlişkiler</h3>
+                <p>Yüksek potansiyelli üniversite öğrencileriyle yıllar boyunca devam edecek güven ilişkileri kurmasını sağlıyoruz.</p>
+                <ul class="vision-list">
+                  <li><span>✓</span> Öğrencilerin kariyer kararlarını bilinçli vermesini sağlamak</li>
+                  <li><span>✓</span> İş dünyasını ve kurum kültürlerini içeriden tanıtmak</li>
+                  <li><span>✓</span> Değer alan ve değer üreten paydaşları buluşturmak</li>
+                </ul>
+              </div>
+              <div class="vision-card burgundy-top">
+                <span class="vision-tag">Ürünün Temel Felsefesi</span>
+                <h3>Etkinlik Değil, Yaşayan Topluluk (Community)</h3>
+                <p>Ürünümüz yalnızca bir mentorluk programı değildir. Mentorluk; şirket deneyimleri, topluluk etkileşimi, gelişim içerikleri ve alumni ağıyla birlikte tasarlanmış bütüncül bir profesyonel gelişim yolculuğunun temel araçlarından biridir.</p>
+                <ul class="vision-list">
+                  <li><span>✓</span> İşe alım başlamadan çok önce kurulan samimi bağ</li>
+                  <li><span>✓</span> Kendi mentorunun yanı sıra tüm partner şirketlerle etkileşim</li>
+                  <li><span>✓</span> Mezuniyet sonrasında da devam eden aktif ekosistem</li>
+                </ul>
+              </div>
+              <div class="vision-card">
+                <span class="vision-tag">Uzun Vadeli Vizyonumuz</span>
+                <h3>Türkiye'den Dünyaya Ölçeklenen Ekosistem</h3>
+                <p>Hedefimiz; üniversite öğrencileri, profesyoneller, alumni ve lider şirketleri aynı ekosistem içinde buluşturan, Türkiye'nin en güçlü profesyonel topluluklarından birini oluşturmaktır.</p>
+                <ul class="vision-list">
+                  <li><span>✓</span> Farklı üniversitelere ve sektörlere yayılan model</li>
+                  <li><span>✓</span> Uluslararası ölçeklenebilir topluluk mimarisi</li>
+                  <li><span>✓</span> Yıllar içinde büyüyen kuşağının referans ağı</li>
+                </ul>
+              </div>
+            </div>
+            <div class="quote-banner">
+              <blockquote>“Ürünümüzün gerçek değeri 6 aylık programda değil; programın başlattığı ve yıllarca devam eden ilişkiler ağında yatmaktadır.”</blockquote>
+              <p>Program tamamlandığında süreç bitmez; asıl değer mezuniyet sonrasında devam eden alumni ağı, mentor ilişkileri ve topluluk etkileşimleriyle ortaya çıkar.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="how-section fade-in-up" id="nasil-calisir">
+          <div class="container">
+            <div class="section-header">
+              <span class="section-pill student-pill">Sistemin İşleyişi</span>
+              <h2>NXT Ekosistemi Nasıl Çalışır?</h2>
+              <p>Her dönem seçilmiş 24 üniversite öğrencisi ve 6–8 lider partner şirketle yürütülen 6 aylık gelişim süreci.</p>
+            </div>
+            <div class="student-grid-4">
+              <div class="student-benefit-card">
+                <div class="benefit-icon-wrap">01</div>
+                <h4>Seçilmiş 24 Öğrencilik Kohort</h4>
+                <p>Topluluğa katılım herkes için açık değildir. Belirli değerlendirme süreçlerinden geçen, yüksek potansiyelli 24 üniversite öğrencisi dönem kohortuna kabul edilir.</p>
+              </div>
+              <div class="student-benefit-card">
+                <div class="benefit-icon-wrap">02</div>
+                <h4>1:1 Mentorluk Eşleşmesi</h4>
+                <p>Her dönem 6–8 partner şirket programa 3–4 deneyimli çalışanını mentor olarak dahil eder. Her öğrenci bir mentorla birebir eşleşir ve ayda en az bir görüşme gerçekleştirir.</p>
+              </div>
+              <div class="student-benefit-card">
+                <div class="benefit-icon-wrap">03</div>
+                <h4>Tüm Şirketlerle Çapraz Deneyim</h4>
+                <p>Öğrenciler 6 ay boyunca yalnızca kendi mentorlarıyla değil; programdaki tüm partner şirketlerle ziyaretler, vakalar ve buluşmalar aracılığıyla etkileşime geçer.</p>
+              </div>
+              <div class="student-benefit-card">
+                <div class="benefit-icon-wrap">04</div>
+                <h4>Mezuniyet & Alumni Topluluğu</h4>
+                <p>6 aylık program sonunda katılımcılar mezun olur ve alumni topluluğuna katılarak mentorlarıyla ve ekosistemle bağlarını yıllar boyunca sürdürür.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="program-section fade-in-up" id="program">
+          <div class="container">
+            <div class="section-header">
+              <span class="section-pill">Program İçeriği</span>
+              <h2>6 Aylık Bütüncül Gelişim Yolculuğunda Neler Var?</h2>
+              <p>Program boyunca tüm bileşenler birbirinden kopuk etkinlikler olarak değil, tek bir gelişim yolculuğunun birbirini tamamlayan parçaları olarak tasarlanır.</p>
+            </div>
+            <div class="timeline-grid">
+              <div class="week-card">
+                <span class="week-badge">Bileşen 01</span>
+                <h3>Birebir Mentorluk Görüşmeleri</h3>
+                <p>Deneyimli bir profesyonelle birebir eşleşerek her ay en az bir kez gerçekleşen, kariyer hedeflerini ve kişisel gelişimini merkeze alan güven odaklı görüşmeler.</p>
+                <div class="week-output">Kazanım: Mezuniyet Sonrası da Süren Mentor Bağı</div>
+              </div>
+              <div class="week-card">
+                <span class="week-badge">Bileşen 02</span>
+                <h3>Şirket Ziyaretleri</h3>
+                <p>Partner şirketlerin ofislerini ve çalışma ortamlarını ziyaret ederek farklı kurum kültürlerini, departman dinamiklerini ve günlük işleyişi içeriden gözlemleme imkânı.</p>
+                <div class="week-output">Kazanım: Farklı Kurum Kültürlerini Yerinde Tanıma</div>
+              </div>
+              <div class="week-card">
+                <span class="week-badge">Bileşen 03</span>
+                <h3>Vaka Çalışmaları (Case Studies)</h3>
+                <p>Partner şirketlerin gerçek iş dünyası problemleri ve senaryoları üzerinde kohort arkadaşlarınla birlikte çalışarak analitik düşünme ve problem çözme pratiği.</p>
+                <div class="week-output">Kazanım: İş Dünyası Problemlerine Pratik Yaklaşım</div>
+              </div>
+              <div class="week-card">
+                <span class="week-badge">Bileşen 04</span>
+                <h3>Liderlerle Buluşmalar</h3>
+                <p>Sektöre yön veren yöneticiler ve liderlerle bir araya gelerek kariyer kırılma noktalarını, karar alma süreçlerini ve vizyonlarını doğrudan dinleme fırsatı.</p>
+                <div class="week-output">Kazanım: Üst Düzey Perspektif ve Kariyer Vizyonu</div>
+              </div>
+              <div class="week-card">
+                <span class="week-badge">Bileşen 05</span>
+                <h3>Workshop ve Gelişim Oturumları</h3>
+                <p>Profesyonel iletişim becerileri, öz farkındalık, kariyer planlama ve iş hayatına hazırlık konularında düzenlenen interaktif gelişim oturumları.</p>
+                <div class="week-output">Kazanım: Güçlü Profesyonel İletişim ve Yetkinlik</div>
+              </div>
+              <div class="week-card">
+                <span class="week-badge">Bileşen 06</span>
+                <h3>Networking & Topluluk Buluşmaları</h3>
+                <p>Yalnızca kendi mentorunla değil; tüm partner şirket temsilcileri, diğer mentorlar, kohort arkadaşların ve alumni üyeleriyle güven bağları kurduğun buluşmalar.</p>
+                <div class="week-output">Kazanım: Yıllar Boyu Yaşayan Profesyonel Çevre</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="value-section fade-in-up" id="kazanimlar">
+          <div class="container">
+            <div class="section-header">
+              <span class="section-pill student-pill">Değer Önerisi & Kültür</span>
+              <h2>Öğrenciler İçin Sağlanan Değer ve Topluluk Yaklaşımımız</h2>
+              <p>NXT, katılımcılarına yalnızca bilgi değil; kariyerleri boyunca yanlarında taşıyacakları güvenilir bir insan ağı kazandırır.</p>
+            </div>
+            <div class="value-highlight-grid">
+              <div class="value-box">
+                <h3>Program Sonunda Neler Kazanırsın?</h3>
+                <p class="lead">6 aylık yolculuğu tamamlayan her katılımcı şu somut kazanımlarla mezun olur:</p>
+                <div class="value-checklist">
+                  <div class="value-check-item">
+                    <span class="check-symbol">✓</span>
+                    <span><strong>Birebir Mentorluk:</strong> Deneyimli profesyonellerden birebir mentorluk almış ve program bittikten sonra da ihtiyaç duyduğunda ulaşabileceği güvene dayalı mentor ilişkisini sürdürmüş olur.</span>
+                  </div>
+                  <div class="value-check-item">
+                    <span class="check-symbol">✓</span>
+                    <span><strong>Şirketleri İçeriden Tanıma:</strong> 6–8 farklı lider partner şirketi ve çalışma kültürlerini içeriden deneyimlemiş olur.</span>
+                  </div>
+                  <div class="value-check-item">
+                    <span class="check-symbol">✓</span>
+                    <span><strong>Bilinçli Kariyer Hedefleri:</strong> Hangi alanın ve kültürün kendisine uygun olduğunu görerek kariyer hedeflerini daha bilinçli belirler.</span>
+                  </div>
+                  <div class="value-check-item">
+                    <span class="check-symbol">✓</span>
+                    <span><strong>Güçlü Profesyonel Çevre & İletişim:</strong> Profesyonel iletişim becerilerini geliştirir ve seçilmiş bir topluluk içinde güçlü bir çevre edinir.</span>
+                  </div>
+                  <div class="value-check-item">
+                    <span class="check-symbol">✓</span>
+                    <span><strong>Yaşayan Alumni Ağı:</strong> Mezuniyet sonrasında da devam eden güçlü ve dayanışmacı bir alumni ağına katılır.</span>
+                  </div>
+                </div>
+              </div>
+              <div class="student-profile-banner">
+                <div>
+                  <h3>Topluluk Yaklaşımımız: Seçicilik ve Değer Üretimi</h3>
+                  <p>Topluluğa katılım herkes için açık değildir; katılımcılar belirli değerlendirme süreçlerinden geçerek seçilir. Bu seçicilik, topluluğun kalitesini, üyeler arasındaki güveni ve uzun vadeli değerini koruyan temel unsurlardan biridir.</p>
+                  <p><strong>Değer Alan Değil, Değer Üreten Paydaşlık:</strong> Topluluğun her üyesi yalnızca değer alan değil, aynı zamanda değer üreten bir paydaştır. Öğrenciler, mentorlar, şirketler ve alumni topluluğun gelişimine aktif katkı sağlar.</p>
+                </div>
+                <div class="profile-criteria-list">
+                  <div class="profile-item"><span class="profile-bullet">✦</span> Her dönem özenle seçilen 24 yüksek potansiyelli öğrenci</div>
+                  <div class="profile-item"><span class="profile-bullet">✦</span> Karşılıklı güven, açıklık ve sorumluluk kültürü</div>
+                  <div class="profile-item"><span class="profile-bullet">✦</span> Akran öğrenimi ve topluluğa aktif katkı bilinci</div>
+                  <div class="profile-item"><span class="profile-bullet">✦</span> Öğrenci, mentor, şirket ve alumni dörtgeninde ortak üretim</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="graduate-section fade-in-up" id="mezun-profili">
+          <div class="container">
+            <div class="section-header">
+              <span class="section-pill">Mezuniyet Çıktısı</span>
+              <h2>NXT Mezun Profili</h2>
+              <p>Programdan mezun olan ve alumni ağına katılan bir NXT katılımcısını tanımlayan 9 temel özellik:</p>
+            </div>
+            <div class="graduate-grid">
+              <div class="graduate-card">
+                <div class="grad-num">01</div>
+                <div class="grad-text">
+                  <h4>Bilinçli Kariyer Kararları</h4>
+                  <p>Farklı sektörleri ve rolleri tanıdığı için kariyer kararlarını kulaktan dolma bilgilerle değil, bilinçli şekilde verebilir.</p>
+                </div>
+              </div>
+              <div class="graduate-card">
+                <div class="grad-num">02</div>
+                <div class="grad-text">
+                  <h4>Güçlü Profesyonel İlişkiler</h4>
+                  <p>Kısa vadeli tanışıklıklar yerine güvene dayalı, uzun soluklu profesyonel ilişkiler kurabilir ve sürdürebilir.</p>
+                </div>
+              </div>
+              <div class="graduate-card">
+                <div class="grad-num">03</div>
+                <div class="grad-text">
+                  <h4>İş Dünyasını İçeriden Tanıma</h4>
+                  <p>Kurumsal dünyayı yalnızca dışarıdan izlemez; karar mekanizmalarını ve işleyişi içeriden tanır.</p>
+                </div>
+              </div>
+              <div class="graduate-card">
+                <div class="grad-num">04</div>
+                <div class="grad-text">
+                  <h4>Çoklu Şirket Kültürü Deneyimi</h4>
+                  <p>Programdaki partner şirketlerle kurduğu temaslar sayesinde farklı şirket kültürlerini bizzat deneyimlemiştir.</p>
+                </div>
+              </div>
+              <div class="graduate-card">
+                <div class="grad-num">05</div>
+                <div class="grad-text">
+                  <h4>Profesyonel İletişim Becerisi</h4>
+                  <p>Liderlerle, mentorlarla ve akranlarıyla kurduğu etkileşimlerle profesyonel iletişim becerileri üst seviyeye gelişmiştir.</p>
+                </div>
+              </div>
+              <div class="graduate-card">
+                <div class="grad-num">06</div>
+                <div class="grad-text">
+                  <h4>Güvenilir ve Sorumluluk Sahibi</h4>
+                  <p>Üstlendiği çalışmalarda ve ilişkilerde güvenilir, öz disiplini yüksek ve sorumluluk sahibi bir profesyonel olarak hareket eder.</p>
+                </div>
+              </div>
+              <div class="graduate-card">
+                <div class="grad-num">07</div>
+                <div class="grad-text">
+                  <h4>Güçlü Mentor ve Alumni Ağı</h4>
+                  <p>Mezuniyet sonrasında da her ihtiyaç duyduğunda danışabileceği güçlü bir mentor ve alumni ağına sahiptir.</p>
+                </div>
+              </div>
+              <div class="graduate-card">
+                <div class="grad-num">08</div>
+                <div class="grad-text">
+                  <h4>Topluluğa Katkı Bilinci</h4>
+                  <p>Yalnızca bireysel fayda sağlamayı değil; içinde bulunduğu topluluğa ve yeni dönem üyelere katkı vermeyi benimsemiştir.</p>
+                </div>
+              </div>
+              <div class="graduate-card">
+                <div class="grad-num">09</div>
+                <div class="grad-text">
+                  <h4>Gelişim Odaklı Bakış Açısı</h4>
+                  <p>Geri bildirime ve öğrenmeye açık, kendini sürekli yenileyen gelişim odaklı bir bakış açısı kazanmıştır.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ÇOK ADIMLI (WIZARD) ÖĞRENCİ BAŞVURU FORMU -->
+        <section class="form-section fade-in-up" id="ogrenci-basvuru">
+          <div class="container">
+            <div class="student-form-box">
+              <div class="student-form-header">
+                <span class="section-pill student-pill">Seçilmiş 24 Öğrenciden Biri Ol</span>
+                <h3>NXT Öğrenci (Fellow) Başvuru Formu</h3>
+                <p>Yeni dönem 6 aylık gelişim yolculuğuna ve topluluğumuza katılmak için başvurunu ilet. Tüm başvurular değerlendirme komitemiz tarafından titizlikle incelenmektedir.</p>
+              </div>
+              
+              <!-- İlerleme Çubuğu -->
+              <div class="wizard-progress">
+                  <div class="wizard-step-indicator active" id="ind-step1">
+                    <div class="step-circle">1</div>
+                    <div class="step-label">Temel Bilgiler</div>
+                  </div>
+                  <div class="wizard-step-indicator" id="ind-step2">
+                    <div class="step-circle">2</div>
+                    <div class="step-label">Kariyer & Profil</div>
+                  </div>
+                  <div class="wizard-step-indicator" id="ind-step3">
+                    <div class="step-circle">3</div>
+                    <div class="step-label">Motivasyon</div>
+                  </div>
+              </div>
+
+              <form id="studentApplicationForm" onsubmit="handleStudentSubmit(event)">
+                
+                <!-- ADIM 1 -->
+                <div class="form-step active" id="step1">
+                    <div class="form-grid-2">
+                      <div class="form-group">
+                        <label>Adınız Soyadınız *</label>
+                        <input type="text" id="s_name" class="form-control" placeholder="Örn: Deniz Kaya" required>
+                      </div>
+                      <div class="form-group">
+                        <label>E-posta Adresiniz *</label>
+                        <input type="email" id="s_email" class="form-control" placeholder="deniz@universite.edu.tr" required>
+                      </div>
+                      <div class="form-group full-width">
+                        <label>Üniversiteniz ve Bölümünüz *</label>
+                        <input type="text" id="s_uni" class="form-control" placeholder="Örn: İTÜ - Endüstri Mühendisliği" required>
+                      </div>
+                      <div class="form-group full-width">
+                        <label>Sınıfınız *</label>
+                        <select id="s_grade" class="form-control" required>
+                          <option value="">Seçiniz</option>
+                          <option value="1">1. Sınıf</option>
+                          <option value="2">2. Sınıf</option>
+                          <option value="3">3. Sınıf</option>
+                          <option value="4">4. Sınıf / Yeni Mezun</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="wizard-actions">
+                        <div></div><!-- Sol boşluk -->
+                        <button type="button" class="btn-wizard-next" onclick="nextStep(1)">İleri (Kariyer & Profil) →</button>
+                    </div>
+                </div>
+
+                <!-- ADIM 2 -->
+                <div class="form-step" id="step2">
+                    <div class="form-grid-2">
+                      <div class="form-group full-width">
+                        <label>LinkedIn Profil Linki *</label>
+                        <input type="url" id="s_linkedin" class="form-control" placeholder="https://linkedin.com/in/profiliniz" required>
+                      </div>
+                      <div class="form-group full-width">
+                        <label>İlgi Duyduğunuz Kariyer Alanı *</label>
+                        <select id="s_sector" class="form-control" required>
+                          <option value="">Seçiniz</option>
+                          <option value="tech">Yazılım, Veri & Teknoloji</option>
+                          <option value="marketing">Pazarlama, Marka & Büyüme</option>
+                          <option value="finance">Finans, Yatırım & Strateji</option>
+                          <option value="hr">İnsan Kaynakları & Kültür</option>
+                          <option value="consulting">Yönetim & Danışmanlık</option>
+                          <option value="operations">Ürün, Operasyon & Tedarik Zinciri</option>
+                        </select>
+                      </div>
+                      <div class="form-group full-width">
+                        <label>Bugüne Kadar Yer Aldığın Topluluk, Kulüp ve Proje Deneyimlerin *</label>
+                        <textarea id="s_exp" class="form-control" placeholder="Üniversite kulüpleri, projeler, vaka çalışmaları veya sorumluluk aldığın çalışmaları kısaca paylaş..." required></textarea>
+                      </div>
+                    </div>
+                    <div class="wizard-actions">
+                        <button type="button" class="btn-wizard-prev" onclick="prevStep(2)">← Geri</button>
+                        <button type="button" class="btn-wizard-next" onclick="nextStep(2)">İleri (Motivasyon) →</button>
+                    </div>
+                </div>
+
+                <!-- ADIM 3 -->
+                <div class="form-step" id="step3">
+                    <div class="form-group full-width">
+                        <label>NXT Topluluğuna Neden Katılmak İstiyorsun? Topluluğa Nasıl Değer Katabilirsin? *</label>
+                        <textarea id="s_why" class="form-control" style="min-height: 140px;" placeholder="6 aylık yolculuktan beklentilerini ve bir topluluk paydaşı olarak neler katabileceğini anlat..." required></textarea>
+                    </div>
+                    <div class="wizard-actions">
+                        <button type="button" class="btn-wizard-prev" onclick="prevStep(3)">← Geri</button>
+                        <button type="submit" class="btn-wizard-submit">Topluluk Başvurunu Gönder</button>
+                    </div>
+                </div>
+
+                <div id="studentSuccess" class="student-success-msg">
+                  Başvurun başarıyla alındı! Değerlendirme süreci hakkında e-posta adresin üzerinden bilgilendirme yapılacaktır.
+                </div>
+              </form>
+            </div>
+          </div>
+        </section>
+    </div>
+
+
+    <!-- ============================================== -->
+    <!-- SEKME 2: KURUMSAL İLETİŞİM                     -->
+    <!-- ============================================== -->
+    <div id="tab-sirketler" class="tab-pane">
+        
+        <section class="hero">
+          <div class="container hero-content">
+            <div class="hero-switch-bar fade-in-up">
+              <a class="switch-pill" onclick="switchTab(event, 'tab-ogrenciler')">🎓 Üniversite Öğrencileri (Fellows)</a>
+              <a class="switch-pill switch-pill-company active">🏢 Partner Şirketler & Kurumlar</a>
+            </div>
+
+            <h1 class="fade-in-up" style="transition-delay: 0.1s">Sponsor Değil, Seçilmiş Bir Yetenek Topluluğunun <span>Aktif Paydaşı Olun.</span></h1>
+            <p class="fade-in-up" style="transition-delay: 0.2s">
+              Yüksek potansiyelli üniversite öğrencileriyle işe alım başlamadan çok önce güvene dayalı bağ kurun. İşveren markanızı reklam yerine gerçek insan ilişkileriyle güçlendirin ve genç yetenekleri anlamlandırılmış içgörülerle tanıyın.
+            </p>
+
+            <div class="hero-cta-row fade-in-up" style="transition-delay: 0.3s">
+              <a href="#sirket-iletisim" class="btn-hero-primary btn-hero-company" onclick="document.getElementById('sirket-iletisim').scrollIntoView({behavior: 'smooth'});">Partner Şirket Olarak Katılın</a>
+              <a href="#veri-icgoru" class="btn-hero-secondary" onclick="document.getElementById('veri-icgoru').scrollIntoView({behavior: 'smooth'});">Veri & İçgörü Yaklaşımımızı İnceleyin</a>
+            </div>
+
+            <div class="stats-card fade-in-up" style="transition-delay: 0.4s">
+              <div class="stat-item">
+                <div class="stat-number">6–8</div>
+                <div class="stat-label">Partner Şirket</div>
+                <div class="stat-sub">Her dönem seçkin kurum katılımı</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">3–4</div>
+                <div class="stat-label">Deneyimli Mentor</div>
+                <div class="stat-sub">Her partner şirketten dahil olan çalışan</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">24</div>
+                <div class="stat-label">Seçilmiş Öğrenci</div>
+                <div class="stat-sub">Tüm partner şirketlerle çapraz etkileşim</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">6 Ay + Alumni</div>
+                <div class="stat-label">Yıl Boyu Etkileşim</div>
+                <div class="stat-sub">İşe alım dönemlerini aşan kalıcı temas</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="value-section fade-in-up" id="deger-onerisi">
+          <div class="container">
+            <div class="section-header">
+              <span class="section-pill">Kurumsal Değer Önerisi</span>
+              <h2>Şirketler İçin Sağlanan Değer</h2>
+              <p>Partner şirketler program sayesinde genç yeteneklerle tek seferlik etkinliklerde değil; 6 ay süren ve mezuniyet sonrasında da yaşayan organik bir topluluk içinde buluşur.</p>
+            </div>
+
+            <div class="value-grid-4">
+              <div class="company-value-card">
+                <div class="val-badge">01</div>
+                <h3>Erken Dönemde Güven İlişkisi</h3>
+                <p>Yüksek potansiyelli öğrencilerle henüz işe alım süreçleri başlamadan çok önce, samimi ve güvene dayalı profesyonel ilişkiler kurar.</p>
+              </div>
+              <div class="company-value-card">
+                <div class="val-badge">02</div>
+                <h3>İnsan İlişkileriyle İşveren Markası</h3>
+                <p>İşveren markasını tek yönlü reklam kampanyaları yerine gerçek insan ilişkileri, birebir temas ve deneyimlerle güçlendirir.</p>
+              </div>
+              <div class="company-value-card">
+                <div class="val-badge">03</div>
+                <h3>Doğal Marka Temsilcileri</h3>
+                <p>Programa mentor olarak dahil ettiği deneyimli çalışanlarını genç yetenekler nezdinde şirketin doğal marka temsilcilerine dönüştürür.</p>
+              </div>
+              <div class="company-value-card">
+                <div class="val-badge">04</div>
+                <h3>Samimi Kültür Aktarımı</h3>
+                <p>Şirket kültürünü, çalışma değerlerini ve vizyonunu kurumsal bültenlerle değil, samimi ve organik biçimde gençlere aktarır.</p>
+              </div>
+              <div class="company-value-card">
+                <div class="val-badge">05</div>
+                <h3>Uzun Vadeli Yetenek Havuzu</h3>
+                <p>Erken yetenek havuzunu yalnızca açık pozisyon dönemlerinde değil, uzun vadeli ve nitelikli bir topluluk olarak oluşturur.</p>
+              </div>
+              <div class="company-value-card">
+                <div class="val-badge">06</div>
+                <h3>Doğal Ortamda Tanıma Fırsatı</h3>
+                <p>İşe alım öncesinde adayları mülakat stresinden uzak; vaka çalışmaları, ziyaretler ve topluluk etkileşimleri içinde doğal ortamlarında tanır.</p>
+              </div>
+              <div class="company-value-card">
+                <div class="val-badge">07</div>
+                <h3>Düzenli Geri Bildirim & İçgörü</h3>
+                <p>Öğrencilerden düzenli geri bildirim ve içgörü elde ederek employer branding (işveren markası) çalışmalarını somut verilerle geliştirir.</p>
+              </div>
+              <div class="company-value-card">
+                <div class="val-badge">08</div>
+                <h3>Yıl Boyu Kesintisiz Temas</h3>
+                <p>Yalnızca işe alım dönemlerinde değil; 6 aylık program ve devam eden alumni ağı sayesinde yıl boyunca genç yeteneklerle temas halinde kalır.</p>
+              </div>
+            </div>
+
+            <div class="quote-banner">
+              <blockquote>“Partner şirketler bu programda birer sponsor değil, topluluğun aktif paydaşlarıdır.”</blockquote>
+              <p>Programın merkezinde tekil etkinlikler değil, community (topluluk) yer alır; gerçek değer mezuniyet sonrasında da yıllar boyu süren güven ilişkileriyle ortaya çıkar.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="model-section fade-in-up" id="nasil-calisir">
+          <div class="container">
+            <div class="section-header">
+              <span class="section-pill navy-pill">Program Mimarisi</span>
+              <h2>Partner Şirketler Sürece Nasıl Dahil Olur?</h2>
+              <p>6 aylık dönem boyunca hem birebir mentorluk hem de tüm kohortu kapsayan bütüncül şirket deneyimleri birlikte yürütülür.</p>
+            </div>
+
+            <div class="model-grid">
+              <div class="model-card">
+                <span class="model-step">Adım 01 · Mentor Katılımı</span>
+                <h3>3–4 Deneyimli Çalışan ile 1:1 Eşleşme</h3>
+                <p>Her dönem programa katılan 6–8 partner şirketin her biri, 3–4 deneyimli çalışanını mentor olarak sürece dahil eder. Her öğrenci bir mentor ile birebir eşleşir ve 6 ay boyunca ayda en az bir mentorluk görüşmesi gerçekleştirir.</p>
+                <div class="model-footer">Çıktı: Derinlikli 1:1 Profesyonel Güven Bağı</div>
+              </div>
+
+              <div class="model-card">
+                <span class="model-step">Adım 02 · Çapraz Etkileşim</span>
+                <h3>Tüm Kohortla Şirket Deneyimleri</h3>
+                <p>Öğrenciler yalnızca kendi mentorlarıyla değil, programdaki tüm partner şirketlerle etkileşime geçer. Şirket ziyaretleri, gerçek vaka çalışmaları, liderlerle buluşmalar, workshoplar ve networking etkinlikleri tek bir yolculuğun parçaları olarak uygulanır.</p>
+                <div class="model-footer">Çıktı: 24 Seçilmiş Öğrencinin Tamamıyla Temas</div>
+              </div>
+
+              <div class="model-card">
+                <span class="model-step">Adım 03 · Süreklilik & İçgörü</span>
+                <h3>Alumni Ağı & Dönem Sonu Etki Analizi</h3>
+                <p>6 aylık program sonunda katılımcılar mezun olarak yaşayan alumni topluluğuna katılır ve şirketlerle bağlarını sürdürür. Partner şirketlere dönem sonunda özel Stratejik Etki ve İçgörü Raporu sunulur.</p>
+                <div class="model-footer">Çıktı: Kalıcı Alumni Ağı & Karar Destek İçgörüleri</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="insights-section fade-in-up" id="veri-icgoru">
+          <div class="container">
+            <div class="section-header">
+              <span class="section-pill">Karar Destek Sistemi</span>
+              <h2>Veri ve İçgörü Yaklaşımımız</h2>
+              <p>Topluluğumuz büyüdükçe en değerli çıktılarımızdan biri yalnızca kurduğumuz ilişkiler değil, bu ilişkilerden doğan stratejik içgörülerdir.</p>
+            </div>
+
+            <div class="ethics-banner">
+              <div>
+                <h3>Net İlkemiz: Kişisel Veri Satan Bir Şirket Olmayacağız.</h3>
+                <p>
+                  Ürettiğimiz değer; katılımcıların açık rızası doğrultusunda elde edilen, <strong>anonimleştirilmiş ve toplulaştırılmış verileri</strong> anlamlandırarak şirketlerin daha doğru kararlar almasını sağlayan içgörüler üretmektir. Partner şirketler yalnızca öğrencilerle bir araya gelmekle kalmaz; genç yeteneklerin beklentilerini, algılarını ve davranışlarını derinlemesine anlayabilecekleri bir <strong>karar destek sistemine</strong> erişir.
+                </p>
+              </div>
+              <div class="ethics-points">
+                <div class="ethics-point"><span>✓</span> %100 Açık Rıza, Anonimleştirilmiş ve Toplulaştırılmış Analiz</div>
+                <div class="ethics-point"><span>✓</span> Kişisel Verilerin Ticari Ürün Haline Getirilmemesi</div>
+                <div class="ethics-point"><span>✓</span> Birey Mahremiyetini Koruyan Etik İlkeler Çerçevesi</div>
+                <div class="ethics-point"><span>✓</span> İşe Alım ve İK Stratejileri İçin Karar Destek Çıktıları</div>
+              </div>
+            </div>
+
+            <div class="insights-grid-2">
+              <div class="insight-card">
+                <span class="insight-tag">İçgörü Alanı 01</span>
+                <h3>İşveren Markası İçgörüleri</h3>
+                <p>Program süresince öğrencilerin partner şirketlerle kurduğu etkileşimler sayesinde şirketlerin işveren markası algısı düzenli olarak ölçülür. Böylece yalnızca <em>"Kaç öğrenciye ulaştık?"</em> sorusunun değil, <strong>"Öğrenciler bizi gerçekten nasıl görüyor?"</strong> sorusunun da cevabı alınır.</p>
+                <ul class="insight-bullets">
+                  <li><span>✦</span> Öğrencilerin şirket hakkındaki ilk izlenimleri ile program sonundaki algılarının karşılaştırılması</li>
+                  <li><span>✦</span> Hangi şirket deneyimlerinin güven oluşturduğunun tespiti</li>
+                  <li><span>✦</span> İşveren markası iletişiminde hangi alanlarda gelişim gerektiğinin analizi</li>
+                </ul>
+              </div>
+              <div class="insight-card">
+                <span class="insight-tag">İçgörü Alanı 02</span>
+                <h3>Erken Yetenek İçgörüleri</h3>
+                <p>Program, yüksek potansiyelli öğrencilerin kariyer tercihlerini, beklentilerini ve motivasyonlarını gözlemleyebilmek için benzersiz bir ortam sunar. Bu içgörüler işe alım stratejilerinden employer branding çalışmalarına kadar bilinçli kararlar alınmasını sağlar.</p>
+                <ul class="insight-bullets">
+                  <li><span>✦</span> Gençlerin hangi alanlara yöneldiği ve hangi departmanlara ilgi duyduğu</li>
+                  <li><span>✦</span> Kariyer seçimlerinde hangi kriterleri önceliklendirdiği</li>
+                  <li><span>✦</span> İş hayatına dair beklentilerinin nasıl değiştiği ve hangi yetkinlikleri geliştirmek istediği</li>
+                </ul>
+              </div>
+              <div class="insight-card">
+                <span class="insight-tag">İçgörü Alanı 03</span>
+                <h3>Mentor Etki Analizi</h3>
+                <p>Bugüne kadar birçok kurum mentorluk programlarının gerçek etkisini ölçmekte zorlanmaktadır. NXT, mentorların programa katkısını yalnızca katılım oranlarıyla değil; çok boyutlu gelişim çıktılarıyla analiz eder.</p>
+                <ul class="insight-bullets">
+                  <li><span>✦</span> Mentorların öğrenciler üzerindeki gelişim katkısı ve etki düzeyi</li>
+                  <li><span>✦</span> Görüşme sürekliliği ve nitelikli geri bildirim analizleri</li>
+                  <li><span>✦</span> Çalışan deneyimini güçlendirme ve şirket içi mentor havuzunu bilinçli geliştirme imkânı</li>
+                </ul>
+              </div>
+              <div class="insight-card">
+                <span class="insight-tag">İçgörü Alanı 04</span>
+                <h3>Topluluk İçgörüleri</h3>
+                <p>Topluluğumuz yalnızca öğrencilerin değil, şirketlerin de sürekli öğrenmesini sağlayan yaşayan bir ekosistemdir. Elde edilen anonim verilerle partner şirketler her yıl genç yetenek stratejilerini geliştirebilir.</p>
+                <ul class="insight-bullets">
+                  <li><span>✦</span> Hangi etkinliklerin ve şirket deneyimlerinin daha yüksek etki ve güçlü bağ oluşturduğu</li>
+                  <li><span>✦</span> Öğrencilerin hangi gelişim içeriklerine daha fazla ilgi gösterdiği</li>
+                  <li><span>✦</span> Hangi sektörlerin ve iş alanlarının gençler tarafından daha fazla merak edildiği</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="reports-section fade-in-up" id="etki-raporlari">
+          <div class="container">
+            <div class="section-header">
+              <span class="section-pill navy-pill">Stratejik Değerlendirme</span>
+              <h2>Dönem Sonu Partner Etki Raporları</h2>
+              <p>Her program sonunda partner şirketlere özel hazırlanan etki raporları, yalnızca gerçekleşen faaliyetleri değil; programın şirket üzerindeki gerçek etkisini ortaya koyar.</p>
+            </div>
+
+            <div class="report-showcase">
+              <div class="report-left">
+                <h3>Faaliyet Özeti Değil, Stratejik Karar Dokümanı</h3>
+                <p>6 aylık dönem tamamlandığında her partner kurumumuza, topluluk içindeki etkileşimlerin ve algı ölçümlerinin sentezlendiği kapsamlı bir değerlendirme dokümanı sunuyoruz.</p>
+                <div class="report-quote">“Amacımız rapor sunmak değil, şirketlerin daha doğru kararlar almasını sağlayacak içgörüler üretmektir.”</div>
+              </div>
+
+              <div class="report-items-grid">
+                <div class="report-item">
+                  <div class="report-item-num">01</div>
+                  <div class="report-item-text">İşveren markası algısındaki dönem başı ve dönem sonu değişim analizi</div>
+                </div>
+                <div class="report-item">
+                  <div class="report-item-num">02</div>
+                  <div class="report-item-text">Mentorluk programının ve şirket mentorlarının etki değerlendirmesi</div>
+                </div>
+                <div class="report-item">
+                  <div class="report-item-num">03</div>
+                  <div class="report-item-text">Öğrencilerin şirket kültürü, liderlik ve deneyimler hakkındaki görüşleri</div>
+                </div>
+                <div class="report-item">
+                  <div class="report-item-num">04</div>
+                  <div class="report-item-text">Erken yetenek iletişimi ve işveren markası için tespit edilen gelişim alanları</div>
+                </div>
+                <div class="report-item">
+                  <div class="report-item-num">05</div>
+                  <div class="report-item-text">Gelecek dönem genç yetenek ve işe alım stratejisi için somut öneriler</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="comp-table-wrap">
+              <table class="comp-table">
+                <thead>
+                  <tr>
+                    <th>Değerlendirme Boyutu</th>
+                    <th>Klasik Kariyer Etkinlikleri</th>
+                    <th>Standart Mentorluk Programları</th>
+                    <th class="highlight-col">NXT Topluluk & Partnerlik Ekosistemi</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Şirket Konumlandırması</strong></td>
+                    <td>Logo & Stant Sponsoru</td>
+                    <td>Bireysel Gönüllü Katılımı</td>
+                    <td class="highlight-col">Topluluğun Aktif Paydaşı</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Etkileşim Kapsamı</strong></td>
+                    <td>Kısa süreli, tekil etkinlik teması</td>
+                    <td>Yalnızca 1:1 mentor-mentee görüşmesi</td>
+                    <td class="highlight-col">1:1 Mentorluk + Tüm Kohortla Şirket Deneyimleri</td>
+                  </tr>
+                  <tr>
+                    <td><strong>İşveren Markası Etkisi</strong></td>
+                    <td>Tanıtım ve reklam odaklı</td>
+                    <td>Ölçülemeyen bireysel etki</td>
+                    <td class="highlight-col">Gerçek İnsan İlişkileri & Algı Değişim Analizi</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Veri ve İçgörü Çıktısı</strong></td>
+                    <td>Yalnızca katılımcı sayısı</td>
+                    <td>Görüşme sayısı takibi</td>
+                    <td class="highlight-col">Anonim Karar Destek İçgörüleri & Stratejik Etki Raporu</td>
+                  </tr>
+                  <tr>
+                    <td><strong>İlişki Sürekliliği</strong></td>
+                    <td>Etkinlik bittiğinde sona erer</td>
+                    <td>Dönem sonunda kopan bağlar</td>
+                    <td class="highlight-col">6 Ay Program + Yıllar Boyu Yaşayan Alumni Ağı</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section class="strategy-section fade-in-up" id="vizyon">
+          <div class="container">
+            <div class="section-header">
+              <span class="section-pill">Gelecek Perspektifi</span>
+              <h2>Stratejik Yaklaşımımız ve Uzun Vadeli Vizyonumuz</h2>
+              <p>Güven üzerine inşa edilmiş ilişki ağı ve bu ağın ürettiği yüksek kaliteli içgörülerle Türkiye'nin erken kariyer ekosistemine referans oluşturuyoruz.</p>
+            </div>
+
+            <div class="strategy-grid">
+              <div class="strategy-card">
+                <h3>Stratejik Yaklaşımımız</h3>
+                <p>Bizim amacımız veri toplamak değildir. Amacımız, güvene dayalı ilişkiler kuran bir topluluk içerisinde oluşan deneyimleri anlamlandırarak şirketlerin genç yeteneklerle daha güçlü ilişkiler kurmasına yardımcı olmaktır.</p>
+                <p>Topluluğumuz büyüdükçe en değerli varlığımız veri değil; <strong>güven üzerine inşa edilmiş ilişki ağı</strong> ve bu ağın ürettiği yüksek kaliteli içgörüler olacaktır. Bu nedenle veri, hiçbir zaman ticari bir ürün olarak değil; partner şirketlerin daha bilinçli kararlar almasını sağlayan stratejik bir değer olarak konumlandırılmaktadır.</p>
+              </div>
+              <div class="strategy-card burgundy-border">
+                <h3>Uzun Vadeli Vizyonumuz</h3>
+                <p>Topluluğumuz büyüdükçe oluşacak bilgi birikimi, Türkiye'nin erken kariyer ekosistemine ilişkin en nitelikli referans kaynaklarından biri hâline gelecektir.</p>
+                <p>Farklı sektörlerden lider şirketler, binlerce öğrenci, yüzlerce mentor ve yıllar içinde oluşan alumni ağı sayesinde; genç yeteneklerin beklentilerini, kariyer eğilimlerini ve şirketlerle kurdukları ilişkileri anlamaya yönelik benzersiz bir ekosistem inşa ediyor ve bu modeli farklı üniversitelere, sektörlere ve ülkelere ölçeklemeyi hedefliyoruz.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="company-cta-section fade-in-up" id="sirket-iletisim">
+          <div class="container">
+            <div class="cta-grid">
+              <div class="cta-text">
+                <h2>Yeni Dönemin 6–8 Partner Şirketinden Biri Olun.</h2>
+                <p>Yüksek potansiyelli genç yeteneklerle işe alım öncesinde güvene dayalı bağ kurmak, çalışanlarınızı doğal marka elçilerine dönüştürmek ve dönem sonu stratejik içgörü raporlarıyla erken yetenek stratejinizi güçlendirmek için tanışma toplantısı planlayalım.</p>
+                <div class="founders-box">
+                  Kurucu Ekip: <strong>Emir Çanakkale · Sümeyye Tezcan · Enes Gençoğlu</strong><br>
+                  NXT — Network X Talent | İletişim: <a href="mailto:nxt.kurumsal@gmail.com" style="color: #fff; text-decoration: underline;">nxt.kurumsal@gmail.com</a>
+                </div>
+              </div>
+
+              <div class="company-form-card">
+                <h3>Kurumsal Partnerlik & Tanışma Formu</h3>
+                <p>Kurum bilgilerinizi bırakın; yeni dönem kohort yapısını ve partnerlik detaylarını görüşmek üzere sizinle iletişime geçelim.</p>
+                <form id="companyContactForm" onsubmit="handleCompanySubmit(event)">
+                  <div class="form-group">
+                    <label>Adınız Soyadınız *</label>
+                    <input type="text" id="c_name" class="form-control" placeholder="Örn: Burak Demir" required>
+                  </div>
+                  <div class="form-group">
+                    <label>Şirket / Kurum Adı ve Departmanınız *</label>
+                    <input type="text" id="c_company" class="form-control" placeholder="Örn: ABC Holding - İnsan Kaynakları" required>
+                  </div>
+                  <div class="form-group">
+                    <label>Kurumsal E-posta Adresiniz *</label>
+                    <input type="email" id="c_email" class="form-control" placeholder="burak@holding.com" required>
+                  </div>
+                  <div class="form-group">
+                    <label>Öncelikli İlgi Alanınız</label>
+                    <select id="c_pkg" class="form-control">
+                      <option value="donem_partnerligi">Dönem Partnerliği (3–4 Mentor & 6 Aylık Ekosistem Paydaşlığı)</option>
+                      <option value="isveren_markasi_icgoru">İşveren Markası & Erken Yetenek İçgörüleri</option>
+                      <option value="sirket_deneyimi">Şirket Ziyareti, Vaka Çalışması & Lider Buluşmaları</option>
+                      <option value="tanisma_toplantisi">Genel Tanışma & Ekosistem Sunumu Talebi</option>
+                    </select>
+                  </div>
+                  <button type="submit" class="company-submit-btn">Tanışma Toplantısı Planla</button>
+                  <div id="companySuccess" class="company-success-msg">
+                    Talebiniz başarıyla alındı! Ekibimiz en kısa sürede sizinle iletişime geçecektir.
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </section>
+
+    </div>
+
+
+    <!-- ============================================== -->
+    <!-- SEKME 3: BİZ KİMİZ                             -->
+    <!-- ============================================== -->
+    <div id="tab-bizkimiz" class="tab-pane">
+        <section style="padding: 60px 0;">
+            <div class="container fade-in-up">
+                
+                <!-- HİKAYEMİZ / MANİFESTO -->
+                <div class="about-manifesto">
+                    <h2>Neden NXT'yi Kurduk?</h2>
+                    <p>Bizler, Türkiye'nin önde gelen üniversitelerinde kariyer kulüplerini ve devasa öğrenci zirvelerini yönetmiş bir ekibiz. Yüzlerce şirketi ve binlerce öğrenciyi tek günlük fuarlarda, sponsorluk odaklı zirvelerde ve salon etkinliklerinde bir araya getirdik.</p>
+                    <p>Ancak zamanla şu gerçeği fark ettik: <strong>Binlerce kişinin katıldığı bir salonda gerçek güven bağları kurulmuyor.</strong> Öğrenciler şirket kültürlerini tek günlük bir reklam sunumundan anlayamıyor; şirketler de yetenekleri CV yığınları arasında gerçekten tanıyamıyor.</p>
+                    <p>İşte NXT (Network X Talent) bu yüzden doğdu. Biz; kısa süreli etkinlik sponsorluklarını değil, <strong>uzun vadeli profesyonel ilişki ağını</strong> inşa etmek istiyoruz. Güvene, birebir temasa ve çapraz mentorluğa dayalı, hem öğrencinin hem de şirketin gerçekten değer ürettiği seçilmiş bir ekosistem kuruyoruz.</p>
+                </div>
+
+                <div class="section-header" style="margin-bottom: 40px;">
+                    <span class="section-pill">Kurucu Ekibimiz</span>
+                    <h2>Arkamızda Kimler Var?</h2>
+                    <p>Boğaziçi Üniversitesi ve Yıldız Teknik Üniversitesi ekosistemlerinden gelen, operasyon tecrübesine sahip kurucu ekibimiz.</p>
+                </div>
+
+                <!-- YENİLENEN EKİP KARTLARI (Fotoğraflı) -->
+                <div class="team-grid">
+                    <!-- EMİR ÇANAKKALE -->
+                    <div class="team-card">
+                        <div class="team-image-wrapper">
+                            <img src="Emir_Canakkale.jpg" alt="Emir Çanakkale">
+                        </div>
+                        <h3>Emir Çanakkale</h3>
+                    </div>
+
+                    <!-- SÜMEYYE TEZCAN -->
+                    <div class="team-card">
+                        <div class="team-image-wrapper">
+                            <img src="Sumeyye_Tezcan.jpg" alt="Sümeyye Tezcan">
+                        </div>
+                        <h3>Sümeyye Tezcan</h3>
+                    </div>
+
+                    <!-- ENES GENÇOĞLU -->
+                    <div class="team-card">
+                        <div class="team-image-wrapper">
+                            <img src="Enes_Gencoglu.jpg" alt="Enes Gençoğlu">
+                        </div>
+                        <h3>Enes Gençoğlu</h3>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+
+    <!-- ============================================== -->
+    <!-- SEKME 4: SIKÇA SORULAN SORULAR (S.S.S.)        -->
+    <!-- ============================================== -->
+    <div id="tab-sss" class="tab-pane">
+        <section style="padding: 80px 0;">
+            <div class="container fade-in-up">
+                <div class="section-header">
+                    <span class="section-pill">Sorularınız</span>
+                    <h2>Sıkça Sorulan Sorular</h2>
+                    <p>Programa başvuru, katılım şartları ve süreçlerle ilgili tüm detaylar.</p>
+                </div>
+                
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <details>
+                            <summary>Programa başvurmak ve katılmak ücretli mi?</summary>
+                            <div class="faq-answer">Hayır, NXT 6 aylık gelişim yolculuğu süreci ve sonrasındaki alumni topluluğuna katılım, değerlendirme aşamalarını başarıyla geçerek seçilen 24 üniversite öğrencisi (Fellow) için tamamen ücretsizdir.</div>
+                        </details>
+                    </div>
+                    <div class="faq-item">
+                        <details>
+                            <summary>Öğrenciler için değerlendirme süreci nasıl işliyor?</summary>
+                            <div class="faq-answer">Web sitemiz üzerinden alınan form başvuruları, komitemiz tarafından motivasyon ve beklenti odağında titizlikle incelenir. Uygun bulunan adaylar kısa bir online veya yüz yüze sohbet mülakatına davet edilir. Karşılıklı beklentilerin uyuştuğu 24 aday döneme kabul edilir.</div>
+                        </details>
+                    </div>
+                    <div class="faq-item">
+                        <details>
+                            <summary>Birebir (1:1) Mentorluk eşleşmeleri neye göre yapılıyor?</summary>
+                            <div class="faq-answer">Eşleşmeler rastgele yapılmaz. Kabul alan öğrencilerin kariyer hedefleri ve ilgi duydukları sektörler analiz edilerek; partner şirketlerimizden bu alanlarda uzmanlığı olan deneyimli çalışanlarla eşleştirilir.</div>
+                        </details>
+                    </div>
+                    <div class="faq-item">
+                        <details>
+                            <summary>Program üniversite derslerimle veya stajımla çakışır mı?</summary>
+                            <div class="faq-answer">Bütüncül gelişim oturumları, ofis ziyaretleri ve topluluk etkinlikleri öğrencilerin ders programları göz önüne alınarak esnek veya hafta sonuna uygun planlanmaktadır. Mentorluk görüşmeleri ise karşılıklı müsaitliğe göre belirlenir.</div>
+                        </details>
+                    </div>
+                    <div class="faq-item">
+                        <details>
+                            <summary>Şirketler için katılım şartları ve beklentiler nelerdir?</summary>
+                            <div class="faq-answer">Partner şirketlerin 6 aylık dönem boyunca en az 3-4 çalışanını mentor olarak sürece dahil etmesi ve dönem içerisinde 24 kişilik öğrenci grubumuzu bir kez kendi ofislerinde ağırlamaları beklenmektedir.</div>
+                        </details>
+                    </div>
+                    <div class="faq-item">
+                        <details>
+                            <summary>Partner Şirketler ekosistemden hangi verileri elde ediyor?</summary>
+                            <div class="faq-answer">Dönem sonunda "Stratejik Etki ve İçgörü Raporu" sunuyoruz. Bu raporda; marka algısındaki değişimler ve işe alım stratejilerine yönelik anonimleştirilmiş genç yetenek içgörüleri yer almaktadır.</div>
+                        </details>
+                    </div>
+                    <div class="faq-item">
+                        <details>
+                            <summary>Mezuniyet sonrası (Alumni) süreci nasıl işliyor?</summary>
+                            <div class="faq-answer">6 aylık aktif dönem bittiğinde öğrenciler ekosistemden kopmaz. NXT Alumni üyelerinin bulunduğu kapalı ağlara katılır, etkinliklere özel davet alır ve şirketler/mentorlarla kurdukları bağı iş hayatları boyunca sürdürürler.</div>
+                        </details>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+    <!-- ============================================== -->
+    <!-- SEKME 5: PARTNERLERİMİZ & MENTORLAR            -->
+    <!-- ============================================== -->
+    <div id="tab-partnerler" class="tab-pane">
+        <section style="padding: 80px 0;">
+            <div class="container fade-in-up">
+                <div class="section-header">
+                    <span class="section-pill">Ekosistem</span>
+                    <h2>Partnerlerimiz & Mentorlarımız</h2>
+                </div>
+                <div style="text-align: center; padding: 80px 40px; background: var(--off-white); border-radius: var(--radius-lg); border: 2px dashed rgba(7,25,49,0.2); max-width: 800px; margin: 0 auto;">
+                    <div style="font-size: 3rem; margin-bottom: 16px;">🤝</div>
+                    <h3 style="color: var(--navy); margin-bottom: 16px; font-size: 1.6rem; font-weight: 900;">Çok Yakında Açıklanacak!</h3>
+                    <p style="color: var(--text-muted); font-size: 1.05rem; max-width: 600px; margin: 0 auto; font-weight: 500;">
+                        İlk dönem partner şirketlerimiz ve mentor kadromuz ile ilgili resmi kurumsal görüşmelerimiz devam ediyor. Güven ağına katılan ilk lider markalar çok yakında burada duyurulacaktır.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+    <!-- ============================================== -->
+    <!-- SEKME 6: GİRİŞ YAP (PORTAL)                    -->
+    <!-- ============================================== -->
+    <div id="tab-giris" class="tab-pane">
+        <section style="padding: 80px 0;">
+            <div class="container fade-in-up">
+                <div style="max-width: 420px; margin: 0 auto; background: var(--white); padding: 48px 40px; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); border: 1px solid var(--border-color); text-align: center;">
+                    <div style="margin: 0 auto 24px; background: var(--navy); border-radius: 12px; width: 64px; height: 64px; display: flex; align-items: center; justify-content: center; color: white; font-weight: 900; font-size: 1.2rem; letter-spacing: 1px; box-shadow: 0 4px 12px rgba(7,25,49,0.3);">
+                        NXT
+                    </div>
+                    <h2 style="color: var(--navy); margin-bottom: 8px; font-size: 1.6rem; font-weight: 900;">NXT Portal'a Giriş</h2>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 32px; font-weight: 500;">Öğrenci (Fellow) veya Mentor hesabınızla devam edin.</p>
+                    
+                    <div style="margin-bottom: 20px; text-align: left;">
+                        <label style="display: block; font-size: 0.85rem; font-weight: 800; color: var(--navy); margin-bottom: 8px;">E-posta Adresi</label>
+                        <input type="email" id="login_email" class="form-control" placeholder="ornek@sirket.com" style="padding: 14px;">
+                    </div>
+                    <div style="margin-bottom: 24px; text-align: left;">
+                        <label style="display: block; font-size: 0.85rem; font-weight: 800; color: var(--navy); margin-bottom: 8px;">Şifre</label>
+                        <input type="password" id="login_pass" class="form-control" placeholder="••••••••" style="padding: 14px;">
+                    </div>
+
+                    <!-- Hata Mesajı Alanı -->
+                    <div id="login_error" style="display: none; color: var(--crimson-accent); font-size: 0.85rem; font-weight: 700; margin-bottom: 16px;">
+                        Hatalı e-posta veya şifre girdiniz.
+                    </div>
+                    
+                    <button onclick="handleLogin(event)" class="btn-hero-primary" style="display: block; width: 100%; border-left: none; text-align: center; font-size: 1.05rem; padding: 16px; border:none;">Giriş Yap</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+
+    <!-- YENİLENEN YASAL BAĞLANTILI FOOTER -->
+    <footer>
+      <div class="container">
+        <div class="footer-inner">
+          <div class="footer-brand">
+            <img src="logo.png" alt="NXT — Network X Talent" class="brand-logo-img footer-logo-img">
+            <p>NXT, yüksek potansiyelli üniversite öğrencileri ile lider şirketler arasında güvene dayalı, uzun vadeli profesyonel ilişkiler kuran seçilmiş bir gelişim topluluğudur.</p>
+            
+            <div class="footer-socials">
+              <a href="#" class="social-icon" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+              </a>
+              <a href="#" class="social-icon" aria-label="Instagram">
+                <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+            <a href="mailto:nxt.kurumsal@gmail.com" class="social-icon" aria-label="Email">
+              <svg viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"/></svg>
+            </a>
+          </div>
+        </div>
+        
+        <div class="footer-col">
+          <h5>Öğrenciler (Ana Sayfa)</h5>
+          <ul>
+            <li><a href="#" onclick="switchTab(event, 'tab-bizkimiz');">Hakkımızda & Ekibimiz</a></li>
+            <li><a href="#" onclick="switchTab(event, 'tab-ogrenciler'); setTimeout(() => document.getElementById('vizyon-misyon').scrollIntoView(), 50);">Vizyon & Misyonumuz</a></li>
+            <li><a href="#" onclick="switchTab(event, 'tab-ogrenciler'); setTimeout(() => document.getElementById('nasil-calisir').scrollIntoView(), 50);">Nasıl Çalışır?</a></li>
+            <li><a href="#" onclick="switchTab(event, 'tab-ogrenciler'); setTimeout(() => document.getElementById('program').scrollIntoView(), 50);">6 Aylık Program Deneyimi</a></li>
+            <li><a href="#" onclick="switchTab(event, 'tab-sss');">Sıkça Sorulan Sorular (SSS)</a></li>
+            <li><a href="#" onclick="switchTab(event, 'tab-ogrenciler'); setTimeout(() => document.getElementById('ogrenci-basvuru').scrollIntoView(), 50);">Öğrenci Başvuru Formu</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-col">
+          <h5>Partner Şirketler & Yasal</h5>
+          <ul>
+            <li><a href="#" onclick="switchTab(event, 'tab-sirketler');">Şirketler Sayfasına Geç →</a></li>
+            <li><a href="#" onclick="switchTab(event, 'tab-sirketler'); setTimeout(() => document.getElementById('deger-onerisi').scrollIntoView(), 50);">Şirketler İçin Sağlanan Değer</a></li>
+            <li><a href="#" onclick="switchTab(event, 'tab-sirketler'); setTimeout(() => document.getElementById('veri-icgoru').scrollIntoView(), 50);">Veri ve İçgörü Yaklaşımımız</a></li>
+            <li><a href="kvkk.html" target="_blank">KVKK Aydınlatma Metni</a></li>
+            <li><a href="kvkk.html" target="_blank">Etik Veri & Gizlilik Politikası</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 NXT — Network X Talent. Tüm hakları saklıdır. Emir Çanakkale · Sümeyye Tezcan · Enes Gençoğlu</div>
+        <div class="footer-legal-links">
+            <a href="kvkk.html" target="_blank">KVKK Aydınlatma Metni</a>
+            <a href="kvkk.html" target="_blank">Açık Rıza Beyanı</a>
+            <a href="kvkk.html" target="_blank">Gizlilik ve Çerez Politikası</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- YUKARI ÇIK BUTONU -->
+  <div class="back-to-top" id="backToTop" aria-label="Yukarı Çık">
+      <svg viewBox="0 0 24 24"><path d="M0 16.67l2.829 2.83 9.175-9.339 9.167 9.339 2.829-2.83-11.996-12.17z"/></svg>
+  </div>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    // SCROLL ANIMATIONS
+    document.addEventListener("DOMContentLoaded", function() {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in-up').forEach((el) => {
+            observer.observe(el);
+        });
+        
+        // BACK TO TOP LOGIC
+        const backToTopBtn = document.getElementById("backToTop");
+        
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 500) {
+                backToTopBtn.classList.add("visible");
+            } else {
+                backToTopBtn.classList.remove("visible");
+            }
+        });
+        
+        backToTopBtn.addEventListener("click", () => {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+    });
+
+    // MOBILE MENU
+    function toggleMobileMenu() {
+        const hamburger = document.getElementById('hamburgerIcon');
+        const overlay = document.getElementById('mobileMenu');
+        hamburger.classList.toggle('active');
+        overlay.classList.toggle('active');
+        
+        if (overlay.classList.contains('active')) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'scroll';
+        }
+    }
+
+    function closeMobileMenu() {
+        document.getElementById('hamburgerIcon').classList.remove('active');
+        document.getElementById('mobileMenu').classList.remove('active');
+        document.body.style.overflow = 'scroll';
+    }
+
+
+    // SEKME DEĞİŞTİRME
+    function switchTab(e, tabId) {
+        if(e) e.preventDefault();
+        
+        document.querySelectorAll('.tab-pane').forEach(tab => {
+            tab.classList.remove('active');
+        });
+        document.getElementById(tabId).classList.add('active');
+        
+        document.querySelectorAll('.nav-links .nav-link, .mobile-nav-link').forEach(link => {
+            link.classList.remove('active');
+            if(link.getAttribute('data-target') === tabId) {
+                link.classList.add('active');
+            }
+        });
+
+        const ctaBtn = document.getElementById('nav-cta-btn');
+        ctaBtn.style.display = "inline-flex"; 
+        
+        if(tabId === 'tab-sirketler') {
+            ctaBtn.innerText = "Partnerlik Başvurusu";
+            ctaBtn.className = "btn-nav-company"; 
+        } else {
+            ctaBtn.innerText = "Programa Başvur";
+            ctaBtn.className = "btn-nav-student";
+        }
+        
+        window.scrollTo({ top: 0, behavior: 'auto' });
+    }
+    
+    // CTA BUTON YÖNLENDİRME
+    function handleCtaClick(e) {
+        e.preventDefault();
+        const currentActive = document.querySelector('.nav-links .nav-link.active').getAttribute('data-target');
+        
+        if (currentActive === 'tab-sirketler') {
+            document.getElementById('sirket-iletisim').scrollIntoView({behavior: 'smooth'});
+        } else {
+            if (currentActive !== 'tab-ogrenciler') {
+                switchTab(null, 'tab-ogrenciler');
+            }
+            setTimeout(() => { document.getElementById('ogrenci-basvuru').scrollIntoView({behavior: 'smooth'}); }, 100);
+        }
+    }
+
+    // WIZARD FORM
+    function nextStep(currentStep) {
+        let isValid = true;
+        document.querySelectorAll(`#step${currentStep} [required]`).forEach(input => {
+            if(!input.value) { isValid = false; input.style.borderColor = 'var(--crimson-accent)'; }
+            else { input.style.borderColor = 'var(--border-color)'; }
+        });
+        
+        if(!isValid) { alert('Lütfen zorunlu alanları doldurun.'); return; }
+
+        document.getElementById(`step${currentStep}`).classList.remove('active');
+        document.getElementById(`step${currentStep + 1}`).classList.add('active');
+        
+        document.getElementById(`ind-step${currentStep}`).classList.remove('active');
+        document.getElementById(`ind-step${currentStep}`).classList.add('completed');
+        document.getElementById(`ind-step${currentStep + 1}`).classList.add('active');
+    }
+
+    function prevStep(currentStep) {
+        document.getElementById(`step${currentStep}`).classList.remove('active');
+        document.getElementById(`step${currentStep - 1}`).classList.add('active');
+        
+        document.getElementById(`ind-step${currentStep}`).classList.remove('active');
+        document.getElementById(`ind-step${currentStep - 1}`).classList.remove('completed');
+        document.getElementById(`ind-step${currentStep - 1}`).classList.add('active');
+    }
+
+    const WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbzuvJjN_QDj8HEBrpZiQ4G1Js4ubA2xEBiqlJZs0f8m36bsvmkf37YcQGGdodMAWAjY/exec";
+
+    function handleStudentSubmit(e) {
+      e.preventDefault();
+      if(!document.getElementById('s_why').value) { alert('Lütfen zorunlu alanları doldurun.'); return; }
+
+      const studentData = {
+        type: "Öğrenci Başvurusu (Fellow)",
+        date: new Date().toLocaleString("tr-TR"),
+        name: document.getElementById('s_name').value,
+        email: document.getElementById('s_email').value,
+        university: document.getElementById('s_uni').value,
+        grade: document.getElementById('s_grade').value,
+        linkedin: document.getElementById('s_linkedin').value,
+        sector: document.getElementById('s_sector').value,
+        experience: document.getElementById('s_exp').value,
+        why: document.getElementById('s_why').value
+      };
+
+      let submissions = JSON.parse(localStorage.getItem('nxt_submissions') || '[]');
+      submissions.push(studentData);
+      localStorage.setItem('nxt_submissions', JSON.stringify(submissions));
+
+      if (WEBHOOK_URL) {
+        fetch(WEBHOOK_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(studentData)
+        }).catch(err => console.log('Webhook error:', err));
+      }
+
+      document.getElementById('studentSuccess').style.display = 'block';
+      setTimeout(() => {
+          document.getElementById('studentApplicationForm').reset();
+          prevStep(3); prevStep(2);
+          document.getElementById('studentSuccess').style.display = 'none';
+      }, 4000);
+    }
+    
+    function handleCompanySubmit(e) {
+      e.preventDefault();
+      const companyData = {
+        type: "Kurumsal Partnerlik Talebi",
+        date: new Date().toLocaleString("tr-TR"),
+        name: document.getElementById('c_name').value,
+        company: document.getElementById('c_company').value,
+        email: document.getElementById('c_email').value,
+        package: document.getElementById('c_pkg').value
+      };
+
+      let submissions = JSON.parse(localStorage.getItem('nxt_submissions') || '[]');
+      submissions.push(companyData);
+      localStorage.setItem('nxt_submissions', JSON.stringify(submissions));
+
+      if (WEBHOOK_URL) {
+        fetch(WEBHOOK_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(companyData)
+        }).catch(err => console.log('Webhook error:', err));
+      }
+
+      document.getElementById('companySuccess').style.display = 'block';
+      document.getElementById('companyContactForm').reset();
+    }
+        // DEMO GİRİŞ KONTROLÜ
+    function handleLogin(e) {
+        e.preventDefault();
+        const email = document.getElementById('login_email').value;
+        const pass = document.getElementById('login_pass').value;
+        const errorMsg = document.getElementById('login_error');
+
+        // Belirlenmiş test şifreleri
+        if (email === "emir@nxt.com" && pass === "nxt2026") {
+            window.location.href = "portal.html"; // Doğruysa portal.html dosyasına yönlendirir
+        } else {
+            errorMsg.style.display = "block"; // Yanlışsa kırmızı hata mesajını gösterir
+        }
+    }
+  </script>
+</body>
+</html>

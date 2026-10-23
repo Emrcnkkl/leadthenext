@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NXT Portal | Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #071931;
+      --navy-dark: #040E1B;
+      --indigo: #2D1B4E;
+      --burgundy: #70143E;
+      --burgundy-light: rgba(112, 20, 62, 0.08);
+      --crimson-accent: #D81124;
+      --pale-blue: #E3E8EE;
+      --bg-color: #F4F7FA;
+      --white: #FFFFFF;
+      --text-main: #071931;
+      --text-muted: #5A6A80;
+      --border-color: #DDE4EC;
+      --shadow-sm: 0 2px 6px rgba(7, 25, 49, 0.04);
+      --shadow-md: 0 8px 24px rgba(7, 25, 49, 0.06);
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 20px;
+      --transition: all 0.2s ease-in-out;
+      
+      --sidebar-width: 260px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      display: flex;
+      height: 100vh;
+      overflow: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    
+    a { text-decoration: none; color: inherit; transition: var(--transition); }
+
+    /* SIDEBAR (SOL MENÜ) */
+    .sidebar {
+      width: var(--sidebar-width);
+      background: var(--navy-dark);
+      color: var(--white);
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+      transition: var(--transition);
+      z-index: 100;
+    }
+    
+    .sidebar-header {
+      height: 80px;
+      display: flex;
+      align-items: center;
+      padding: 0 24px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    
+    /* YENİLENEN PORTAL LOGOSU */
+    .sidebar-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .sidebar-logo img {
+      height: 32px;
+      width: auto;
+      object-fit: contain;
+      /* Logoyu koyu zeminde beyaz yapmak için CSS filtresi (Orijinal logon koyu renkliyse bu beyazlatır) */
+      filter: brightness(0) invert(1); 
+    }
+    .sidebar-logo span {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--pale-blue);
+      letter-spacing: 0.5px;
+      margin-top: 2px;
+    }
+
+    .sidebar-nav {
+      padding: 24px 16px;
+      flex-grow: 1;
+      overflow-y: auto;
+    }
+    .nav-group-title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.4);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin: 16px 0 8px 12px;
+    }
+    .sidebar-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 14px;
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      border-radius: var(--radius-sm);
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+      cursor: pointer;
+    }
+    .sidebar-link svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+      opacity: 0.7;
+      transition: var(--transition);
+    }
+    .sidebar-link:hover {
+      background: rgba(255,255,255,0.05);
+      color: var(--white);
+    }
+    .sidebar-link.active {
+      background: var(--burgundy);
+      color: var(--white);
+    }
+    .sidebar-link.active svg { opacity: 1; }
+
+    .sidebar-footer {
+      padding: 20px 16px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    .logout-btn {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 14px;
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border-radius: var(--radius-sm);
+    }
+    .logout-btn:hover { background: rgba(216, 17, 36, 0.1); color: var(--crimson-accent); }
+
+    /* ANA İÇERİK ALANI */
+    .main-wrapper { flex-grow: 1; display: flex; flex-direction: column; overflow: hidden; }
+
+    /* ÜST BİLGİ ÇUBUĞU (HEADER) */
+    .top-header {
+      height: 80px; background: var(--white); border-bottom: 1px solid var(--border-color);
+      display: flex; align-items: center; justify-content: space-between; padding: 0 40px; flex-shrink: 0;
+    }
+    .header-title h1 { font-size: 1.3rem; font-weight: 800; color: var(--navy); }
+    
+    .header-actions { display: flex; align-items: center; gap: 24px; }
+    .notification-btn { background: none; border: none; color: var(--text-muted); cursor: pointer; position: relative; }
+    .notification-btn:hover { color: var(--navy); }
+    .notification-btn svg { width: 22px; height: 22px; fill: currentColor; }
+    .notification-badge { position: absolute; top: -4px; right: -4px; background: var(--crimson-accent); width: 10px; height: 10px; border-radius: 50%; border: 2px solid var(--white); }
+
+    .user-profile { display: flex; align-items: center; gap: 12px; cursor: pointer; padding-left: 24px; border-left: 1px solid var(--border-color); }
+    .user-avatar { width: 40px; height: 40px; background: var(--burgundy-light); color: var(--burgundy); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.95rem; }
+    .user-info { display: flex; flex-direction: column; }
+    .user-name { font-size: 0.9rem; font-weight: 700; color: var(--navy); line-height: 1.2;}
+    .user-role { font-size: 0.75rem; font-weight: 600; color: var(--text-muted); }
+
+    /* SEKME İÇERİK YÖNETİMİ */
+    .content-area { padding: 40px; overflow-y: auto; flex-grow: 1; }
+    .portal-pane { display: none; animation: fadeInPane 0.3s ease-in-out; }
+    .portal-pane.active { display: block; }
+    @keyframes fadeInPane { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* BİLEŞENLER / KARTLAR */
+    .welcome-banner { background: linear-gradient(135deg, var(--navy) 0%, var(--indigo) 100%); border-radius: var(--radius-md); padding: 36px 40px; color: var(--white); display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px; box-shadow: var(--shadow-md); }
+    .welcome-text h2 { font-size: 1.8rem; font-weight: 900; margin-bottom: 8px; }
+    .welcome-text p { font-size: 0.95rem; color: rgba(255,255,255,0.8); }
+    .progress-badge { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); padding: 16px 24px; border-radius: var(--radius-sm); text-align: center; }
+    .progress-val { font-size: 1.8rem; font-weight: 900; color: var(--white); margin-bottom: 4px; line-height: 1;}
+    .progress-label { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: rgba(255,255,255,0.7);}
+
+    .dashboard-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 24px; }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 24px; }
+    
+    .panel-card { background: var(--white); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 28px; box-shadow: var(--shadow-sm); }
+    .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
+    .card-title { font-size: 1.15rem; font-weight: 800; color: var(--navy); }
+    .card-action { font-size: 0.85rem; font-weight: 700; color: var(--burgundy); cursor: pointer;}
+    
+    .btn-primary { background: var(--navy); color: var(--white); padding: 10px 20px; border-radius: var(--radius-sm); font-size: 0.85rem; font-weight: 700; text-decoration: none; transition: var(--transition); border: none; display: inline-block; text-align: center;}
+    .btn-primary:hover { background: var(--indigo); transform: translateY(-1px);}
+    .btn-secondary { background: var(--off-white); color: var(--navy); padding: 10px 20px; border-radius: var(--radius-sm); font-size: 0.85rem; font-weight: 700; text-decoration: none; border: 1px solid var(--border-color); transition: var(--transition); display: inline-block; text-align: center;}
+    .btn-secondary:hover { background: var(--white); border-color: var(--navy); }
+
+    /* GÖRÜŞME KARTI STİLLERİ */
+    .meeting-box { border: 1.5px solid var(--border-color); border-radius: var(--radius-sm); padding: 20px; display: flex; justify-content: space-between; align-items: center; background: var(--off-white); margin-bottom: 16px; transition: var(--transition);}
+    .meeting-box:hover { border-color: var(--navy); background: var(--white); box-shadow: var(--shadow-sm);}
+    .meeting-info { display: flex; gap: 16px; align-items: center; }
+    .date-box { background: var(--white); border: 1.5px solid var(--border-color); border-radius: 8px; width: 56px; text-align: center; overflow: hidden; }
+    .date-month { background: var(--burgundy); color: var(--white); font-size: 0.7rem; font-weight: 800; text-transform: uppercase; padding: 4px 0; }
+    .date-day { font-size: 1.2rem; font-weight: 900; color: var(--navy); padding: 4px 0; }
+    .meeting-details h4 { font-size: 1rem; font-weight: 800; color: var(--navy); margin-bottom: 4px; }
+    .meeting-details p { font-size: 0.85rem; color: var(--text-muted); font-weight: 500; }
+
+    /* LİSTE ELEMANLARI (Duyuru, Vaka vs.) */
+    .list-item { padding: 16px 0; border-bottom: 1px solid var(--border-color); }
+    .list-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .list-item-title { font-size: 0.95rem; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+    .list-item-meta { font-size: 0.8rem; color: var(--text-muted); line-height: 1.5;}
+    
+    .status-badge { display: inline-block; padding: 4px 10px; border-radius: 4px; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; }
+    .status-pending { background: #FFF3CD; color: #856404; }
+    .status-success { background: #D4EDDA; color: #155724; }
+    .status-burgundy { background: var(--burgundy-light); color: var(--burgundy); }
+
+    /* DOSYA KARTLARI (Kütüphane) */
+    .file-card { border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 20px; display: flex; align-items: flex-start; gap: 16px; transition: var(--transition); background: var(--white);}
+    .file-card:hover { border-color: var(--burgundy); box-shadow: var(--shadow-sm); transform: translateY(-2px);}
+    .file-icon { width: 44px; height: 44px; border-radius: 8px; background: rgba(112, 20, 62, 0.08); color: var(--burgundy); display: flex; align-items: center; justify-content: center; }
+    .file-icon svg { width: 22px; height: 22px; fill: currentColor;}
+    .file-info h4 { font-size: 0.95rem; font-weight: 700; color: var(--navy); margin-bottom: 4px;}
+    .file-info p { font-size: 0.8rem; color: var(--text-muted);}
+
+    /* PROFİL KARTLARI */
+    .profile-header { display: flex; align-items: center; gap: 24px; margin-bottom: 32px; border-bottom: 1px solid var(--border-color); padding-bottom: 32px;}
+    .profile-avatar-lg { width: 80px; height: 80px; border-radius: 50%; background: var(--navy); color: var(--white); font-size: 2rem; font-weight: 900; display: flex; align-items: center; justify-content: center;}
+    .profile-details-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .info-group { margin-bottom: 16px; }
+    .info-label { font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; margin-bottom: 4px;}
+    .info-value { font-size: 0.95rem; font-weight: 600; color: var(--navy); }
+
+    @media (max-width: 992px) {
+      .sidebar { position: fixed; left: -260px; height: 100vh; }
+      .sidebar.open { left: 0; }
+      .top-header { padding: 0 24px; }
+      .content-area { padding: 24px; }
+      .dashboard-grid { grid-template-columns: 1fr; }
+      .grid-2, .grid-3 { grid-template-columns: 1fr; }
+      .welcome-banner { flex-direction: column; text-align: center; gap: 24px; padding: 32px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- SOL MENÜ (SIDEBAR) -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <a href="landing.html" class="sidebar-logo">
+        <img src="logo.png" alt="NXT Logo">
+        <span>Portal</span>
+      </a>
+    </div>
+    
+    <div class="sidebar-nav">
+      <div class="nav-group-title">Ana Menü</div>
+      <a class="sidebar-link active" data-target="portal-dashboard" onclick="switchPortalTab(event, 'portal-dashboard', 'Dashboard')">
+        <svg viewBox="0 0 24 24"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg>
+        Dashboard
+      </a>
+      <a class="sidebar-link" data-target="portal-profil" onclick="switchPortalTab(event, 'portal-profil', 'Profil Bilgileri')">
+        <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+        Profilim & Mentor
+      </a>
+      
+      <div class="nav-group-title">Program Süreci</div>
+      <a class="sidebar-link" data-target="portal-gorusmeler" onclick="switchPortalTab(event, 'portal-gorusmeler', 'Mentor Görüşmeleri')">
+        <svg viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7v-5z"/></svg>
+        Görüşmelerim
+      </a>
+      <a class="sidebar-link" data-target="portal-vakalar" onclick="switchPortalTab(event, 'portal-vakalar', 'Vaka Çalışmaları')">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+        Vaka Çalışmaları
+      </a>
+      <a class="sidebar-link" data-target="portal-etkinlikler" onclick="switchPortalTab(event, 'portal-etkinlikler', 'Ekosistem & Etkinlikler')">
+        <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+        Etkinlikler
+      </a>
+      
+      <div class="nav-group-title">Kaynaklar</div>
+      <a class="sidebar-link" data-target="portal-kutuphane" onclick="switchPortalTab(event, 'portal-kutuphane', 'NXT Kaynak Kütüphanesi')">
+        <svg viewBox="0 0 24 24"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg>
+        Kütüphane
+      </a>
+    </div>
+
+    <div class="sidebar-footer">
+      <a href="landing.html" class="logout-btn">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M10.09 15.59L11.5 17l5-5-5-5-1.41 1.41L12.67 11H3v2h9.67l-2.58 2.59zM19 3H5c-1.11 0-2 .9-2 2v4h2V5h14v14H5v-4H3v4c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/></svg>
+        Oturumu Kapat
+      </a>
+    </div>
+  </aside>
+
+  <!-- ANA İÇERİK -->
+  <main class="main-wrapper">
+    
+    <!-- HEADER -->
+    <header class="top-header">
+      <div class="header-title">
+        <h1 id="header-page-title">Dashboard</h1>
+      </div>
+      
+      <div class="header-actions">
+        <!-- Bildirim Zili -->
+        <button class="notification-btn" title="Bildirimler">
+          <svg viewBox="0 0 24 24"><path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.63-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2zm-2 1H8v-6c0-2.48 1.51-4.5 4-4.5s4 2.02 4 4.5v6z"/></svg>
+          <div class="notification-badge"></div>
+        </button>
+
+        <!-- Profil Alanı -->
+        <div class="user-profile" onclick="switchPortalTab(event, 'portal-profil', 'Profil Bilgileri')">
+          <div class="user-info">
+            <div class="user-name">Emir Çanakkale</div>
+            <div class="user-role">NXT Fellow</div>
+          </div>
+          <div class="user-avatar">EÇ</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- SAYFA İÇERİKLERİ KAPSAYICISI -->
+    <div class="content-area">
+      
+      <!-- ============================================== -->
+      <!-- SEKME: DASHBOARD (ANA PANEL)                     -->
+      <!-- ============================================== -->
+      <div id="portal-dashboard" class="portal-pane active">
+        <div class="welcome-banner">
+          <div class="welcome-text">
+            <h2>Hoş Geldin, Emir! 👋</h2>
+            <p>6 aylık gelişim yolculuğunda 2. Ay içerisindesin. Yeni vaka çalışmaları ve bildirimlerin seni bekliyor.</p>
+          </div>
+          <div class="progress-badge">
+            <div class="progress-val">2/6</div>
+            <div class="progress-label">Ay Tamamlandı</div>
+          </div>
+        </div>
+
+        <div class="dashboard-grid">
+          <div class="grid-left">
+            <div class="panel-card" style="margin-bottom: 24px;">
+              <div class="card-header">
+                <div class="card-title">Sıradaki Mentor Görüşmesi</div>
+                <a class="card-action" onclick="switchPortalTab(event, 'portal-gorusmeler', 'Mentor Görüşmeleri')">Tüm Takvim →</a>
+              </div>
+              <div class="meeting-box">
+                <div class="meeting-info">
+                  <div class="date-box">
+                    <div class="date-month">KAS</div>
+                    <div class="date-day">14</div>
+                  </div>
+                  <div class="meeting-details">
+                    <h4>Ahmet Hoşgör ile 1:1 Mentorluk Seansı</h4>
+                    <p>14:00 - 15:00 · Zoom Online</p>
+                  </div>
+                </div>
+                <a href="#" class="btn-primary">Odaya Katıl</a>
+              </div>
+              <div class="meeting-box" style="opacity: 0.7;">
+                <div class="meeting-info">
+                  <div class="date-box" style="border-color: transparent;">
+                    <div class="date-month" style="background: var(--text-muted);">KAS</div>
+                    <div class="date-day" style="color: var(--text-muted);">28</div>
+                  </div>
+                  <div class="meeting-details">
+                    <h4 style="color: var(--text-muted);">Garanti BBVA - Kültür Ziyareti</h4>
+                    <p>10:00 - 14:00 · Zincirlikuyu Genel Müdürlük</p>
+                  </div>
+                </div>
+                <span class="status-badge status-pending">Bekliyor</span>
+              </div>
+            </div>
+
+            <div class="panel-card">
+              <div class="card-header">
+                <div class="card-title">Aktif Görevler & Vakalar</div>
+              </div>
+              <div class="list-item">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <div>
+                    <div class="list-item-title">QNB Finansbank Vaka Analizi - Ön Hazırlık</div>
+                    <div class="list-item-meta">Son Teslim: 18 Kasım 2026</div>
+                  </div>
+                  <span class="status-badge status-burgundy">Devam Ediyor</span>
+                </div>
+              </div>
+              <div class="list-item">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <div>
+                    <div class="list-item-title">Ekim Ayı Değerlendirme Anketi</div>
+                    <div class="list-item-meta">Son Teslim: 5 Kasım 2026</div>
+                  </div>
+                  <span class="status-badge status-success">Tamamlandı</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid-right">
+            <div class="panel-card" style="margin-bottom: 24px;">
+              <div class="card-header">
+                <div class="card-title">Duyurular</div>
+              </div>
+              <div class="list-item">
+                <div class="list-item-title">Yeni Partner Şirket Eklendi! 🎉</div>
+                <div class="list-item-meta">Eczacıbaşı Holding, ekosistemimize yeni partner olarak katıldı. Ofis ziyaretleri takvimi güncellendi.</div>
+                <div class="list-item-meta" style="margin-top: 6px; font-weight: 700; color: var(--navy);">Bugün 10:30</div>
+              </div>
+              <div class="list-item">
+                <div class="list-item-title">CV Workshop'u Kayıtları</div>
+                <div class="list-item-meta">Bu haftaki etkinliğin Zoom kayıtları ve sunum dosyaları "Kütüphane" sekmesine eklendi.</div>
+                <div class="list-item-meta" style="margin-top: 6px; font-weight: 700; color: var(--navy);">Dün 14:15</div>
+              </div>
+            </div>
+
+            <div class="panel-card" style="background: var(--off-white); border: 1px dashed var(--border-color);">
+              <h3 style="font-size: 0.95rem; font-weight: 800; color: var(--navy); margin-bottom: 8px;">Desteğe mi ihtiyacın var?</h3>
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 16px;">Süreçle ilgili soruların veya mentor görüşmelerindeki değişiklikler için bize ulaşabilirsin.</p>
+              <a href="mailto:nxt.kurumsal@gmail.com" style="font-size: 0.85rem; font-weight: 700; color: var(--burgundy);">Ekiple İletişime Geç →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================== -->
+      <!-- SEKME: PROFİLİM & MENTOR                       -->
+      <!-- ============================================== -->
+      <div id="portal-profil" class="portal-pane">
+        <div class="grid-2">
+          
+          <!-- Öğrenci Kartı -->
+          <div class="panel-card">
+            <div class="profile-header">
+              <div class="profile-avatar-lg">EÇ</div>
+              <div>
+                <h3 style="font-size: 1.4rem; font-weight: 900; color: var(--navy);">Emir Çanakkale</h3>
+                <span class="status-badge status-burgundy" style="margin-top: 4px;">Aktif Fellow</span>
+              </div>
+            </div>
+            <div class="profile-details-grid">
+              <div class="info-group">
+                <div class="info-label">E-Posta Adresi</div>
+                <div class="info-value">emir@nxt.com</div>
+              </div>
+              <div class="info-group">
+                <div class="info-label">Telefon Numarası</div>
+                <div class="info-value">+90 (555) 123 45 67</div>
+              </div>
+              <div class="info-group">
+                <div class="info-label">Üniversite & Bölüm</div>
+                <div class="info-value">Boğaziçi Üniversitesi<br>Bilgisayar Mühendisliği</div>
+              </div>
+              <div class="info-group">
+                <div class="info-label">Hedef Kariyer Alanı</div>
+                <div class="info-value">Yazılım, Veri & Teknoloji</div>
+              </div>
+            </div>
+            <div style="margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--border-color);">
+              <a href="#" class="btn-secondary" style="width: 100%;">Profili Düzenle</a>
+            </div>
+          </div>
+
+          <!-- Eşleşilen Mentor Kartı -->
+          <div class="panel-card" style="border-top: 4px solid var(--navy);">
+            <div class="card-header" style="margin-bottom: 16px;">
+              <div class="card-title">Eşleştiğin Mentor</div>
+            </div>
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 24px;">Bu dönem boyunca kariyer hedeflerine yönelik 1:1 görüşmeler yapacağın profesyonel.</p>
+            
+            <div class="profile-header" style="border-bottom: none; padding-bottom: 0;">
+              <div class="profile-avatar-lg" style="background: var(--off-white); color: var(--navy); border: 2px solid var(--border-color);">CB</div>
+              <div>
+                <h3 style="font-size: 1.3rem; font-weight: 900; color: var(--navy);">Ahmet Hoşgör</h3>
+                <p style="font-size: 0.9rem; font-weight: 600; color: var(--burgundy); margin-top: 2px;">QNB Finansbank · Veri Bilimi Yöneticisi</p>
+              </div>
+            </div>
+            
+            <div class="profile-details-grid" style="margin-top: 32px; background: var(--off-white); padding: 20px; border-radius: var(--radius-sm);">
+              <div class="info-group" style="margin-bottom: 0;">
+                <div class="info-label">Kurumsal E-posta</div>
+                <div class="info-value">can.bal@qnb.com.tr</div>
+              </div>
+              <div class="info-group" style="margin-bottom: 0;">
+                <div class="info-label">Görüşme Sıklığı</div>
+                <div class="info-value">Ayda 1 Kez</div>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+
+      <!-- ============================================== -->
+      <!-- SEKME: GÖRÜŞMELERİM                            -->
+      <!-- ============================================== -->
+      <div id="portal-gorusmeler" class="portal-pane">
+        <div class="panel-card" style="margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center;">
+          <div>
+            <h2 class="card-title" style="font-size: 1.4rem;">Görüşme Takvimi</h2>
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 4px;">Mentorunla yapacağın planlanmış görüşmeler ve alınan notlar.</p>
+          </div>
+          <button class="btn-primary">Yeni Randevu Talep Et</button>
+        </div>
+
+        <h3 class="nav-group-title" style="color: var(--navy); margin-left: 0;">Yaklaşan Görüşmeler</h3>
+        <div class="meeting-box">
+          <div class="meeting-info">
+            <div class="date-box">
+              <div class="date-month">KAS</div>
+              <div class="date-day">14</div>
+            </div>
+            <div class="meeting-details">
+              <span class="status-badge status-burgundy" style="margin-bottom: 6px;">Onaylandı</span>
+              <h4>Görüşme #2: Kariyer Hedeflerinin Belirlenmesi</h4>
+              <p>Mentor: Ahmet Hoşgör · 14:00 - 15:00 · Zoom Online</p>
+            </div>
+          </div>
+          <div style="display: flex; gap: 12px;">
+            <button class="btn-secondary">Konu Ekle</button>
+            <button class="btn-primary">Odaya Katıl</button>
+          </div>
+        </div>
+
+        <h3 class="nav-group-title" style="color: var(--navy); margin-top: 32px; margin-left: 0;">Geçmiş Görüşmeler</h3>
+        <div class="meeting-box" style="opacity: 0.75; background: var(--white);">
+          <div class="meeting-info">
+            <div class="date-box" style="border-color: transparent; background: var(--off-white);">
+              <div class="date-month" style="background: var(--text-muted);">EKİ</div>
+              <div class="date-day" style="color: var(--navy);">22</div>
+            </div>
+            <div class="meeting-details">
+              <span class="status-badge status-success" style="margin-bottom: 6px;">Tamamlandı</span>
+              <h4>Görüşme #1: Tanışma ve Beklenti Yönetimi</h4>
+              <p>Mentor: Ahmet Hoşgör · 45 Dk Sürdü</p>
+            </div>
+          </div>
+          <button class="btn-secondary">Toplantı Notlarını Gör</button>
+        </div>
+      </div>
+
+      <!-- ============================================== -->
+      <!-- SEKME: VAKA ÇALIŞMALARI                        -->
+      <!-- ============================================== -->
+      <div id="portal-vakalar" class="portal-pane">
+        <div class="panel-card" style="margin-bottom: 24px;">
+          <h2 class="card-title" style="font-size: 1.4rem;">Aktif Vaka Çalışması</h2>
+          <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 4px;">Takımınla birlikte çözmeniz gereken gerçek iş dünyası senaryoları.</p>
+          
+          <div style="margin-top: 24px; padding: 24px; border: 1px solid var(--border-color); border-radius: var(--radius-md); border-left: 4px solid var(--burgundy);">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 16px;">
+              <h3 style="font-size: 1.2rem; font-weight: 800; color: var(--navy);">QNB Finansbank: Genç Kullanıcı Kazanımı Stratejisi</h3>
+              <span class="status-badge status-burgundy" style="height: fit-content;">Son Teslim: 18 Kas 2026</span>
+            </div>
+            <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 24px; max-width: 800px;">Banka uygulamalarının 18-24 yaş arası kitlede kullanımını artırmak için yenilikçi bir dijital cüzdan stratejisi kurgulayın. Pazar analizi ve bütçe planlaması dosyada istenmektedir.</p>
+            
+            <div style="display: flex; gap: 16px; align-items: center;">
+              <button class="btn-secondary">
+                <svg viewBox="0 0 24 24" width="16" height="16" style="vertical-align: middle; margin-right: 6px; fill:currentColor;"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                Vaka Brief'ini İndir
+              </button>
+              <button class="btn-primary">
+                <svg viewBox="0 0 24 24" width="16" height="16" style="vertical-align: middle; margin-right: 6px; fill:currentColor;"><path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z"/></svg>
+                Sunum Dosyanı Yükle
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================== -->
+      <!-- SEKME: ETKİNLİKLER                             -->
+      <!-- ============================================== -->
+      <div id="portal-etkinlikler" class="portal-pane">
+        <div class="panel-card">
+          <div class="card-header">
+            <h2 class="card-title" style="font-size: 1.4rem;">Ekosistem Etkinlikleri</h2>
+          </div>
+          
+          <div class="meeting-box">
+            <div class="meeting-info">
+              <div class="date-box">
+                <div class="date-month">KAS</div>
+                <div class="date-day">28</div>
+              </div>
+              <div class="meeting-details">
+                <span class="status-badge status-pending" style="margin-bottom: 6px;">Zorunlu Katılım</span>
+                <h4>Garanti BBVA - Kurum Kültürü ve Genel Müdürlük Ziyareti</h4>
+                <p>10:00 - 14:00 · Zincirlikuyu Genel Müdürlük Binası</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="meeting-box">
+            <div class="meeting-info">
+              <div class="date-box">
+                <div class="date-month">ARA</div>
+                <div class="date-day">12</div>
+              </div>
+              <div class="meeting-details">
+                <span class="status-badge" style="background: var(--pale-blue); color: var(--navy); margin-bottom: 6px;">İsteğe Bağlı</span>
+                <h4>Workshop: Mülakat Teknikleri ve CV Optimizasyonu</h4>
+                <p>18:00 - 20:00 · Boğaziçi Üniversitesi Güney Kampüs - Garanti Kültür Merkezi</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================== -->
+      <!-- SEKME: KÜTÜPHANE                               -->
+      <!-- ============================================== -->
+      <div id="portal-kutuphane" class="portal-pane">
+        <h2 style="font-size: 1.4rem; font-weight: 800; color: var(--navy); margin-bottom: 24px;">Kaynak Kütüphanesi</h2>
+        
+        <div class="grid-3">
+          <div class="file-card">
+            <div class="file-icon">
+              <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+            </div>
+            <div class="file-info">
+              <h4>NXT Fellow El Kitabı</h4>
+              <p>PDF · 2.4 MB</p>
+            </div>
+          </div>
+
+          <div class="file-card">
+            <div class="file-icon">
+              <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+            </div>
+            <div class="file-info">
+              <h4>CV Hazırlama Şablonu</h4>
+              <p>DOCX · 1.1 MB</p>
+            </div>
+          </div>
+
+          <div class="file-card">
+            <div class="file-icon">
+              <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+            </div>
+            <div class="file-info">
+              <h4>Sektör Raporu: Finans 2026</h4>
+              <p>PDF · 5.8 MB</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div> <!-- Content Area Sonu -->
+  </main>
+
+  <script>
+    // PORTAL SEKME DEĞİŞTİRME FONKSİYONU
+    function switchPortalTab(event, targetId, pageTitle) {
+      if(event) event.preventDefault();
+
+      // 1. Tüm sekmeleri gizle
+      document.querySelectorAll('.portal-pane').forEach(pane => {
+        pane.classList.remove('active');
+      });
+      // Seçileni göster
+      document.getElementById(targetId).classList.add('active');
+
+      // 2. Sol menüdeki aktif class'ını güncelle
+      document.querySelectorAll('.sidebar-link').forEach(link => {
+        link.classList.remove('active');
+        if(link.getAttribute('data-target') === targetId) {
+          link.classList.add('active');
+        }
+      });
+
+      // 3. Üst Bilgi (Header) Başlığını Güncelle
+      if(pageTitle) {
+        document.getElementById('header-page-title').innerText = pageTitle;
+      }
+
+      // Mobilde menü açıksa sekmeye tıklanınca menüyü kapat
+      if(window.innerWidth <= 992) {
+         // Eğer mobil menü yapısı aktifse buraya sidebar kapatma kodları eklenebilir.
+      }
+    }
+  </script>
+</body>
+</html>

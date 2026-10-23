@@ -5,20 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NXT — Network X Talent | Çok Yakında</title>
   <meta name="description" content="Yüksek potansiyelli üniversite öğrencileri ile lider şirketler arasında güvene dayalı, uzun vadeli profesyonel ilişkiler kuran seçilmiş topluluk.">
-  <!-- FAVICON (Lacivert Arkaplanda Logo) -->
-  <link rel="icon" type="image/png" href="logo_original_backup.png">
-  <link rel="apple-touch-icon" href="logo_original_backup.png">
-  <!-- OPEN GRAPH / WHATSAPP & LINKEDIN PAYLAŞIM KARTLARI -->
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="NXT — Network X Talent">
-  <meta property="og:title" content="NXT — Network X Talent | Seçilmiş Profesyonel Gelişim Topluluğu">
-  <meta property="og:description" content="Yüksek potansiyelli üniversite öğrencileri ile lider şirketler arasında güvene dayalı, uzun vadeli profesyonel ilişkiler kuran seçilmiş topluluk.">
-  <meta property="og:image" content="https://leadthenext.com.tr/logo_original_backup.png">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="NXT — Network X Talent">
-  <meta name="twitter:description" content="Yüksek potansiyelli üniversite öğrencileri ile lider şirketler arasında güvene dayalı profesyonel topluluk.">
-  <meta name="twitter:image" content="https://leadthenext.com.tr/logo_original_backup.png">
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -92,8 +78,9 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 8px 0 20px;
+      padding: 8px 0;
       border-bottom: 1px solid var(--border);
+      padding-bottom: 20px;
     }
 
     .brand-link {
@@ -106,6 +93,29 @@
       height: 44px;
       width: auto;
       object-fit: contain;
+    }
+
+    /* SEKME MENÜSÜ */
+    .nav-links { 
+      display: flex; 
+      align-items: center; 
+      gap: 24px; 
+    }
+    
+    .nav-link {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--pale-blue);
+      text-decoration: none;
+      padding-bottom: 4px;
+      border-bottom: 2px solid transparent;
+      transition: var(--transition);
+      cursor: pointer;
+    }
+    
+    .nav-link:hover, .nav-link.active {
+      color: var(--white);
+      border-bottom-color: var(--burgundy);
     }
 
     .header-right {
@@ -142,22 +152,16 @@
       50% { opacity: 0.55; transform: scale(0.88); }
     }
 
-    .header-nav-link {
-      color: var(--pale-blue);
-      text-decoration: none;
-      font-size: 0.84rem;
-      font-weight: 600;
-      padding: 7px 14px;
-      border-radius: 6px;
-      border: 1px solid transparent;
-      transition: var(--transition);
+    /* SEKME İÇERİKLERİ */
+    .tab-pane {
+      display: none;
+      animation: fadeIn 0.3s ease-in-out;
+      width: 100%;
     }
-
-    .header-nav-link:hover {
-      color: var(--white);
-      background: rgba(227, 232, 238, 0.06);
-      border-color: var(--border);
+    .tab-pane.active {
+      display: block; 
     }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
 
     /* MAIN CONTENT */
     .main-content {
@@ -285,28 +289,6 @@
       box-shadow: 0 12px 28px rgba(112, 20, 62, 0.45);
     }
 
-    .btn-secondary {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      background: rgba(227, 232, 238, 0.05);
-      color: var(--pale-blue);
-      text-decoration: none;
-      font-size: 0.96rem;
-      font-weight: 600;
-      padding: 15px 26px;
-      border-radius: 8px;
-      border: 1px solid var(--border-strong);
-      transition: var(--transition);
-    }
-
-    .btn-secondary:hover {
-      background: rgba(227, 232, 238, 0.1);
-      color: var(--white);
-      transform: translateY(-2px);
-    }
-
     /* PILLARS STRIP */
     .pillars-grid {
       display: grid;
@@ -338,32 +320,6 @@
       line-height: 1.45;
     }
 
-    /* SOCIAL ICONS */
-    .social-icons {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .social-icon-btn {
-      width: 36px;
-      height: 36px;
-      border-radius: 8px;
-      background: rgba(227, 232, 238, 0.06);
-      border: 1px solid var(--border);
-      color: var(--pale-blue);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: var(--transition);
-    }
-    .social-icon-btn:hover {
-      background: var(--burgundy);
-      border-color: var(--burgundy);
-      color: var(--white);
-      transform: translateY(-2px);
-    }
-
     /* FOOTER */
     footer {
       display: flex;
@@ -374,7 +330,7 @@
       font-size: 0.8rem;
       color: var(--muted);
       flex-wrap: wrap;
-      gap: 16px;
+      gap: 12px;
     }
 
     footer a {
@@ -392,8 +348,9 @@
       .main-content { margin: 40px auto 32px; }
       .pillars-grid { grid-template-columns: 1fr; }
       .cta-group { flex-direction: column; align-items: stretch; }
-      .header-nav-link { display: none; }
+      .nav-links { display: none; }
       footer { flex-direction: column; text-align: center; }
+      header { flex-direction: column; gap: 16px; }
     }
   </style>
 </head>
@@ -407,8 +364,15 @@
       <a href="landing.html" class="brand-link" title="NXT — Network X Talent">
         <img src="logo.png" alt="NXT — Network X Talent" class="logo-img">
       </a>
+
+      <!-- SEKMELER (TABS) EKLENDİ -->
+      <nav class="nav-links">
+        <a class="nav-link active" data-target="tab-anasayfa">Ana Sayfa</a>
+        <a class="nav-link" data-target="tab-kurumsal">Kurumsal İletişim</a>
+      </nav>
+
       <div class="header-right">
-        <a href="sirketler.html" class="header-nav-link">Şirketler İçin →</a>
+        <!-- İstenildiği gibi "Şirketler İçin" yazısı / butonu kaldırıldı, sadece hap ikon duruyor -->
         <div class="status-pill">
           <span class="status-dot"></span>
           <span>Yeni Dönem Hazırlığı</span>
@@ -416,103 +380,118 @@
       </div>
     </header>
 
-    <main class="main-content">
-      <div class="eyebrow">
-        <span>NXT</span> · Network X Talent Ekosistemi
-      </div>
+    <!-- 1. SEKME: ANA SAYFA -->
+    <div id="tab-anasayfa" class="tab-pane active">
+      <main class="main-content">
+        <div class="eyebrow">
+          <span>NXT</span> · Network X Talent Ekosistemi
+        </div>
 
-      <h1>
-        Güvene Dayalı Profesyonel Topluluk <span class="accent-text">Çok Yakında.</span>
-      </h1>
+        <h1>
+          Güvene Dayalı Profesyonel Topluluk <span class="accent-text">Çok Yakında.</span>
+        </h1>
 
-      <p class="subtitle">
-        Yüksek potansiyelli üniversite öğrencileri ile lider şirketler arasında güvene dayalı, uzun vadeli profesyonel ilişkiler kuran seçilmiş topluluğumuz yeni dönem kohortuyla başlıyor.
-      </p>
+        <p class="subtitle">
+          Yüksek potansiyelli üniversite öğrencileri ile lider şirketler arasında güvene dayalı, uzun vadeli profesyonel ilişkiler kuran seçilmiş topluluğumuz yeni dönem kohortuyla başlıyor.
+        </p>
 
-      <div class="countdown-wrap" aria-label="Geri Sayım">
-        <div class="countdown-item">
-          <div class="countdown-num" id="cd-days">28</div>
-          <div class="countdown-label">Gün</div>
+        <div class="countdown-wrap" aria-label="Geri Sayım">
+          <div class="countdown-item">
+            <div class="countdown-num" id="cd-days">28</div>
+            <div class="countdown-label">Gün</div>
+          </div>
+          <div class="countdown-item">
+            <div class="countdown-num" id="cd-hours">14</div>
+            <div class="countdown-label">Saat</div>
+          </div>
+          <div class="countdown-item">
+            <div class="countdown-num" id="cd-mins">42</div>
+            <div class="countdown-label">Dakika</div>
+          </div>
+          <div class="countdown-item">
+            <div class="countdown-num" id="cd-secs">50</div>
+            <div class="countdown-label">Saniye</div>
+          </div>
         </div>
-        <div class="countdown-item">
-          <div class="countdown-num" id="cd-hours">14</div>
-          <div class="countdown-label">Saat</div>
-        </div>
-        <div class="countdown-item">
-          <div class="countdown-num" id="cd-mins">42</div>
-          <div class="countdown-label">Dakika</div>
-        </div>
-        <div class="countdown-item">
-          <div class="countdown-num" id="cd-secs">50</div>
-          <div class="countdown-label">Saniye</div>
-        </div>
-      </div>
 
-      <div class="cta-group">
-        <a href="landing.html" class="btn-primary">
-          <span>Öğrenci & Topluluk Sayfasına Geç</span>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-            <polyline points="12 5 19 12 12 19"></polyline>
-          </svg>
-        </a>
-        <a href="sirketler.html" class="btn-secondary">
-          <span>Şirketler & Partnerlik Modeli</span>
-        </a>
-      </div>
+        <!-- SİLİNEN YÖNLENDİRME BUTONU GERİ EKLENDİ -->
+        <div class="cta-group">
+          <a href="landing.html" class="btn-primary">
+            <span>Öğrenci & Topluluk Sayfasına Geç</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+        </div>
 
-      <div class="pillars-grid">
-        <div class="pillar-card">
-          <div class="pillar-title">Seçilmiş 24 Öğrenci & 6 Ay Süreç</div>
-          <div class="pillar-desc">Her dönem titizlikle seçilen 24 öğrenci ve 6–8 partner şirketle derinlikli gelişim yolculuğu.</div>
+        <div class="pillars-grid">
+          <div class="pillar-card">
+            <div class="pillar-title">Seçilmiş 24 Öğrenci & 6 Ay Süreç</div>
+            <div class="pillar-desc">Her dönem titizlikle seçilen 24 öğrenci ve 6–8 partner şirketle derinlikli gelişim yolculuğu.</div>
+          </div>
+          <div class="pillar-card">
+            <div class="pillar-title">Bütüncül Gelişim Deneyimi</div>
+            <div class="pillar-desc">Birebir mentorluk, şirket ziyaretleri, vaka çalışmaları, lider buluşmaları ve workshoplar.</div>
+          </div>
+          <div class="pillar-card">
+            <div class="pillar-title">Yaşayan Alumni & Güven Ağı</div>
+            <div class="pillar-desc">6 aylık program sonrasında da yıllar boyu devam eden mentorluk ve profesyonel topluluk bağı.</div>
+          </div>
         </div>
-        <div class="pillar-card">
-          <div class="pillar-title">Bütüncül Gelişim Deneyimi</div>
-          <div class="pillar-desc">Birebir mentorluk, şirket ziyaretleri, vaka çalışmaları, lider buluşmaları ve workshoplar.</div>
+      </main>
+    </div>
+
+    <!-- 2. SEKME: KURUMSAL İLETİŞİM -->
+    <div id="tab-kurumsal" class="tab-pane">
+      <main class="main-content">
+        <div class="eyebrow">
+          <span>B2B</span> · Partnerlik
         </div>
-        <div class="pillar-card">
-          <div class="pillar-title">Yaşayan Alumni & Güven Ağı</div>
-          <div class="pillar-desc">6 aylık program sonrasında da yıllar boyu devam eden mentorluk ve profesyonel topluluk bağı.</div>
+
+        <h1>
+          Kurumsal İletişim <span class="accent-text">Sayfası</span>
+        </h1>
+
+        <p class="subtitle">
+          Şirketinizin genç yetenek kazanımı ve işveren markası vizyonunu, geleneksel fuarların ötesine taşıyın. Sınırlı sayıdaki partnerlik modelimiz hakkında detaylı bilgi almak için iletişime geçebilirsiniz.
+        </p>
+
+        <div style="background: var(--card-bg); border: 1px solid var(--border); padding: 32px; border-radius: 12px; margin-top: 24px; text-align: center;">
+            <p style="color: var(--white); font-weight: 600; font-size: 1.1rem; margin-bottom: 12px;">Yeni Dönem Partnerlerimizden Olun</p>
+            <a href="mailto:nxt.kurumsal@gmail.com" style="color: var(--pale-blue); font-weight: 800; font-size: 1.2rem; text-decoration: none; border-bottom: 2px solid var(--burgundy);">nxt.kurumsal@gmail.com</a>
         </div>
-      </div>
-    </main>
+      </main>
+    </div>
 
     <footer>
       <div>
         &copy; 2026 NXT — Network X Talent. Emir Çanakkale · Sümeyye Tezcan · Enes Gençoğlu
       </div>
-      <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap; justify-content: center;">
-        <a href="kvkk.html">KVKK &amp; Gizlilik Politikası</a>
-        <div class="social-icons" aria-label="Sosyal Medya ve İletişim">
-          <!-- LinkedIn -->
-          <a href="javascript:void(0)" class="social-icon-btn" title="LinkedIn" aria-label="LinkedIn">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-              <rect x="2" y="9" width="4" height="12"></rect>
-              <circle cx="4" cy="4" r="2"></circle>
-            </svg>
-          </a>
-          <!-- Instagram -->
-          <a href="javascript:void(0)" class="social-icon-btn" title="Instagram" aria-label="Instagram">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-            </svg>
-          </a>
-          <!-- Mail -->
-          <a href="javascript:void(0)" class="social-icon-btn" title="E-posta" aria-label="E-posta">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-              <polyline points="22,6 12,13 2,6"></polyline>
-            </svg>
-          </a>
-        </div>
+      <div>
+        İletişim: <a href="mailto:nxt.kurumsal@gmail.com">nxt.kurumsal@gmail.com</a>
       </div>
     </footer>
   </div>
 
   <script>
+    // TAB (SEKME) GEÇİŞ MANTIĞI
+    const navLinks = document.querySelectorAll('.nav-link');
+    const tabPanes = document.querySelectorAll('.tab-pane');
+    
+    navLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        navLinks.forEach(l => l.classList.remove('active'));
+        tabPanes.forEach(t => t.classList.remove('active'));
+        
+        this.classList.add('active');
+        const targetId = this.getAttribute('data-target');
+        document.getElementById(targetId).classList.add('active');
+      });
+    });
+
+    // GERİ SAYIM MANTIĞI
     const targetDate = new Date();
     targetDate.setDate(targetDate.getDate() + 28);
     targetDate.setHours(targetDate.getHours() + 14);
